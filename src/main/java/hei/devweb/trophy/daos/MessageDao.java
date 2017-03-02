@@ -40,11 +40,10 @@ public class MessageDao {
 		}
 		
 }
-	public void deleteMessage(Message message){
-		try {
-			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
-			PreparedStatement statement = connection.prepareStatement("DELETE FROM message WHERE idMessage=?");
-			statement.setInt(1, message.getIdMessage());  
+	public void deleteMessage(Integer idMessage){
+		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
+			PreparedStatement statement = connection.prepareStatement("DELETE FROM message WHERE idMessage=?")){
+			statement.setInt(1,idMessage);  
 			statement.executeUpdate();	
 		}catch (SQLException e) {
 			e.printStackTrace();

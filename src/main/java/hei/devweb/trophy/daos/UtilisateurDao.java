@@ -51,11 +51,10 @@ public class UtilisateurDao {
 		}
 	}
 	
-	public void deleteUtilisateur(Utilisateur utilisateur){
-		try {
-			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
-			PreparedStatement statement = connection.prepareStatement("DELETE FROM utilisateur WHERE identifiant=?");
-			statement.setString(1, utilisateur.getIdentifiant());  
+	public void deleteUtilisateur(String identifiant){
+		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
+			PreparedStatement statement = connection.prepareStatement("DELETE FROM utilisateur WHERE identifiant=?")){
+			statement.setString(1, identifiant);  
 			statement.executeUpdate();	
 		}catch (SQLException e) {
 			e.printStackTrace();
