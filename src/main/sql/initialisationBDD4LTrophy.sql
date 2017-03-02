@@ -4,6 +4,7 @@ CREATE TABLE `message`
 	`idMessage`  INT NOT NULL AUTO_INCREMENT,
 	`texteMessage`  VARCHAR(1000) NOT NULL,
 	`datePost`  date,
+	`idSujet`  INT,
 	PRIMARY KEY (`idMessage`));
 
 
@@ -22,7 +23,7 @@ DROP TABLE IF EXISTS `photos`;
 CREATE TABLE `photos` 
 (
 	`idPhoto`  INT NOT NULL AUTO_INCREMENT,
-	`photo`  BLOB,
+	`photo`  VARCHAR(100),
     `idAlbum`  INT,
 	PRIMARY KEY (`idPhoto`));
 
@@ -83,6 +84,8 @@ CREATE TABLE `equipages`
 (
 	`numeroEquipage`  INT NOT NULL,
 	`nomEquipage`  VARCHAR(50) NOT NULL,
+	`identifParticipant1`  VARCHAR(50) NOT NULL,
+    `identifParticipant2`  VARCHAR(50),
 	`descriptionEquipage`  VARCHAR(255) ,
 	`photoEquipage`  varchar(100),
 	PRIMARY KEY (`numeroEquipage`));

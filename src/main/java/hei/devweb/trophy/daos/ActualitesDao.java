@@ -1,3 +1,4 @@
+
 package hei.devweb.trophy.daos;
 
 import java.sql.Connection;
@@ -34,7 +35,20 @@ public class ActualitesDao {
 			statement.setString(1, newActualites.getTitreActu());
 			statement.setString(2,newActualites.getActu());
 			statement.executeUpdate();
+			statement.close();
+			connection.close();
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void deleteEvenements(Integer idActu){
+		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
+			PreparedStatement statement = connection.prepareStatement("DELETE * FROM actualites WHERE idActu=?")) {
+			
+			statement.setInt(1, idActu);
+			statement.executeUpdate();	
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
