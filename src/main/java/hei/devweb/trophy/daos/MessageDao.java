@@ -9,8 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import beghindevweb.daos.DataSourceProvider;
-import beghindevweb.pojos.Film;
 import hei.devweb.trophy.pojos.Message;
 
 public class MessageDao {
