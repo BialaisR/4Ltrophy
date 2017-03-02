@@ -1,6 +1,5 @@
 package hei.devweb.trophy.daos;
 
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
