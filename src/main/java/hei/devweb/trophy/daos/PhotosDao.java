@@ -38,4 +38,15 @@ public class PhotosDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public void deletePhotos(Photos photo){
+		try {
+			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
+			PreparedStatement statement = connection.prepareStatement("DELETE FROM photo WHERE idPhoto=?");
+			statement.setInt(1, photo.getIdPhoto());  
+			statement.executeUpdate();	
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
