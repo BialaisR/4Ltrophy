@@ -42,5 +42,15 @@ public class SujetDao {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public void deleteSujet(Sujet sujet){
+		try {
+			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
+			PreparedStatement statement = connection.prepareStatement("DELETE FROM sujet WHERE idSujet=?");
+			statement.setInt(1, sujet.getIdSujet());  
+			statement.executeUpdate();	
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
