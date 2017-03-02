@@ -1,13 +1,16 @@
 package hei.devweb.trophy.daos;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
+
 
 import hei.devweb.trophy.pojos.Message;
 
@@ -32,14 +35,14 @@ public void shouldListMessage() throws Exception {
 	//THEN
 	Assertions.assertThat(message).hasSize(2);
 	Assertions.assertThat(message).extracting("idMessage","texteMessage","datePost").containsOnly(
-			Assertions.tuple(1,"test1 message","2017-03-02"),
-			Assertions.tuple(2,"test2 message","2017-01-07")
+			Assertions.tuple(1,"test1 message",LocalDate.of(2017, 03, 02)),
+			Assertions.tuple(2,"test2 message",LocalDate.of(2017,01,07))
 			);
 }
 
 @Test
 public void shouldAddMessage() throws Exception {
-	Message MessagetoAdd = new Message(null, "new message","2017-01_01");
+	Message MessagetoAdd = new Message(null, "new message",LocalDate.of(2017,01,01));
 	//WHEN
 	MessageDao.addMessage(MessagetoAdd);
 	//THEN
@@ -54,4 +57,16 @@ public void shouldAddMessage() throws Exception {
 		
 	}
 }
+
+@Test
+public void shouldDeleteMessage() throws Exception {
+	// GIVEN
+	Message message = new Message(null, "new message",LocalDate.of(2017,01,01));
+	// WHEN
+	MessageDao.deleteMessage(message);
+	List<Message> message = MessageDao.listMessage();
+	//THEN
+	Assertions.assertThat(message).hasSize(2);
+}
+
 }
