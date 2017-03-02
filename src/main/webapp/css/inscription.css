@@ -1,0 +1,82 @@
+.globalform{
+	background-color: white;
+	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 8px 8px 0px 0px;
+	margin-top : 20px;
+	padding-bottom: 15px;
+} 
+
+.inscrform{
+	width: 85%;
+    margin-top: 12px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+#signup h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#signup label, #signup_plus label{
+	font-size: 19px;
+}
+
+div.secondform{
+	margin-top: 76px;
+}
+
+.btnvalider{
+	margin-top: 20px;
+}
+
+#ckbx{
+	width: 1.1em; 
+	height: 1.1em;
+	cursor:pointer;
+}
+
+#label_ckbx:hover{
+	cursor:pointer;
+
+}
+
+.file_1{
+	margin: 5px;
+}
+
+.file_2{
+	margin : 5px;
+}
+
+/** div.secondform h5{
+	color :white;
+}  **/
+
+#valdiv{
+	 width: 100%;
+  text-align: center;
+}
+
+
+#valinscr{
+	text-align: center;
+	width: 12em; 
+	height: 2em;
+	font-size: 20px;
+	font-weight: bold;
+	background-color:  #3071a9;
+	color: white;
+	display: inline-block;
+}
+
+.valdform{
+	background-color: white;
+	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px 0px 8px 8px;
+	margin-bottom: 20px; 
+	padding-bottom: 15px;
+}
+

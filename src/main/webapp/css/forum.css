@@ -1,0 +1,47 @@
+#forumaccueil {
+	margin-top: 20px;
+}
+
+#forumtableau {
+	border-radius: 10px;
+	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+table {
+		background-color: #fff;
+}
+
+th {
+  background-color: #337ab7;
+	color: white;
+}
+
+#borderTopLeft {
+	border-radius: 5px 0px 0px 0px;
+}
+
+table tr td a {
+    display:block;
+    height:100%;
+    width:100%;
+}
+
+table tr td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+#borderRightLeft {
+	border-radius: 0px 5px 0px 0px;
+}
+
+.lienforum {
+	color: black;
+}
+
+.lienforum:hover {
+	color: black;
+	text-decoration: none;
+}

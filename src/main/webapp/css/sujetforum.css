@@ -1,0 +1,35 @@
+#sujet {
+  margin-top: 20px;
+}
+
+caption {
+  background-color: #337ab7;
+	color: white;
+  text-align: center;
+  border-radius: 5px 5px 0px 0px;
+}
+
+table {
+		background-color: #fff;
+}
+
+i, button {
+  float: right;
+}
+
+button {
+  margin-top: 10px;
+}
+
+#reponse {
+  float: right;
+  margin-right: 0px;
+}
+
+button.btn-danger {
+  float: left;
+}
+
+#valdbtn{
+  margin-bottom: 10px;
+}

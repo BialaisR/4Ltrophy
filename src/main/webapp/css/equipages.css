@@ -1,0 +1,23 @@
+h1 {
+  text-align: center;
+}
+
+
+#divequip{
+	background-color: white;
+	padding : 5px;
+	margin-bottom: 8px;
+	border-radius: 10px;
+	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+#description_equipage{
+	margin-top: 20px;
+}
+
+#nom_equip{
+	margin-bottom: 20px;
+}
+

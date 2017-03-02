@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Connexion</title>
+
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+
+<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="js/affichermdp.js" type="text/javascript" charset="utf-8"></script>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<link href="css/nav.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/connexion.css">
+
+
+
+</head>
+
+<body>
+
+	<div class="container">
+		<!-- GRAND DIV  -->
+		<header>
+			<div class="masthead">
+
+				<h1 class="text-center">
+					<a href="accueil.html" class="nom">4L TROPHY HEI</a>
+				</h1>
+				<nav>
+					<ul class="nav nav-justified">
+						<li><a href="accueil.html">Accueil</a></li>
+						<li><a href="equipage.html">Equipage</a></li>
+						<li><a href="photos_videos.html">Photos-Vidéos</a></li>
+						<li><a href="forum.html">Forum</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li class="dropdown"><a href="#" class="dropbtn active">Mon
+								compte &darr;</a>
+							<div class="dropdown-content">
+								<a href="connexion.html">Se connecter</a> <a
+									href="inscription.html">S'inscrire</a>
+							</div></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<section id="login">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-wrap">
+							<h1>S'identifier</h1>
+							<form role="form" action="javascript:;" method="post"
+								id="login-form" autocomplete="off">
+								<div class="form-group">
+									<label for="email" class="sr-only">Identifiant</label> <input
+										type="email" name="email" id="email" class="form-control"
+										placeholder="Identifiant">
+								</div>
+								<div class="form-group">
+									<label for="key" class="sr-only">Mot de passe</label> <input
+										type="password" name="key" id="key" class="form-control"
+										placeholder="Mot de passe">
+								</div>
+								<div class="checkbox">
+									<span class="character-checkbox" onclick="showPassword()"></span>
+									<span class="label">Afficher le mot de passe</span>
+								</div>
+								<input type="submit" id="btn-login"
+									class="btn btn-custom btn-lg btn-block" value="Connexion">
+							</form>
+							<a href="javascript:;" class="forget" data-toggle="modal"
+								data-target=".forget-modal">Mot de passe oublié ?</a>
+							<hr>
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container -->
+		</section>
+
+		<div class="modal fade forget-modal" tabindex="-1" role="dialog"
+			aria-labelledby="myForgetModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">×</span> <span class="sr-only">Fermer</span>
+						</button>
+						<h4 class="modal-title">Récupération du mot de passe</h4>
+					</div>
+					<div class="modal-body">
+						<p>Adresse Email :</p>
+						<input type="email" name="recovery-email" id="recovery-email"
+							class="form-control" autocomplete="off">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						<button type="button" class="btn btn-custom">Valider</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<footer class="footer">
+			<p>&copy; Mentions légales</p>
+		</footer>
+
+	</div>
+</body>
+</html>
