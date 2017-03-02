@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import beghindevweb.daos.DataSourceProvider;
+import beghindevweb.pojos.Film;
 import hei.devweb.trophy.pojos.Message;
 
 public class MessageDao {
@@ -38,5 +40,16 @@ public class MessageDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 }
+	public void deleteMessage(Message message){
+		try {
+			Connection connection = DataSourceProvider.getDataSource().getConnection(); 
+			PreparedStatement statement = connection.prepareStatement("DELETE FROM message WHERE idMessage=?");
+			statement.setInt(1, Message.getIdMessage());  
+			statement.executeUpdate();	
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
