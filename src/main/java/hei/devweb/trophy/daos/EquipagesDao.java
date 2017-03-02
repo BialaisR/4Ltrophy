@@ -45,7 +45,7 @@ public class EquipagesDao {
 		}
 	}
 	
-	public void deleteEquipage(Integer numeroEquipage){
+	public void deleteEquipages(Integer numeroEquipage){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
 			PreparedStatement statement = connection.prepareStatement("DELETE * FROM equipages WHERE numeroEquipage=?")) {
 			
