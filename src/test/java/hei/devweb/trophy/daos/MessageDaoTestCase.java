@@ -30,7 +30,7 @@ public void initDatabase() throws Exception{
 @Test
 public void shouldListMessage() throws Exception {
 	//WHEN
-	List<Message> message = MessageDao.listMessage();
+	List<Message> message = messageDao.listMessage();
 	//THEN
 	Assertions.assertThat(message).hasSize(2);
 	Assertions.assertThat(message).extracting("idMessage","texteMessage","datePost").containsOnly(
@@ -43,7 +43,7 @@ public void shouldListMessage() throws Exception {
 public void shouldAddMessage() throws Exception {
 	Message MessagetoAdd = new Message(null, "new message",LocalDate.of(2017,01,01));
 	//WHEN
-	MessageDao.addMessage(MessagetoAdd);
+	messageDao.addMessage(MessagetoAdd);
 	//THEN
 	try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			Statement statement = connection.createStatement();
@@ -62,10 +62,10 @@ public void shouldDeleteMessage() throws Exception {
 	// GIVEN
 	Message message = new Message(null, "new message",LocalDate.of(2017,01,01));
 	// WHEN
-	MessageDao.deleteMessage(message);
-	List<Message> message = MessageDao.listMessage();
+	messageDao.deleteMessage(message.getIdMessage());
+	List<Message> listMessage = messageDao.listMessage();
 	//THEN
-	Assertions.assertThat(message).hasSize(2);
+	Assertions.assertThat(listMessage).hasSize(2);
 }
 
 }

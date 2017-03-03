@@ -13,6 +13,7 @@ import hei.devweb.trophy.pojos.Photos;
 
 public class PhotosDaoTestCase {
 
+	private PhotosDao photosDao =new PhotosDao();
 	@Before
 	public void initDatabase() throws Exception{
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -26,7 +27,7 @@ public class PhotosDaoTestCase {
 	@Test
 	public void shouldListPhotos() throws Exception {
 		//WHEN
-		List<Photos> photos = PhotosDao.listPhotos();
+		List<Photos> photos = photosDao.listPhotos();
 		//THEN
 		Assertions.assertThat(photos).hasSize(2);
 		Assertions.assertThat(photos).extracting("idPhoto","photo","idAlbum").containsOnly(
@@ -39,7 +40,7 @@ public class PhotosDaoTestCase {
 	public void shouldAddPhotos() throws Exception {
 		Photos photostoAdd = new Photos(null, "new photo",5);
 		//WHEN
-		PhotosDao.addPhotos(photostoAdd);
+		photosDao.addPhotos(photostoAdd);
 		//THEN
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement();
