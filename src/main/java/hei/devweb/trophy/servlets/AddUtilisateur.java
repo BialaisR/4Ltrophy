@@ -29,8 +29,8 @@ public class AddUtilisateur extends HttpServlet{
 		String mail = req.getParameter("description");
 
 		
-		Utilisateur UtilisateurtoAdd = new Utilisateur();
-		UtilisateurService.getInstance().addUtilisateur(UtilisateurtoAdd);
+		//Utilisateur UtilisateurtoAdd = new Utilisateur(mail, mail, mail, mail, mail, null, null, null, mail, mail, null);
+		//UtilisateurService.getInstance().addUtilisateur(UtilisateurtoAdd);
 			
 		resp.sendRedirect("Héros");
 

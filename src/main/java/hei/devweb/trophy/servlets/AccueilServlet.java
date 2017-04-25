@@ -1,7 +1,6 @@
 package hei.devweb.trophy.servlets;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,13 +16,27 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import hei.devweb.trophy.services.EquipagesService;
 import hei.devweb.trophy.services.UtilisateurService;
 
-@WebServlet("/Equipages")
-public class EquipagesServlet extends HttpServlet{
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(req.getServletContext());
-		templateResolver.setPrefix("");
+/**
+ * Servlet implementation class AccueilServlet
+ */
+@WebServlet("/accueil")
+public class AccueilServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AccueilServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(request.getServletContext());
+		templateResolver.setPrefix("WEB-INF/templates/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setCharacterEncoding("UTF-8");
 		templateResolver.setTemplateMode(TemplateMode.HTML);
@@ -31,13 +44,10 @@ public class EquipagesServlet extends HttpServlet{
 		TemplateEngine templateEngine = new TemplateEngine();
 		templateEngine.addDialect(new Java8TimeDialect());
 		templateEngine.setTemplateResolver(templateResolver);
+		
+		WebContext context = new WebContext(request,response,getServletContext());
+		
 			
-		WebContext context = new WebContext(req,resp,getServletContext());
-		context.setVariable("equipages", EquipagesService.getInstance().listEquipages());
-		context.setVariable("utilisateur", UtilisateurService.getInstance().listUtilisateur());
-			
-		templateEngine.process("equipage",context,resp.getWriter());
-			
-		}
-
+		templateEngine.process("accueil",context,response.getWriter());
+	}
 }
