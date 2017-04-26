@@ -37,6 +37,10 @@ private AlbumDao albumDao = new AlbumDao();
 				);
 	}
 	
+	
+	
+	
+	/*
 	@Test
 	public void shouldAddAlbum() throws Exception {
 		Album albumtoAdd = new Album(null, "new album");
@@ -51,5 +55,5 @@ private AlbumDao albumDao = new AlbumDao();
 			Assertions.assertThat(resultSet.getString("nomAlbum")).isEqualTo("new album");
 			Assertions.assertThat(resultSet.next()).isFalse();
 		}
-	}
+	}*/
 }

@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS `sujet`;
 CREATE TABLE `sujet` 
 (
 	`idSujet`  INT NOT NULL AUTO_INCREMENT,
+	`nomSujet`  VARCHAR(50) NOT NULL,
 	`identifiantCreateur`  VARCHAR(50) NOT NULL,
 	`dateLastPost`  date,
 	`nbMessage`  INT NOT NULL,

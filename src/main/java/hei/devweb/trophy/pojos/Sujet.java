@@ -5,15 +5,17 @@ import java.time.LocalDate;
 public class Sujet {
 
 	private Integer idSujet;
+	private String nomSujet;
 	private String identifiantCreateur;
 	private LocalDate dateLastPost;
 	private Integer nbMessages;
 	private String identifiantLastPost;
-
-	public Sujet(Integer idSujet, String identifiantCreateur, LocalDate dateLastPost, Integer nbMessages,
-			String identifiantLastPost) {
+	
+	public Sujet(Integer idSujet, String nomSujet, String identifiantCreateur, LocalDate dateLastPost,
+			Integer nbMessages, String identifiantLastPost) {
 		super();
 		this.idSujet = idSujet;
+		this.nomSujet = nomSujet;
 		this.identifiantCreateur = identifiantCreateur;
 		this.dateLastPost = dateLastPost;
 		this.nbMessages = nbMessages;
@@ -58,6 +60,14 @@ public class Sujet {
 
 	public void setIdentifiantLastPost(String identifiantLastPost) {
 		this.identifiantLastPost = identifiantLastPost;
+	}
+
+	public String getNomSujet() {
+		return nomSujet;
+	}
+
+	public void setNomSujet(String nomSujet) {
+		this.nomSujet = nomSujet;
 	}
 
 }

@@ -18,9 +18,9 @@ public class EvenementsDao {
 		
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM evenements ORDER BY idActu DESC")) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM evenements ORDER BY idEvent DESC")) {
 				while (resultSet.next()) {
-					event.add(new Evenements(resultSet.getInt("idEvent"), resultSet.getDate("titreActu").toLocalDate(), resultSet.getString("event")));
+					event.add(new Evenements(resultSet.getInt("idEvent"), resultSet.getDate("dateEvent").toLocalDate(), resultSet.getString("event")));
 				}
 				} catch (SQLException e) {
 					e.printStackTrace();

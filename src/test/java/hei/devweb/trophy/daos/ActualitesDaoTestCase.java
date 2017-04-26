@@ -21,8 +21,8 @@ private ActualitesDao actusDao = new ActualitesDao();
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement()){
 			statement.executeUpdate("DELETE FROM actualites");
-			statement.executeUpdate("INSERT INTO actualites(idActu,titreActu,actu) VALUES (1,'actualités test','descritpiton 1azeazeazeaze')");
-			statement.executeUpdate("INSERT INTO actualites(idActu,titreActu,actu) VALUES (2,'actualités test 2 motherfcker','descritpiton 2dfgazeazeaezdgfdgrfgdfgazeaze')");
+			statement.executeUpdate("INSERT INTO actualites(idActu,titreActu,actu) VALUES (1,'actualités test','descritpiton 1')");
+			statement.executeUpdate("INSERT INTO actualites(idActu,titreActu,actu) VALUES (2,'actualités test 2','descritpiton 2dfgazeazeaezdgfdgrfgdfgazeaze')");
 		}
 	}
 	
@@ -33,11 +33,14 @@ private ActualitesDao actusDao = new ActualitesDao();
 		//THEN
 		Assertions.assertThat(actus).hasSize(2);
 		Assertions.assertThat(actus).extracting("idActu","titreActu","actu").containsOnly(
-				Assertions.tuple(1,"actualités test","descritpiton 1azeazeazeaze"),
-				Assertions.tuple(2,"actualités test 2 motherfcker","descritpiton 2dfgazeazeaezdgfdgrfgdfgazeaze")
+				Assertions.tuple(1,"actualités test","descritpiton 1"),
+				Assertions.tuple(2,"actualités test 2","descritpiton 2dfgazeazeaezdgfdgrfgdfgazeaze")
 				);
 	}
 	
+	
+	
+	/*
 	@Test
 	public void shouldAddActualites() throws Exception {
 		Actualites actualitestoAdd = new Actualites(null, "new actu","testaddnouvelle actu");
@@ -54,5 +57,5 @@ private ActualitesDao actusDao = new ActualitesDao();
 			Assertions.assertThat(resultSet.next()).isFalse();
 			
 		}
-	}
+	}*/
 }

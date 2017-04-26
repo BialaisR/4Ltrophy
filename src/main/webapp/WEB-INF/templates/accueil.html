@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -50,9 +50,10 @@
 		<div class="row">
 			<div class="col-sm-3">
 				<div id="event">
-					<h2>Evènements</h2>
-					<p>Ptit dej</p>
-					<p>Afterwork</p>
+					<h1>Evènements</h1>
+					<article th:each="evenements : ${evenements}">
+						<p th:text="${evenements.event}"> - [[${evenements.dateEvent}]]</p>
+					</article>
 				</div>
 				<div id="#calendrier">
 					<h2>Calendrier</h2>
@@ -66,35 +67,12 @@
 			</div>
 			<div id="actu" class="col-sm-7">
 				<h1>Actualités</h1>
-				<div>
+				<article th:each="actualites : ${actualites}">
 					<!-- Div d'une actualité  -->
-					<h2>Le corbeau et le renard</h2>
-					<p>Maître Corbeau, sur un arbre perché, Tenait en son bec un
-						fromage. Maître Renard, par l'odeur alléché, Lui tint à peu près
-						ce langage : Et bonjour, Monsieur du Corbeau. Que vous êtes joli !
-						que vous me semblez beau ! Sans mentir, si votre ramage Se
-						rapporte à votre plumage, Vous êtes le Phénix des hôtes de ces
-						bois. À ces mots, le Corbeau ne se sent pas de joie ; Et pour
-						montrer sa belle voix, Il ouvre un large bec, laisse tomber sa
-						proie. Le Renard s'en saisit, et dit : Mon bon Monsieur, Apprenez
-						que tout flatteur Vit aux dépens de celui qui l'écoute. Cette
-						leçon vaut bien un fromage, sans doute. Le Corbeau honteux et
-						confus Jura, mais un peu tard, qu'on ne l'y prendrait plus.</p>
-				</div>
+					<h2 th:text="${actualites.titreActu}"></h2>
+					<p th:text="${actualites.actu}"></p>
+				</article>
 
-				<div>
-					<h2>La cigale et la fourmi</h2>
-					<p>La Cigale, ayant chanté Tout l'été, Se trouva fort dépourvue
-						Quand la bise fut venue. Pas un seul petit morceau De mouche ou de
-						vermisseau. Elle alla crier famine Chez la Fourmi sa voisine, La
-						priant de lui prêter Quelque grain pour subsister Jusqu'à la
-						saison nouvelle. Je vous paierai, lui dit-elle, Avant l'août, foi
-						d'animal, Intérêt et principal. La Fourmi n'est pas prêteuse ;
-						C'est là son moindre défaut. Que faisiez-vous au temps chaud ?
-						Dit-elle à cette emprunteuse. Nuit et jour à tout venant Je
-						chantais, ne vous déplaise. Vous chantiez ? j'en suis fort aise :
-						Et bien ! dansez maintenant.</p>
-				</div>
 
 			</div>
 			<div id="meteo" class="col-sm-2">

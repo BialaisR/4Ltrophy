@@ -1,43 +1,36 @@
 package hei.devweb.trophy.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ForumServlet
- */
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.WebContext;
 
-@WebServlet(name = "Forum", urlPatterns = { "/Forum" })
+import hei.devweb.trophy.services.SujetService;
 
-public class ForumServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ForumServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+@WebServlet("/forum")
+public class ForumServlet extends AbstractGenericServlet{
+	
+	
+	private static final long serialVersionUID = 7319632053290138313L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			resp.setCharacterEncoding("UTF-8");
+			TemplateEngine templateEngine = this.createTemplateEngine(req);
+			WebContext context = new WebContext(req, resp, getServletContext());
+			context.setVariable("sujet",SujetService.getInstance().listSujet());
+			
+			templateEngine.process("forum", context, resp.getWriter());
+			
+		}
+		
+
+		
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
-}

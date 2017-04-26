@@ -64,38 +64,15 @@
 
 				<tbody>
 
-					<tr>
+					<tr th:each="sujet : ${sujet}">
 
-						<td><a href="sujetforum.html" class="lienforum"><b>Sujet
-									1 à propos de blablabla</b> <br> Identifiant</a></td>
-						<td><a href="sujetforum.html" class="lienforum">7</a></td>
-						<td><a href="sujetforum.html" class="lienforum"><b>Date</b>
+						<td><a href="sujetforum.html" class="lienforum"><b th:text="${sujet.nomSujet}"></b> <br> [[${sujet.identifiantCreateur]] </a></td>
+						<td><a href="sujetforum.html" class="lienforum">[[${sujet.nbMessage]]</a></td>
+						<td><a href="sujetforum.html" class="lienforum"><b>[[${sujet.dateLastPost]]</b>
 								<br> Identifiant</a></td>
 					</tr>
 
-					<tr>
-						<td><a href="sujetforum.html" class="lienforum"><b>Sujet
-									2 à propos de blablabla</b> <br> Identifiant</a></td>
-						<td><a href="sujetforum.html" class="lienforum">2</a></td>
-						<td><a href="sujetforum.html" class="lienforum"><b>Date</b>
-								<br> Identifiant</a></td>
-					</tr>
-
-					<tr>
-						<td><a href="sujetforum.html" class="lienforum"><b>Sujet
-									3 à propos de blablabla</b> <br> Identifiant</a></td>
-						<td><a href="sujetforum.html" class="lienforum">14</a></td>
-						<td><a href="sujetforum.html" class="lienforum"><b>Date</b>
-								<br> Identifiant</a></td>
-					</tr>
-
-					<tr>
-						<td><a href="sujetforum.html" class="lienforum"><b>Sujet
-									4 à propos de blablabla</b> <br> Identifiant</a></td>
-						<td><a href="sujetforum.html" class="lienforum">9</a></td>
-						<td><a href="sujetforum.html" class="lienforum"><b>Date</b>
-								<br> Identifiant</a></td>
-					</tr>
+					
 				</tbody>
 
 
