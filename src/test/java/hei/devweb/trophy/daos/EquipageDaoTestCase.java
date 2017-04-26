@@ -9,6 +9,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
+import hei.devweb.trophy.pojos.Actualites;
 import hei.devweb.trophy.pojos.Equipages;
 
 public class EquipageDaoTestCase {
@@ -46,17 +47,28 @@ public class EquipageDaoTestCase {
 		//THEN
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM actualites WHERE numeroEquipage=222")) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM equipages WHERE numeroEquipage=222")) {
 			Assertions.assertThat(resultSet.next()).isTrue();
 			Assertions.assertThat(resultSet.getInt("numeroEquipage")).isNotNull();
 			Assertions.assertThat(resultSet.getString("nomEquipages")).isEqualTo("new Equipage");
 			Assertions.assertThat(resultSet.getString("identifParticipant1")).isEqualTo("nom1");
 			Assertions.assertThat(resultSet.getString("identifParticipant2")).isEqualTo("nom2");
-			Assertions.assertThat(resultSet.getString("descriptionEquipage")).isEqualTo("descritpion bro");
+			Assertions.assertThat(resultSet.getString("descriptionEquipage")).isEqualTo("description bro");
 			Assertions.assertThat(resultSet.getString("photoEquipage")).isEqualTo("pas image");
 			Assertions.assertThat(resultSet.next()).isFalse();
 			
 		}
+	}
+	
+	@Test
+	public void shouldDeleteEquipages() throws Exception {
+		// GIVEN
+		Equipages equipage1 = new Equipages(222, "new Equipage","nom1" , "nom2", "description bro", "pas image");
+		// WHEN
+		equipagesDao.deleteEquipages(equipage1);
+		List<Equipages> listEquip = equipagesDao.listEquipages();
+		//THEN
+		Assertions.assertThat(listEquip).hasSize(2);
 	}
 }
 

@@ -9,6 +9,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
+import hei.devweb.trophy.pojos.Evenements;
 import hei.devweb.trophy.pojos.Message;
 
 public class MessageDaoTestCase {
@@ -28,7 +29,7 @@ public void initDatabase() throws Exception{
 @Test
 public void shouldListMessage() throws Exception {
 	//WHEN
-	List<Message> message = MessageDao.listMessage();
+	List<Message> message = messageDao.listMessage();
 	//THEN
 	Assertions.assertThat(message).hasSize(2);
 	Assertions.assertThat(message).extracting("idMessage","texteMessage","datePost").containsOnly(
@@ -39,9 +40,9 @@ public void shouldListMessage() throws Exception {
 
 @Test
 public void shouldAddMessage() throws Exception {
-	Message MessagetoAdd = new Message(null, "new message","2017-01_01");
+	Message MessagetoAdd = new Message(null, "new message","2017-01-01");
 	//WHEN
-	MessageDao.addMessage(MessagetoAdd);
+	messageDao.addMessage(MessagetoAdd);
 	//THEN
 	try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			Statement statement = connection.createStatement();
@@ -49,9 +50,20 @@ public void shouldAddMessage() throws Exception {
 		Assertions.assertThat(resultSet.next()).isTrue();
 		Assertions.assertThat(resultSet.getInt("idMessage")).isNotNull();
 		Assertions.assertThat(resultSet.getString("textMessage")).isEqualTo("new message");
-		Assertions.assertThat(resultSet.getString("datePost")).isEqualTo("2017-01-01");
+		Assertions.assertThat(resultSet.getDate("datePost")).isEqualTo("2017-01-01");
 		Assertions.assertThat(resultSet.next()).isFalse();
-		
 	}
+}
+
+
+@Test
+public void shouldDeleteEvenements() throws Exception {
+	// GIVEN
+	Message message1 = new Message(null, "new message","2017-01-01");
+	// WHEN
+	messageDao.deleteMessage(message1);
+	List<Message> listMessage = messageDao.listMessage();
+	//THEN
+	Assertions.assertThat(listMessage).hasSize(2);
 }
 }

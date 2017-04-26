@@ -9,9 +9,12 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
+import hei.devweb.trophy.pojos.Evenements;
 import hei.devweb.trophy.pojos.Photos;
 
 public class PhotosDaoTestCase {
+	
+	private PhotosDao photosDao = new PhotosDao();
 
 	@Before
 	public void initDatabase() throws Exception{
@@ -26,7 +29,7 @@ public class PhotosDaoTestCase {
 	@Test
 	public void shouldListPhotos() throws Exception {
 		//WHEN
-		List<Photos> photos = PhotosDao.listPhotos();
+		List<Photos> photos = photosDao.listPhotos();
 		//THEN
 		Assertions.assertThat(photos).hasSize(2);
 		Assertions.assertThat(photos).extracting("idPhoto","photo","idAlbum").containsOnly(
@@ -37,9 +40,9 @@ public class PhotosDaoTestCase {
 	
 	@Test
 	public void shouldAddPhotos() throws Exception {
-		Photos photostoAdd = new Photos(null, "new photo",5);
+		Photos photostoAdd = new Photos(5, "new photo",5);
 		//WHEN
-		PhotosDao.addPhotos(photostoAdd);
+		photosDao.addPhotos(photostoAdd);
 		//THEN
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement();
@@ -51,5 +54,16 @@ public class PhotosDaoTestCase {
 			Assertions.assertThat(resultSet.next()).isFalse();
 			
 		}
+	}
+	
+	@Test
+	public void shouldDeletePhotos() throws Exception {
+		// GIVEN
+		Photos photo1 = new Photos(5, "new photo",5);
+		// WHEN
+		photosDao.deletePhotos(photo1);
+		List<Photos> listPhotos = photosDao.listPhotos();
+		//THEN
+		Assertions.assertThat(listPhotos).hasSize(2);
 	}
 }

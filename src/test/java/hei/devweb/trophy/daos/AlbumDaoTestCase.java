@@ -9,6 +9,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
+import hei.devweb.trophy.pojos.Actualites;
 import hei.devweb.trophy.pojos.Album;
 
 public class AlbumDaoTestCase {
@@ -40,7 +41,7 @@ private AlbumDao albumDao = new AlbumDao();
 	
 	
 	
-	/*
+	
 	@Test
 	public void shouldAddAlbum() throws Exception {
 		Album albumtoAdd = new Album(null, "new album");
@@ -55,5 +56,17 @@ private AlbumDao albumDao = new AlbumDao();
 			Assertions.assertThat(resultSet.getString("nomAlbum")).isEqualTo("new album");
 			Assertions.assertThat(resultSet.next()).isFalse();
 		}
-	}*/
+	}
+	
+	@Test
+	public void shouldDeleteAlbum() throws Exception {
+		// GIVEN
+		Album album1 = new Album(null, "new album");
+		// WHEN
+		albumDao.deleteActualites(album1);
+		List<Album> listAlbum = albumDao.listAlbum();
+		//THEN
+		Assertions.assertThat(listAlbum).hasSize(2);
+	}
+	
 }

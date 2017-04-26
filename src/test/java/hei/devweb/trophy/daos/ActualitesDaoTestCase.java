@@ -1,5 +1,6 @@
 package hei.devweb.trophy.daos;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -40,7 +41,7 @@ private ActualitesDao actusDao = new ActualitesDao();
 	
 	
 	
-	/*
+	
 	@Test
 	public void shouldAddActualites() throws Exception {
 		Actualites actualitestoAdd = new Actualites(null, "new actu","testaddnouvelle actu");
@@ -57,5 +58,16 @@ private ActualitesDao actusDao = new ActualitesDao();
 			Assertions.assertThat(resultSet.next()).isFalse();
 			
 		}
-	}*/
+	}
+	
+	@Test
+	public void shouldDeleteActualites() throws Exception {
+		// GIVEN
+		Actualites actu1 = new Actualites(1,"actualités test","descritpiton 1");
+		// WHEN
+		actusDao.deleteActualites(actu1);
+		List<Actualites> listActus = actusDao.listActualites();
+		//THEN
+		Assertions.assertThat(listActus).hasSize(2);
+	}
 }

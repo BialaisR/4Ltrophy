@@ -13,8 +13,6 @@ import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-import hei.devweb.trophy.services.EquipagesService;
-import hei.devweb.trophy.services.UtilisateurService;
 
 /**
  * Servlet implementation class AccueilServlet
