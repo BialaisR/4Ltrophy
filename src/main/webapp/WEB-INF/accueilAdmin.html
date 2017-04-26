@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,26 +22,24 @@
 
 <body>
 
-	<div class="container">
-		<!-- GRAND DIV  -->
-		<header>
+	<header>
 			<div class="masthead">
 
 				<h1 class="text-center">
-					<a href="accueil.html" class="nom">4L TROPHY HEI</a>
+					<a href="accueil" class="nom">4L TROPHY HEI</a>
 				</h1>
 				<nav>
 					<ul class="nav nav-justified">
-						<li><a class="active" href="accueil.html">Accueil</a></li>
-						<li><a href="equipage.html">Equipage</a></li>
-						<li><a href="photos_videos.html">Photos-Vidéos</a></li>
-						<li><a href="forum.html">Forum</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a class="active" href="accueil">Accueil</a></li>
+						<li><a href="equipage">Equipage</a></li>
+						<li><a href="photos_videos">Photos-Vidéos</a></li>
+						<li><a href="forum">Forum</a></li>
+						<li><a href="contact">Contact</a></li>
 						<li class="dropdown"><a href="#" class="dropbtn">Mon
 								compte &darr;</a>
 							<div class="dropdown-content">
-								<a href="connexion.html">Se connecter</a> <a
-									href="inscription.html">S'inscrire</a>
+								<a href="connexion">Se connecter</a> <a
+									href="inscription">S'inscrire</a>
 							</div></li>
 					</ul>
 				</nav>
@@ -49,13 +48,20 @@
 
 		<div class="row">
 			<div class="col-sm-3">
-				<div id="event">
-					<h1>Evènements</h1>
-					<article th:each="evenements : ${evenements}">
-						<p th:text="${evenements.event}"> - [[${evenements.dateEvent}]]</p>
-					</article>
+				<div>
+					<h2>Evénements</h2>
+					<p>Ptit dej</p>
+					<p>Afterwork</p>
+					<p>
+						<a class="btn btn-primary" href="#" role="button">Plus d'infos
+							&raquo;</a>
+					</p>
+					<p>
+						<a class="btn btn-success btn-xs" href="ajoutevenement.html"
+							role="button">+ Ajouter un évènement</a>
+					</p>
 				</div>
-				<div id="#calendrier">
+				<div>
 					<h2>Calendrier</h2>
 					<p>
 						<iframe
@@ -65,17 +71,19 @@
 					</p>
 				</div>
 			</div>
-			<div id="actu" class="col-sm-7">
-				<h1>Actualités</h1>
-				<article th:each="actualites : ${actualites}">
-					<!-- Div d'une actualité  -->
-					<h2 th:text="${actualites.titreActu}"></h2>
-					<p th:text="${actualites.actu}"></p>
-				</article>
-
-
+			<div class="col-sm-7">
+				<h2>Actualités</h2>
+				<p>Nouveau logo 4L Trophy !</p>
+				<p>
+					<a class="btn btn-primary" href="#" role="button">Plus d'infos
+						&raquo;</a>
+				</p>
+				<p>
+					<a class="btn btn-success btn-xs" href="ajoutActu.html"
+						role="button">+ Ajouter une actualité</a>
+				</p>
 			</div>
-			<div id="meteo" class="col-sm-2">
+			<div class="col-sm-2">
 				<h2>Météo</h2>
 				<p>
 					<!-- weather widget start -->
@@ -93,7 +101,7 @@
 		</div>
 
 		<footer class="footer">
-			<p>&copy; Mentions légales</p>
+			<p>&copy;YOLO CORPORATION 2016</p>
 		</footer>
 
 	</div>

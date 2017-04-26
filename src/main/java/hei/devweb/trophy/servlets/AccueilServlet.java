@@ -27,7 +27,7 @@ public class AccueilServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(request.getServletContext());
-		templateResolver.setPrefix("WEB-INF/templates/");
+		templateResolver.setPrefix("WEB-INF/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setCharacterEncoding("UTF-8");
 		templateResolver.setTemplateMode(TemplateMode.HTML);
