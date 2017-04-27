@@ -3,7 +3,7 @@ CREATE TABLE `message`
 (
 	`idMessage`  INT NOT NULL AUTO_INCREMENT,
 	`texteMessage`  VARCHAR(1000) NOT NULL,
-	`datePost`  date,
+	`datePost`  VARCHAR(10) NOT NULL,
 	`idSujet`  INT,
 	PRIMARY KEY (`idMessage`));
 
@@ -14,7 +14,7 @@ CREATE TABLE `sujet`
 	`idSujet`  INT NOT NULL AUTO_INCREMENT,
 	`nomSujet`  VARCHAR(50) NOT NULL,
 	`identifiantCreateur`  VARCHAR(50) NOT NULL,
-	`dateLastPost`  date,
+	`dateLastPost`  VARCHAR(10) NOT NULL,
 	`nbMessage`  INT NOT NULL,
     `identifiantLastPost`  VARCHAR(50),
 	PRIMARY KEY (`idSujet`));
@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `evenements`;
 CREATE TABLE `evenements` 
 (
 	`idEvent`  INT NOT NULL AUTO_INCREMENT,
-    `dateEvent` date,
+    `dateEvent` VARCHAR(10) NOT NULL,
 	`event`  VARCHAR(500) NOT NULL,
 	PRIMARY KEY (`idEvent`));
 
@@ -72,7 +72,7 @@ CREATE TABLE `utilisateur`
 	`prenom`  VARCHAR(50) NOT NULL,
     `mail`  VARCHAR(50) NOT NULL,
     `nbMessagesForum`  INT,
-    `dateInscription`  date,
+    `dateInscription`  VARCHAR(10) NOT NULL,
     `participant`  BOOLEAN,
     `photo`  varchar(100),
     `classe`  VARCHAR(10),
@@ -83,7 +83,7 @@ CREATE TABLE `utilisateur`
 DROP TABLE IF EXISTS `equipages`;
 CREATE TABLE `equipages` 
 (
-	`numeroEquipage`  INT NOT NULL,
+	`numeroEquipage`  INT NOT NULL AUTO_INCREMENT,
 	`nomEquipage`  VARCHAR(50) NOT NULL,
 	`identifParticipant1`  VARCHAR(50) NOT NULL,
     `identifParticipant2`  VARCHAR(50),

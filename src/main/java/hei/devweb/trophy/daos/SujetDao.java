@@ -1,7 +1,6 @@
 package hei.devweb.trophy.daos;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +19,7 @@ public class SujetDao {
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM Sujet ORDER BY idSujet DESC")) {
 				while (resultSet.next()) {
-					Sujet.add(new Sujet(resultSet.getInt("idSujet"), resultSet.getString("identifiantCreateur"), resultSet.getString("nomSujet"), resultSet.getDate("dateLastPost").toLocalDate(),
+					Sujet.add(new Sujet(resultSet.getInt("idSujet"), resultSet.getString("identifiantCreateur"), resultSet.getString("nomSujet"), resultSet.getString("dateLastPost"),
 							resultSet.getInt("nbMessages"),resultSet.getString("identifiantLastPost")));
 				}
 				} catch (SQLException e) {
@@ -32,9 +31,9 @@ public class SujetDao {
 	
 	public void addSujet(Sujet newSujet) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO Sujet(idSujet, identifiantCreateur, nomSujet ,dateLastPost,nbMessage,identifiantLastPost) VALUES (?,?,?,?,?,?)")) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO Sujet(identifiantCreateur, nomSujet ,dateLastPost,nbMessage,identifiantLastPost) VALUES (?,?,?,?,?)")) {
 			statement.setString(1, newSujet.getIdentifiantCreateur());
-			statement.setDate(2,Date.valueOf(newSujet.getDateLastPost()));
+			statement.setString(2,newSujet.getDateLastPost());
 			statement.setInt(3,newSujet.getNbMessages());
 			statement.setString(4,newSujet.getIdentifiantLastPost());
 			statement.executeUpdate();

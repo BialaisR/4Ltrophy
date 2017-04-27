@@ -44,7 +44,7 @@ private ActualitesDao actusDao = new ActualitesDao();
 	
 	@Test
 	public void shouldAddActualites() throws Exception {
-		Actualites actualitestoAdd = new Actualites(null, "new actu","testaddnouvelle actu");
+		Actualites actualitestoAdd = new Actualites(3, "new actu","testaddnouvelle actu");
 		//WHEN
 		actusDao.addActualites(actualitestoAdd);
 		//THEN
@@ -63,9 +63,9 @@ private ActualitesDao actusDao = new ActualitesDao();
 	@Test
 	public void shouldDeleteActualites() throws Exception {
 		// GIVEN
-		Actualites actu1 = new Actualites(1,"actualités test","descritpiton 1");
+		Actualites actu1 = new Actualites(3,"actualités test","descritpiton 1");
 		// WHEN
-		actusDao.deleteActualites(actu1);
+		actusDao.deleteActualites(3);
 		List<Actualites> listActus = actusDao.listActualites();
 		//THEN
 		Assertions.assertThat(listActus).hasSize(2);

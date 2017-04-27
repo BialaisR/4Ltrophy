@@ -1,14 +1,12 @@
 package hei.devweb.trophy.pojos;
 
-import java.time.LocalDate;
-
 public class Evenements {
 
 	private Integer idEvent;
-	private LocalDate dateEvent;
+	private String dateEvent;
 	private String event;
 
-	public Evenements(Integer idEvent, LocalDate dateEvent, String event) {
+	public Evenements(Integer idEvent, String dateEvent, String event) {
 		super();
 		this.idEvent = idEvent;
 		this.dateEvent = dateEvent;
@@ -23,11 +21,11 @@ public class Evenements {
 		this.idEvent = idEvent;
 	}
 
-	public LocalDate getDateEvent() {
+	public String getDateEvent() {
 		return dateEvent;
 	}
 
-	public void setDateEvent(LocalDate dateEvent) {
+	public void setDateEvent(String dateEvent) {
 		this.dateEvent = dateEvent;
 	}
 

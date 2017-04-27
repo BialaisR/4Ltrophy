@@ -1,7 +1,6 @@
 package hei.devweb.trophy.daos;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +19,7 @@ public class MessageDao {
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM Message ORDER BY datepost DESC")) {
 				while (resultSet.next()) {
-					message.add(new Message(resultSet.getInt("idMessage"), resultSet.getString("textMessage"), resultSet.getDate("datepost").toLocalDate()));
+					message.add(new Message(resultSet.getInt("idMessage"), resultSet.getString("textMessage"), resultSet.getString("datepost"),resultSet.getInt("idSujet")));
 				}
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -31,9 +30,10 @@ public class MessageDao {
 	
 	public void addMessage(Message newMessage) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO message(idMessage, textMessage, datepost) VALUES (?,?,?)")) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO message(textMessage, datePost,idSujet) VALUES (?,?,?)")) {
 			statement.setString(1, newMessage.getTexteMessage());
-			statement.setDate(2,Date.valueOf(newMessage.getDatePost()));
+			statement.setString(2,newMessage.getDatePost());
+			statement.setInt(3,newMessage.getIdSujet());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -9,7 +9,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
-import hei.devweb.trophy.pojos.Evenements;
 import hei.devweb.trophy.pojos.Message;
 
 public class MessageDaoTestCase {
@@ -20,9 +19,9 @@ private MessageDao messageDao = new MessageDao();
 public void initDatabase() throws Exception{
 	try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			Statement statement = connection.createStatement()){
-		statement.executeUpdate("DELETE FROM messageDao");
-		statement.executeUpdate("INSERT INTO messageDao(idMessage,texteMessage,datePost) VALUES (1,'test1 message','2017-03-02')");
-		statement.executeUpdate("INSERT INTO messageDao(idMessage,texteMessage,datePost) VALUES (2,'test2 message','2017-01-07')");
+		statement.executeUpdate("DELETE FROM message");
+		statement.executeUpdate("INSERT INTO message(idMessage,texteMessage,datePost,idSujet) VALUES (1,'test1 message','2017-03-02',5)");
+		statement.executeUpdate("INSERT INTO message(idMessage,texteMessage,datePost,idSujet) VALUES (2,'test2 message','2017-01-07',6)");
 	}
 }
 
@@ -33,14 +32,14 @@ public void shouldListMessage() throws Exception {
 	//THEN
 	Assertions.assertThat(message).hasSize(2);
 	Assertions.assertThat(message).extracting("idMessage","texteMessage","datePost").containsOnly(
-			Assertions.tuple(1,"test1 message","2017-03-02"),
-			Assertions.tuple(2,"test2 message","2017-01-07")
+			Assertions.tuple(1,"test1 message","2017-03-02",5),
+			Assertions.tuple(2,"test2 message","2017-01-07",6)
 			);
 }
 
 @Test
 public void shouldAddMessage() throws Exception {
-	Message MessagetoAdd = new Message(null, "new message","2017-01-01");
+	Message MessagetoAdd = new Message(3, "new message","2017-01-01",21);
 	//WHEN
 	messageDao.addMessage(MessagetoAdd);
 	//THEN
@@ -57,11 +56,11 @@ public void shouldAddMessage() throws Exception {
 
 
 @Test
-public void shouldDeleteEvenements() throws Exception {
+public void shouldDeleteMessage() throws Exception {
 	// GIVEN
-	Message message1 = new Message(null, "new message","2017-01-01");
+	Message message1 = new Message(3, "new message","2017-01-01",21);
 	// WHEN
-	messageDao.deleteMessage(message1);
+	messageDao.deleteMessage(3);
 	List<Message> listMessage = messageDao.listMessage();
 	//THEN
 	Assertions.assertThat(listMessage).hasSize(2);

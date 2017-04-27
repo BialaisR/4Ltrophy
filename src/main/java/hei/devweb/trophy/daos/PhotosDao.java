@@ -30,7 +30,7 @@ public class PhotosDao {
 	
 	public void addPhotos(Photos newPhotos) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO Photos(idPhoto, photo, idAlbum) VALUES (?,?,?)")) {
+			PreparedStatement statement = connection.prepareStatement("INSERT INTO Photos(photo, idAlbum) VALUES (?,?)")) {
 			statement.setString(1, newPhotos.getPhoto());
 			statement.setInt(2,newPhotos.getIdAlbum());
 			statement.executeUpdate();

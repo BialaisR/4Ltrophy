@@ -1,7 +1,6 @@
 package hei.devweb.trophy.daos;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +19,7 @@ public class EvenementsDao {
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM evenements ORDER BY idEvent DESC")) {
 				while (resultSet.next()) {
-					event.add(new Evenements(resultSet.getInt("idEvent"), resultSet.getDate("dateEvent").toLocalDate(), resultSet.getString("event")));
+					event.add(new Evenements(resultSet.getInt("idEvent"), resultSet.getString("dateEvent"), resultSet.getString("event")));
 				}
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -31,8 +30,8 @@ public class EvenementsDao {
 	
 	public void addEvenements(Evenements newEvenements) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO evenements(idEvent, dateEvent, event) VALUES (?,?,?)")) {
-			statement.setDate(1, Date.valueOf(newEvenements.getDateEvent()));
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO evenements(dateEvent, event) VALUES (?,?)")) {
+			statement.setString(1, newEvenements.getDateEvent());
 			statement.setString(2,newEvenements.getEvent());
 			statement.executeUpdate();
 		} catch (SQLException e) {

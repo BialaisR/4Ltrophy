@@ -1,7 +1,5 @@
 package hei.devweb.trophy.pojos;
 
-import java.time.LocalDate;
-
 public class Utilisateur {
 
 	private String identifiant;
@@ -10,14 +8,14 @@ public class Utilisateur {
 	private String prenom;
 	private String mail;
 	private Integer nbMessagesForum;
-	private LocalDate dateInscription;
+	private String dateInscription;
 	private Boolean participant;
 	private String photo;
 	private String classe;
 	private Boolean admin;
 
 	public Utilisateur(String identifiant, String motDePasse, String nom, String prenom, String mail,
-			Integer nbMessagesForum, LocalDate dateInscription, Boolean participant, String photo, String classe,
+			Integer nbMessagesForum, String dateInscription, Boolean participant, String photo, String classe,
 			Boolean admin) {
 		super();
 		this.identifiant = identifiant;
@@ -81,11 +79,11 @@ public class Utilisateur {
 		this.nbMessagesForum = nbMessagesForum;
 	}
 
-	public LocalDate getDateInscription() {
+	public String getDateInscription() {
 		return dateInscription;
 	}
 
-	public void setDateInscription(LocalDate dateInscription) {
+	public void setDateInscription(String dateInscription) {
 		this.dateInscription = dateInscription;
 	}
 

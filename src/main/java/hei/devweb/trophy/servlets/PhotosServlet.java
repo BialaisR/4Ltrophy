@@ -16,6 +16,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 /**
  * Servlet implementation class PhotosServlet
  */
+
 @WebServlet("/photos_videos")
 public class PhotosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -46,11 +46,11 @@ public class EquipageDaoTestCase {
 		equipagesDao.addEquipages(equipagestoAdd);
 		//THEN
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM equipages WHERE numeroEquipage=222")) {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM equipages WHERE numeroEquipage=222")) {
 			Assertions.assertThat(resultSet.next()).isTrue();
 			Assertions.assertThat(resultSet.getInt("numeroEquipage")).isNotNull();
-			Assertions.assertThat(resultSet.getString("nomEquipages")).isEqualTo("new Equipage");
+			Assertions.assertThat(resultSet.getString("nomEquipage")).isEqualTo("new Equipage");
 			Assertions.assertThat(resultSet.getString("identifParticipant1")).isEqualTo("nom1");
 			Assertions.assertThat(resultSet.getString("identifParticipant2")).isEqualTo("nom2");
 			Assertions.assertThat(resultSet.getString("descriptionEquipage")).isEqualTo("description bro");
@@ -65,7 +65,7 @@ public class EquipageDaoTestCase {
 		// GIVEN
 		Equipages equipage1 = new Equipages(222, "new Equipage","nom1" , "nom2", "description bro", "pas image");
 		// WHEN
-		equipagesDao.deleteEquipages(equipage1);
+		equipagesDao.deleteEquipages(222);
 		List<Equipages> listEquip = equipagesDao.listEquipages();
 		//THEN
 		Assertions.assertThat(listEquip).hasSize(2);

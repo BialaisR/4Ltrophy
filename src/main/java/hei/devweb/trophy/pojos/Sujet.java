@@ -1,17 +1,15 @@
 package hei.devweb.trophy.pojos;
 
-import java.time.LocalDate;
-
 public class Sujet {
 
 	private Integer idSujet;
 	private String nomSujet;
 	private String identifiantCreateur;
-	private LocalDate dateLastPost;
+	private String dateLastPost;
 	private Integer nbMessages;
 	private String identifiantLastPost;
 	
-	public Sujet(Integer idSujet, String nomSujet, String identifiantCreateur, LocalDate dateLastPost,
+	public Sujet(Integer idSujet, String nomSujet, String identifiantCreateur, String dateLastPost,
 			Integer nbMessages, String identifiantLastPost) {
 		super();
 		this.idSujet = idSujet;
@@ -38,11 +36,11 @@ public class Sujet {
 		this.identifiantCreateur = identifiantCreateur;
 	}
 
-	public LocalDate getDateLastPost() {
+	public String getDateLastPost() {
 		return dateLastPost;
 	}
 
-	public void setDateLastPost(LocalDate dateLastPost) {
+	public void setDateLastPost(String dateLastPost) {
 		this.dateLastPost = dateLastPost;
 	}
 

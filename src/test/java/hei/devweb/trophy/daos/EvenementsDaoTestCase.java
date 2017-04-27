@@ -62,7 +62,7 @@ public class EvenementsDaoTestCase {
 		// GIVEN
 		Evenements event1 = new Evenements(5, "2017-04-08", "Ceci est un test");
 		// WHEN
-		eventsDao.deleteEvenements(event1);
+		eventsDao.deleteEvenements(5);
 		List<Evenements> listEvent = eventsDao.listEvenements();
 		//THEN
 		Assertions.assertThat(listEvent).hasSize(2);
