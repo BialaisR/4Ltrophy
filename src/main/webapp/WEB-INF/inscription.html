@@ -52,41 +52,35 @@
 		<section class="container globalform">
 			<div class="col-md-6" id="signup">
 				<h1>S'inscrire</h1>
-				<form class="inscrform" action="#" method="#">
+				<form name ="formUtilisateur" class="inscrform" action="addutilisateurnormal" method="post">
 					<div class="form-group">
 						<label for="InputNom">Nom</label> <input type="text"
-							class="form-control" id="InputNom" placeholder="Nom">
+							class="form-control" id="InputNom" placeholder="Nom" name ="nom">
 					</div>
 
 					<div class="form-group">
 						<label for="InputPrenom">Prénom</label> <input type="text"
-							class="form-control" id="InputPrenom" placeholder="Prénom">
+							class="form-control" id="InputPrenom" placeholder="Prénom" name="prenom">
 					</div>
 
 					<div class="form-group">
 						<label for="InputEmail">Email</label> <input type="text"
-							class="form-control" id="InputEmail" placeholder="Email">
+							class="form-control" id="InputEmail" placeholder="Email" name="mail">
 					</div>
 
 					<div class="form-group">
 						<label for="InputId">Identifiant</label> <input type="text"
-							class="form-control" id="InputId" placeholder="Identifiant">
+							class="form-control" id="InputId" placeholder="Identifiant" name="identifiant">
 					</div>
 
 					<div class="form-group">
 						<label for="InputMdp">Mot de passe</label> <input type="password"
-							class="form-control" id="InputMdp" placeholder="Mot de passe">
-					</div>
-
-					<div class="form-group">
-						<label for="ConfirmMdp">Confirmer mot de passe</label> <input
-							type="password" class="form-control" id="ConfirmMdp"
-							placeholder="Confirmer mot de passe">
+							class="form-control" id="InputMdp" placeholder="Mot de passe" name="mdp">
 					</div>
 
 					<div>
 						<label id="label_ckbx"> <input type="checkbox"
-							name="participant" onclick="showMe('signup_plus')" id="ckbx">
+							name="participant" onclick="showMe('signup_plus')" id="ckbx" href="inscriptionParticipant">
 							Je participe au 4L Trophy
 						</label>
 					</div>

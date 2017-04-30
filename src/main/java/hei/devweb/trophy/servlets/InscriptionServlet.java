@@ -13,6 +13,9 @@ import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import hei.devweb.trophy.pojos.Utilisateur;
+import hei.devweb.trophy.services.UtilisateurService;
+
 /**
  * Servlet implementation class InscriptionServlet
  */
@@ -34,5 +37,8 @@ public class InscriptionServlet extends HttpServlet {
 			
 		templateEngine.process("inscription",context,response.getWriter());
 	}
+	
+
+	
 
 }

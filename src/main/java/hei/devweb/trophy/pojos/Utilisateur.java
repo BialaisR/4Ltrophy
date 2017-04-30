@@ -26,9 +26,18 @@ public class Utilisateur {
 		this.nbMessagesForum = nbMessagesForum;
 		this.dateInscription = dateInscription;
 		this.participant = participant;
+		this.classe=classe;
 		this.photo = photo;
-		this.classe = classe;
 		this.admin = admin;
+
+	}
+
+	public String getClasse() {
+		return classe;
+	}
+
+	public void setClasse(String classe) {
+		this.classe = classe;
 	}
 
 	public String getIdentifiant() {
@@ -101,14 +110,6 @@ public class Utilisateur {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
-	}
-
-	public String getClasse() {
-		return classe;
-	}
-
-	public void setClasse(String classe) {
-		this.classe = classe;
 	}
 
 	public Boolean getAdmin() {
