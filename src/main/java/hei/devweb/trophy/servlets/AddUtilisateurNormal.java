@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import hei.devweb.trophy.pojos.Utilisateur;
 import hei.devweb.trophy.services.UtilisateurService;
 
-/**
- * Servlet implementation class AddUtilisateurNormal
- */
+
 @WebServlet("/addutilisateurnormal")
 public class AddUtilisateurNormal extends HttpServlet {
 	private static final long serialVersionUID = 1L;

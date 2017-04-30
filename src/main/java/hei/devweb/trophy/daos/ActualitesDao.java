@@ -29,11 +29,11 @@ public class ActualitesDao {
 		}
 	
 	
-	public void addActualites(Actualites newActualites) {
+	public void addActualites(int idActu,String titreActu, String actu) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO actualites(titreActu, actu) VALUES (?,?)")) {
-			statement.setString(1, newActualites.getTitreActu());
-			statement.setString(2,newActualites.getActu());
+			statement.setString(1, titreActu);
+			statement.setString(2, actu);
 			statement.executeUpdate();
 			statement.close();
 			connection.close();
