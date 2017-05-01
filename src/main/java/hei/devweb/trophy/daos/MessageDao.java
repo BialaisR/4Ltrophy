@@ -17,9 +17,9 @@ public class MessageDao {
 		
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM Message ORDER BY datepost DESC")) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM Message ORDER BY datePost DESC")) {
 				while (resultSet.next()) {
-					message.add(new Message(resultSet.getInt("idMessage"), resultSet.getString("textMessage"), resultSet.getString("datepost"),resultSet.getInt("idSujet")));
+					message.add(new Message(resultSet.getInt("idMessage"), resultSet.getString("textMessage"), resultSet.getString("datePost"),resultSet.getInt("idSujet")));
 				}
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -28,12 +28,12 @@ public class MessageDao {
 		}
 	
 	
-	public void addMessage(Message newMessage) {
+	public void addMessage(Integer idMessage, String texteMessage, String datePost, Integer idSujet) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO message(textMessage, datePost,idSujet) VALUES (?,?,?)")) {
-			statement.setString(1, newMessage.getTexteMessage());
-			statement.setString(2,newMessage.getDatePost());
-			statement.setInt(3,newMessage.getIdSujet());
+			statement.setString(1, texteMessage);
+			statement.setString(2,datePost);
+			statement.setInt(3,idSujet);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -6,17 +6,17 @@ public class Sujet {
 	private String nomSujet;
 	private String identifiantCreateur;
 	private String dateLastPost;
-	private Integer nbMessages;
+	private Integer nbMessage;
 	private String identifiantLastPost;
 	
 	public Sujet(Integer idSujet, String nomSujet, String identifiantCreateur, String dateLastPost,
-			Integer nbMessages, String identifiantLastPost) {
+			Integer nbMessage, String identifiantLastPost) {
 		super();
 		this.idSujet = idSujet;
 		this.nomSujet = nomSujet;
 		this.identifiantCreateur = identifiantCreateur;
 		this.dateLastPost = dateLastPost;
-		this.nbMessages = nbMessages;
+		this.nbMessage = nbMessage;
 		this.identifiantLastPost = identifiantLastPost;
 	}
 
@@ -44,12 +44,12 @@ public class Sujet {
 		this.dateLastPost = dateLastPost;
 	}
 
-	public Integer getNbMessages() {
-		return nbMessages;
+	public Integer getNbMessage() {
+		return nbMessage;
 	}
 
-	public void setNbMessages(Integer nbMessages) {
-		this.nbMessages = nbMessages;
+	public void setNbMessage(Integer nbMessage) {
+		this.nbMessage = nbMessage;
 	}
 
 	public String getIdentifiantLastPost() {

@@ -29,16 +29,16 @@ public class EquipagesDao {
 		return equipage;
 	}
 
-	public void addEquipages(Equipages newEquipages) {
+	public void addEquipages(int numeroEquipage, String nomEquipage, String identifParticipant1, String identifParticipant2, String descriptionEquipage, String photoEquipage) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement(
 						"INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (?,?,?,?,?,?)")) {
-			statement.setInt(1, newEquipages.getNumeroEquipage());
-			statement.setString(2, newEquipages.getNomEquipage());
-			statement.setString(3, newEquipages.getIdentifParticipant1());
-			statement.setString(4, newEquipages.getIdentifParticipant2());
-			statement.setString(5, newEquipages.getDescriptionEquipage());
-			statement.setString(6, newEquipages.getPhotoEquipage());
+			statement.setInt(1, numeroEquipage);
+			statement.setString(2, nomEquipage);
+			statement.setString(3, identifParticipant1);
+			statement.setString(4, identifParticipant2);
+			statement.setString(5, descriptionEquipage);
+			statement.setString(6, photoEquipage);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

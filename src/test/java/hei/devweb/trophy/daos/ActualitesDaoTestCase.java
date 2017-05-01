@@ -44,9 +44,8 @@ private ActualitesDao actusDao = new ActualitesDao();
 	
 	@Test
 	public void shouldAddActualites() throws Exception {
-		Actualites actualitestoAdd = new Actualites(3, "new actu","testaddnouvelle actu");
 		//WHEN
-		actusDao.addActualites(actualitestoAdd);
+		actusDao.addActualites(3, "new actu","testaddnouvelle actu");
 		//THEN
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement();

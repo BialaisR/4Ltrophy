@@ -28,11 +28,11 @@ public class PhotosDao {
 		}
 	
 	
-	public void addPhotos(Photos newPhotos) {
+	public void addPhotos(int idPhoto, String photo, int idAlbum) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			PreparedStatement statement = connection.prepareStatement("INSERT INTO Photos(photo, idAlbum) VALUES (?,?)")) {
-			statement.setString(1, newPhotos.getPhoto());
-			statement.setInt(2,newPhotos.getIdAlbum());
+			statement.setString(1, photo);
+			statement.setInt(2,idAlbum);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -43,7 +43,7 @@ public class EquipageDaoTestCase {
 	public void shouldAddEquipages() throws Exception {
 		Equipages equipagestoAdd = new Equipages(222, "new Equipage","nom1" , "nom2", "description bro", "pas image");
 		//WHEN
-		equipagesDao.addEquipages(equipagestoAdd);
+		equipagesDao.addEquipages(222, "new Equipage","nom1" , "nom2", "description bro", "pas image");
 		//THEN
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			Statement statement = connection.createStatement();

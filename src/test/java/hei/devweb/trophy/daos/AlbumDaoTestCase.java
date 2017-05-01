@@ -43,9 +43,8 @@ private AlbumDao albumDao = new AlbumDao();
 	
 	@Test
 	public void shouldAddAlbum() throws Exception {
-		Album albumtoAdd = new Album(3, "new album");
 		//WHEN
-		albumDao.addAlbum(albumtoAdd);
+		albumDao.addAlbum(3, "new album");
 		//THEN
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement();

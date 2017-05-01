@@ -24,8 +24,8 @@ public class MessageService {
 		return messageDao.listMessage();
 	}
 	
-	public void addMessage(Message newMessage){
-		messageDao.addMessage(newMessage);
+	public void addMessage(Integer idMessage, String texteMessage, String datePost, Integer idSujet){
+		messageDao.addMessage(idMessage,texteMessage,datePost,idSujet);
 	}
 	
 	public void deleteMessage(Integer idMessage){

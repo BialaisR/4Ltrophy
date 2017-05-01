@@ -30,20 +30,22 @@ public class UtilisateurDao {
 		}
 	
 	
-	public void addUtilisateur(Utilisateur newUtilisateur) {
+	public void addUtilisateur(String identifiant, String motDePasse, String nom, String prenom, String mail,
+			Integer nbMessagesForum, String dateInscription, Boolean participant, String photo, String classe,
+			Boolean admin) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO Utilisateur(identifiant, motDePasse, nom, prenom, mail, nbMessagesForum, dateInscription, participant, photo, classe, admin) VALUES (?,?,?,?,?,?,?,?,?,?,?)")) {
-			statement.setString(1, newUtilisateur.getIdentifiant()); 
-			statement.setString(2,newUtilisateur.getMotDePasse());
-			statement.setString(3,newUtilisateur.getNom());
-			statement.setString(4,newUtilisateur.getPrenom());
-			statement.setString(5,newUtilisateur.getMail());
-			statement.setInt(6,newUtilisateur.getNbMessagesForum());
-			statement.setString(7,newUtilisateur.getDateInscription());
-			statement.setBoolean(8,newUtilisateur.getParticipant());
-			statement.setString(9,newUtilisateur.getPhoto());
-			statement.setString(10,newUtilisateur.getClasse());
-			statement.setBoolean(11,newUtilisateur.getAdmin());
+			statement.setString(1, identifiant); 
+			statement.setString(2,motDePasse);
+			statement.setString(3,nom);
+			statement.setString(4,prenom);
+			statement.setString(5,mail);
+			statement.setInt(6,nbMessagesForum);
+			statement.setString(7,dateInscription);
+			statement.setBoolean(8,participant);
+			statement.setString(9,photo);
+			statement.setString(10,classe);
+			statement.setBoolean(11,admin);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -24,8 +24,8 @@ private AlbumDao albumDao = new AlbumDao();
 		return albumDao.listAlbum();
 	}
 	
-	public void addAlbum(Album newAlbum){
-		albumDao.addAlbum(newAlbum);
+	public void addAlbum(int idAlbum, String nomAlbum){
+		albumDao.addAlbum(idAlbum,nomAlbum);
 	}
 	
 	public void deleteAlbum(Integer idAlbum){

@@ -42,9 +42,9 @@ public class UtilisateurDaoTestCase {
 	
 	@Test
 	public void shouldAddUtilisateur() throws Exception {
-		Utilisateur utilisateurToAdd = new Utilisateur("identifiant3","motDePasse","Donque","Julien","julien.donque@hei.yncrea.fr",46,"2017-01-25",true,"photo 8","H44",false);
+		
 		//WHEN
-				utilisateurDao.addUtilisateur(utilisateurToAdd);
+				utilisateurDao.addUtilisateur("identifiant3","motDePasse","Donque","Julien","julien.donque@hei.yncrea.fr",46,"2017-01-25",true,"photo 8","H44",false);
 				//THEN
 				List<Utilisateur> utilisateurs = utilisateurDao.listUtilisateur();
 				Assertions.assertThat(utilisateurs).hasSize(3);

@@ -28,11 +28,11 @@ public class EvenementsDao {
 		}
 	
 	
-	public void addEvenements(Evenements newEvenements) {
+	public void addEvenements(int idEvent, String dateEvent, String event) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO evenements(dateEvent, event) VALUES (?,?)")) {
-			statement.setString(1, newEvenements.getDateEvent());
-			statement.setString(2,newEvenements.getEvent());
+			statement.setString(1,dateEvent);
+			statement.setString(2,event);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

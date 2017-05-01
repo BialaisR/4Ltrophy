@@ -38,9 +38,8 @@ public class PhotosDaoTestCase {
 	
 	@Test
 	public void shouldAddPhotos() throws Exception {
-		Photos photostoAdd = new Photos(3, "new photo",5);
 		//WHEN
-		photosDao.addPhotos(photostoAdd);
+		photosDao.addPhotos(3, "new photo",5);
 		//THEN
 		List<Photos> photos = photosDao.listPhotos();
 		Assertions.assertThat(photos).hasSize(3);

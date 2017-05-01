@@ -24,8 +24,8 @@ public class AddUtilisateurNormal extends HttpServlet {
 		String identifiant = request.getParameter("identifiant");
 		String motdepasse = request.getParameter("motDePasse");
 		
-		Utilisateur utilisateurToAdd = new Utilisateur(identifiant, motdepasse, nom, prenom, email, null, null, null, null, null, null);
-		UtilisateurService.getInstance().addUtilisateur(utilisateurToAdd);
+		
+		UtilisateurService.getInstance().addUtilisateur(identifiant, motdepasse, nom, prenom, email, null, null, null, null, null, null);
 	}
 
 }

@@ -27,10 +27,10 @@ public class AlbumDao {
 		return album;
 	}
 
-	public void addAlbum(Album newAlbum) {
+	public void addAlbum(int idAlbum, String nomAlbum) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO album(nomAlbum) VALUES (?)")) {
-			statement.setString(1, newAlbum.getNomAlbum());
+			statement.setString(1, nomAlbum);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

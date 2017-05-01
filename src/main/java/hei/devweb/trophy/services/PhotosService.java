@@ -24,8 +24,8 @@ private PhotosDao photosDao = new PhotosDao();
 		return photosDao.listPhotos();
 	}
 	
-	public void addPhotos(Photos newPhotos){
-		photosDao.addPhotos(newPhotos);
+	public void addPhotos(int idPhoto, String photo, int idAlbum){
+		photosDao.addPhotos(idPhoto,photo,idAlbum);
 	}
 	
 	public void deletePhotos(Integer idPhotos){

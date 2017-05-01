@@ -24,8 +24,8 @@ private EvenementsDao evenementsDao = new EvenementsDao();
 		return evenementsDao.listEvenements();
 	}
 	
-	public void addEvenements(Evenements newEvenements){
-		evenementsDao.addEvenements(newEvenements);
+	public void addEvenements(int idEvent, String dateEvent, String event){
+		evenementsDao.addEvenements(idEvent, dateEvent, event);
 	}
 	
 	public void deleteEvenements(Integer idEvent){

@@ -24,8 +24,12 @@ private UtilisateurDao utilisateurDao = new UtilisateurDao();
 		return utilisateurDao.listUtilisateur();
 	}
 	
-	public void addUtilisateur(Utilisateur newUtilisateur){
-		utilisateurDao.addUtilisateur(newUtilisateur);
+	public void addUtilisateur(String identifiant, String motDePasse, String nom, String prenom, String mail,
+			Integer nbMessagesForum, String dateInscription, Boolean participant, String photo, String classe,
+			Boolean admin){
+		utilisateurDao.addUtilisateur(identifiant, motDePasse, nom, prenom, mail,
+				nbMessagesForum, dateInscription, participant,photo,classe,
+				admin);
 	}
 	
 	public void deleteUtilisateur(String identifiant){

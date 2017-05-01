@@ -13,10 +13,8 @@ import com.google.gson.GsonBuilder;
 
 import hei.devweb.trophy.services.ActualitesService;
 
+@Path("/actualites")
 public class ActualitesWS {
-
-	@Path("/actualites")
-	public class ContactWS {
 		
 		final GsonBuilder builder = new GsonBuilder();
 		final Gson gson = builder.create();
@@ -39,7 +37,7 @@ public class ActualitesWS {
 		
 		@DELETE
 		@Path("")
-		public Response deleteContact(@FormParam("idActu") int idActu, @FormParam("titreActu") String titreActu, @FormParam("actu") String actu){
+		public Response deleteActulalites(@FormParam("idActu") int idActu, @FormParam("titreActu") String titreActu, @FormParam("actu") String actu){
 			ActualitesService actuService = ActualitesService.getInstance();
 			try {
 				 actuService.deleteActualites(idActu);
@@ -64,6 +62,6 @@ public class ActualitesWS {
 			return null;
 		}
 		
-	}
+	
 
 }

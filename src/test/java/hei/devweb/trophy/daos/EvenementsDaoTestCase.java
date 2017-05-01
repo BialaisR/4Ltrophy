@@ -9,8 +9,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
-import hei.devweb.trophy.pojos.Equipages;
 import hei.devweb.trophy.pojos.Evenements;
+import hei.devweb.trophy.pojos.Photos;
 
 
 public class EvenementsDaoTestCase {
@@ -41,20 +41,13 @@ public class EvenementsDaoTestCase {
 	
 	@Test
 	public void shouldAddEvenements() throws Exception {
-		Evenements eventstoAdd = new Evenements(5, "2017-04-08", "Ceci est un test");
 		//WHEN
-		eventsDao.addEvenements(eventstoAdd);
+		eventsDao.addEvenements(5, "2017-04-08", "Ceci est un test");
 		//THEN
-		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM evenements WHERE idEvent=5")) {
-			Assertions.assertThat(resultSet.next()).isTrue();
-			Assertions.assertThat(resultSet.getInt("idEvent")).isNotNull();
-			Assertions.assertThat(resultSet.getDate("dateEvent")).isEqualTo("2017-04-08");
-			Assertions.assertThat(resultSet.getString("identifParticipant1")).isEqualTo("Ceci est un test");
-			Assertions.assertThat(resultSet.next()).isFalse();
+		List<Evenements> event = eventsDao.listEvenements();
+		Assertions.assertThat(event).hasSize(3);
 			
-		}
+		
 	}
 	
 	@Test

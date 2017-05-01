@@ -31,7 +31,7 @@ public void shouldListMessage() throws Exception {
 	List<Message> message = messageDao.listMessage();
 	//THEN
 	Assertions.assertThat(message).hasSize(2);
-	Assertions.assertThat(message).extracting("idMessage","texteMessage","datePost").containsOnly(
+	Assertions.assertThat(message).extracting("idMessage","texteMessage","datePost","idSujet").containsOnly(
 			Assertions.tuple(1,"test1 message","2017-03-02",5),
 			Assertions.tuple(2,"test2 message","2017-01-07",6)
 			);
@@ -39,9 +39,8 @@ public void shouldListMessage() throws Exception {
 
 @Test
 public void shouldAddMessage() throws Exception {
-	Message MessagetoAdd = new Message(3, "new message","2017-01-01",21);
 	//WHEN
-	messageDao.addMessage(MessagetoAdd);
+	messageDao.addMessage(3, "new message","2017-01-01",21);
 	//THEN
 	try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			Statement statement = connection.createStatement();
