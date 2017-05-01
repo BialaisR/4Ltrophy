@@ -17,7 +17,7 @@ public class SujetDao {
 		
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM Sujet ORDER BY idSujet DESC")) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM sujet ORDER BY idSujet DESC")) {
 				while (resultSet.next()) {
 					Sujet.add(new Sujet(resultSet.getInt("idSujet"), resultSet.getString("identifiantCreateur"), resultSet.getString("nomSujet"), resultSet.getString("dateLastPost"),
 							resultSet.getInt("nbMessage"),resultSet.getString("identifiantLastPost")));

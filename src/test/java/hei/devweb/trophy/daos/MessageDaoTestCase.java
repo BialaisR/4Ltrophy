@@ -47,7 +47,7 @@ public void shouldAddMessage() throws Exception {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Message WHERE texteMessage='new message'")) {
 		Assertions.assertThat(resultSet.next()).isTrue();
 		Assertions.assertThat(resultSet.getInt("idMessage")).isNotNull();
-		Assertions.assertThat(resultSet.getString("textMessage")).isEqualTo("new message");
+		Assertions.assertThat(resultSet.getString("texteMessage")).isEqualTo("new message");
 		Assertions.assertThat(resultSet.getDate("datePost")).isEqualTo("2017-01-01");
 		Assertions.assertThat(resultSet.next()).isFalse();
 	}
