@@ -1,44 +1,35 @@
 package hei.devweb.trophy.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+
+import hei.devweb.trophy.services.ActualitesService;
 
 
-/**
- * Servlet implementation class AccueilServlet
- */
 @WebServlet("/accueil")
-public class AccueilServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-    public AccueilServlet() {
-        super();
-    }
+public class AccueilServlet extends AbstractGenericServlet{
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(request.getServletContext());
-		templateResolver.setPrefix("WEB-INF/");
-		templateResolver.setSuffix(".html");
-		templateResolver.setCharacterEncoding("UTF-8");
-		templateResolver.setTemplateMode(TemplateMode.HTML);
-			
-		TemplateEngine templateEngine = new TemplateEngine();
-		templateEngine.addDialect(new Java8TimeDialect());
-		templateEngine.setTemplateResolver(templateResolver);
+	private static final long serialVersionUID = -3101071491815001778L;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setCharacterEncoding("UTF-8");
+		TemplateEngine templateEngine = this.createTemplateEngine(req);
+		WebContext context = new WebContext(req, resp, getServletContext());
+		context.setVariable("actualites",ActualitesService.getInstance().listActualites());
 		
-		WebContext context = new WebContext(request,response,getServletContext());
+		templateEngine.process("accueil", context, resp.getWriter());
 		
-			
-		templateEngine.process("accueil",context,response.getWriter());
 	}
+	
+
+	
+
 }
