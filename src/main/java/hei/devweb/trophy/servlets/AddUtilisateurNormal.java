@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hei.devweb.trophy.pojos.Utilisateur;
 import hei.devweb.trophy.services.UtilisateurService;
 
 

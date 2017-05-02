@@ -43,9 +43,8 @@ public class SujetDaoTestCase {
 	
 	@Test
 	public void shouldAddSujet() throws Exception {
-		Sujet sujettoAdd = new Sujet(3, "Sujet3","Jacques","2017-02-18",8,"Momo");
 		//WHEN
-		sujetDao.addSujet(sujettoAdd);
+		sujetDao.addSujet(3, "Sujet3","Jacques","2017-02-18",8,"Momo");
 		//THEN
 		List<Sujet> sujets = sujetDao.listSujet();
 		Assertions.assertThat(sujets).hasSize(3);

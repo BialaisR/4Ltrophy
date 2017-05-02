@@ -24,8 +24,10 @@ public class SujetService {
 		return sujetDao.listSujet();
 	}
 	
-	public void addSujet(Sujet newSujet){
-		sujetDao.addSujet(newSujet);
+	public void addSujet(Integer idSujet, String nomSujet, String identifiantCreateur, String dateLastPost,
+			Integer nbMessage, String identifiantLastPost){
+		sujetDao.addSujet(idSujet, nomSujet, identifiantCreateur, dateLastPost,
+				nbMessage, identifiantLastPost);
 	}
 	
 	public void deleteSujet(Integer idSujet){

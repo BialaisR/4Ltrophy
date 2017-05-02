@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import hei.devweb.trophy.services.SujetService;
 
@@ -22,21 +19,14 @@ public class ForumServlet extends AbstractGenericServlet{
 	private static final long serialVersionUID = 7319632053290138313L;
 
 		@Override
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(request.getServletContext());
-			templateResolver.setPrefix("WEB-INF/");
-			templateResolver.setSuffix(".html");
-			templateResolver.setCharacterEncoding("UTF-8");
-			templateResolver.setTemplateMode(TemplateMode.HTML);
-				
-			TemplateEngine templateEngine = new TemplateEngine();
-			templateEngine.addDialect(new Java8TimeDialect());
-			templateEngine.setTemplateResolver(templateResolver);
+		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			resp.setCharacterEncoding("UTF-8");
+			TemplateEngine templateEngine = this.createTemplateEngine(req);
+			WebContext context = new WebContext(req, resp, getServletContext());
+			context.setVariable("sujet",SujetService.getInstance().listSujet());
 			
-			WebContext context = new WebContext(request,response,getServletContext());
+			templateEngine.process("forum", context, resp.getWriter());
 			
-				
-			templateEngine.process("forum",context,response.getWriter());
 		}
 		
 

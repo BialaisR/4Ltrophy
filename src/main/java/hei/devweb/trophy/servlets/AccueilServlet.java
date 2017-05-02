@@ -11,6 +11,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
 import hei.devweb.trophy.services.ActualitesService;
+import hei.devweb.trophy.services.EvenementsService;
 
 
 @WebServlet("/accueil")
@@ -24,10 +25,12 @@ public class AccueilServlet extends AbstractGenericServlet{
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
 		context.setVariable("actualites",ActualitesService.getInstance().listActualites());
+		context.setVariable("evenements",EvenementsService.getInstance().listEvenements());
 		
 		templateEngine.process("accueil", context, resp.getWriter());
 		
 	}
+	
 	
 
 	

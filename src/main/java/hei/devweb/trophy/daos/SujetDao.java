@@ -29,14 +29,15 @@ public class SujetDao {
 		}
 	
 	
-	public void addSujet(Sujet newSujet) {
+	public void addSujet(Integer idSujet, String nomSujet, String identifiantCreateur, String dateLastPost,
+			Integer nbMessage, String identifiantLastPost) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO Sujet(nomSujet, identifiantCreateur, dateLastPost,nbMessage,identifiantLastPost) VALUES (?,?,?,?,?)")) {
-			statement.setString(1, newSujet.getNomSujet());
-			statement.setString(2, newSujet.getIdentifiantCreateur());
-			statement.setString(3,newSujet.getDateLastPost());
-			statement.setInt(4,newSujet.getNbMessage());
-			statement.setString(5,newSujet.getIdentifiantLastPost());
+			statement.setString(1, nomSujet);
+			statement.setString(2, identifiantCreateur);
+			statement.setString(3, dateLastPost);
+			statement.setInt(4, nbMessage);
+			statement.setString(5, identifiantLastPost);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
