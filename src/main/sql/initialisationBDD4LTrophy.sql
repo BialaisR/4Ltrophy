@@ -27,7 +27,16 @@ CREATE TABLE `photos`
 	`photo`  VARCHAR(100),
     `idAlbum`  INT,
 	PRIMARY KEY (`idPhoto`));
-
+	
+	
+DROP TABLE IF EXISTS `contact`;
+CREATE TABLE `contact` 
+(
+	`prenomContact` VARCHAR(50) NOT NULL ,
+	`nomContact`  VARCHAR(50) NOT NULL,
+    `mailContact` VARCHAR(50) NOT NULL,
+    `messageContact`VARCHAR(500)NOT NULL,
+	PRIMARY KEY (`mailContact`));
 
 
 

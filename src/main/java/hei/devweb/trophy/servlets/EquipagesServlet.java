@@ -39,5 +39,10 @@ public class EquipagesServlet extends HttpServlet{
 		templateEngine.process("equipage",context,resp.getWriter());
 			
 		}
+	
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	}
+
 
 }

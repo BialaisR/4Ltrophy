@@ -56,25 +56,29 @@
 				<div>
 					<h1>Contactez-nous !</h1>
 				</div>
-				<form>
+				<form id="contact-form" action="contact/send/email" method="post">
+				
 					<div class="form-group">
 						<label for="prenom_contact">Prénom</label> <input type="text"
-							class="form-control" id="prenom_contact" placeholder="Prénom">
+							class="form-control" id="prenomContact" name="prenomContact" placeholder="Prénom">
 					</div>
+					
 					<div class="form-group">
 						<label for="nom_contact">Nom</label> <input type="text"
-							class="form-control" id="nom_contact" placeholder="Nom">
+							class="form-control" id="nomContact" name="nomContact" placeholder="Nom">
 					</div>
+					
 					<div class="form-group">
 						<label for="mail">Email</label> <input type="text"
-							class="form-control" id="mail" placeholder="Email">
+							class="form-control" id="mailContact" name="mailContact" placeholder="Email">
 					</div>
 
 					<div class="form-group">
 						<label for="message_contact">Message</label>
-						<textarea type="text" class="form-control" id="message_contact"
+						<textarea type="text" class="form-control" id="messageContact" name="messageContact"
 							rows="5" placeholder="Ecrivez ici votre message..."></textarea>
 					</div>
+					
 					<button type="submit" class="btn btn-default btn-envoyer">Envoyer</button>
 
 				</form>
