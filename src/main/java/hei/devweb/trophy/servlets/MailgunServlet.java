@@ -5,10 +5,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
-import com.sun.jersey.multipart.FormDataMultiPart;
-import com.sun.jersey.multipart.file.FileDataBodyPart;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.annotation.WebServlet;
@@ -36,14 +33,14 @@ public class MailgunServlet extends HttpServlet {
   public static ClientResponse SendSimpleMessage(String prenomContact, String nomContact, String mailContact, String messageContact) {
 	    Client client = Client.create();
 	    client.addFilter(new HTTPBasicAuthFilter(
-	        "api","key-3e089badc85b8db748f41462cbdcc380"));
+	        "api","key-e419616c0bd414810748f5fc59636a35"));
 	    WebResource webResource = client.resource(
-	        "https://api.mailgun.net/v3/sandbox982f2cedfbb147fd8563532d6b1ac54c.mailgun.org/messages");
+	        "https://api.mailgun.net/v3/sandboxaae99410e2e74bbc9d80aaceac26cc8c.mailgun.org/messages");
 	    MultivaluedMapImpl formData = new MultivaluedMapImpl();
-	    formData.add("from", "Contact via le Site Web <excited@sandbox982f2cedfbb147fd8563532d6b1ac54c.mailgun.org>");
-	    formData.add("to", "baptiste.beghin@hei.yncrea.fr");
-	    formData.add("subject", "Mail de "+prenomContact+"  "+nomContact);
-	    formData.add("text", "De "+prenomContact+" "+nomContact+"\nAdresse mail"+mailContact+"\n\nMessage :\n"+messageContact);
+	    formData.add("from", "4L TROPHY : Message d'un contact <postmaster@sandboxaae99410e2e74bbc9d80aaceac26cc8c.mailgun.org>");
+	    /*formData.add("to","baptiste.beghin@hei.yncrea.fr");*/
+	    formData.add("subject", "Envoyé par "+prenomContact+"  "+nomContact);
+	    formData.add("text", "De : "+prenomContact+" "+nomContact+"\nAdresse mail : "+mailContact+"\n\nMessage :\n"+messageContact);
 	    return webResource.type(MediaType.APPLICATION_FORM_URLENCODED).
 	        post(ClientResponse.class, formData);
 	}

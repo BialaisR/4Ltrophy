@@ -1,3 +1,3 @@
 function mailEnvoyé() {
-    alert("Mail Envoyé");
+    alert("Merci d'avoir pris le temps de nous contacter !");
 }
