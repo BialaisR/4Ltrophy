@@ -126,11 +126,12 @@ a.nom{
 .nom {
   font-family: "Capture it Normal",arial, sans-serif;
   color: #e01818;
-  font-size: 80px;
+  font-size: 95px;
+  
 }
 
 .nom:hover{
-  color: black;
+  color: white;
 }
 
 

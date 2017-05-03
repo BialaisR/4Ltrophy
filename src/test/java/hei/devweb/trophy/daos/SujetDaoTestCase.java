@@ -26,7 +26,6 @@ public class SujetDaoTestCase {
 	}
 	
 	
-	/* petit problème, mais les deux lignes se retrouvent bien dans mySQL
 	@Test
 	public void shouldListSujet() throws Exception {
 		//WHEN
@@ -39,7 +38,7 @@ public class SujetDaoTestCase {
 				
 				
 				);
-	}   */
+	}   
 	
 	@Test
 	public void shouldAddSujet() throws Exception {
