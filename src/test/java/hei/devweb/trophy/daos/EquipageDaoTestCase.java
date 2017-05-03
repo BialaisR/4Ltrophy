@@ -9,7 +9,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
-import hei.devweb.trophy.pojos.Actualites;
 import hei.devweb.trophy.pojos.Equipages;
 
 public class EquipageDaoTestCase {
@@ -41,7 +40,6 @@ public class EquipageDaoTestCase {
 	
 	@Test
 	public void shouldAddEquipages() throws Exception {
-		Equipages equipagestoAdd = new Equipages(222, "new Equipage","nom1" , "nom2", "description bro", "pas image");
 		//WHEN
 		equipagesDao.addEquipages(222, "new Equipage","nom1" , "nom2", "description bro", "pas image");
 		//THEN

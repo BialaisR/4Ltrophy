@@ -9,14 +9,13 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
 import java.io.IOException;
 
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
 @SuppressWarnings("serial")
 @WebServlet(name = "mailgun", value = "/contact/send/email")
-public class MailgunServlet extends HttpServlet {
+public class MailgunServlet extends AbstractGenericServlet {
 
 	
   @Override
@@ -38,7 +37,7 @@ public class MailgunServlet extends HttpServlet {
 	        "https://api.mailgun.net/v3/sandboxaae99410e2e74bbc9d80aaceac26cc8c.mailgun.org/messages");
 	    MultivaluedMapImpl formData = new MultivaluedMapImpl();
 	    formData.add("from", "4L TROPHY : Message d'un contact <postmaster@sandboxaae99410e2e74bbc9d80aaceac26cc8c.mailgun.org>");
-	    /*formData.add("to","baptiste.beghin@hei.yncrea.fr");*/
+	    formData.add("to","florian.van-hoecke@hei.yncrea.fr");
 	    formData.add("subject", "Envoyé par "+prenomContact+"  "+nomContact);
 	    formData.add("text", "De : "+prenomContact+" "+nomContact+"\nAdresse mail : "+mailContact+"\n\nMessage :\n"+messageContact);
 	    return webResource.type(MediaType.APPLICATION_FORM_URLENCODED).

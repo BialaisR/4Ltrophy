@@ -10,7 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import hei.devweb.trophy.pojos.Evenements;
-import hei.devweb.trophy.pojos.Photos;
 
 
 public class EvenementsDaoTestCase {
