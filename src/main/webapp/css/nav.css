@@ -13,6 +13,21 @@ body {
   border-top: 1px solid #eee;
 }
 
+
+.deconnexiondiv{
+	background-color :#337ab7;
+	border-radius: 5px;
+	padding : 5px;
+	padding-top : 1px;
+	position:absolute;
+   	top:40px;
+  	right:120px;
+}
+
+
+
+/* bootstrap */
+
 .nav-justified {
   background-color: white;
   border-radius: 5px;
