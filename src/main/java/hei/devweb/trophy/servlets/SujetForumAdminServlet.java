@@ -9,25 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-/**
- * Servlet implementation class GererComptesServlet
- */
-@WebServlet("/admin/gerercomptes")
-public class GererComptesServlet extends AbstractGenericServlet{
-	private static final long serialVersionUID = 1L;
-       
 
+@WebServlet("/admin/sujetforum")
+public class SujetForumAdminServlet extends AbstractGenericServlet{
+
+	private static final long serialVersionUID = -3101071491815001778L;
+
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		templateEngine.process("gerercomptes", context, resp.getWriter());
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		templateEngine.process("sujetforumAdmin", context, resp.getWriter());
+		
 	}
 
 }

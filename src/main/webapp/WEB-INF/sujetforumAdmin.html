@@ -7,15 +7,15 @@
 
 <title>Forum</title>
 
-<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script  src="../js/jquery-3.1.1.js" type="text/javascript"></script>
 
-<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
 
-<link href="css/nav.css" rel="stylesheet">
+<link href="../css/nav.css" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="css/sujetforum.css">
+<link href="../css/sujetforum.css" rel="stylesheet" type="text/css">
 
 
 
@@ -34,7 +34,11 @@
 				<nav>
 					<ul class="nav nav-justified">
 						<li><a href="accueil">Accueil</a></li>
-						<li><a href="equipage">Equipage</a></li>
+						<li class="dropdown"><a href="#" class="dropbtn">Equipages &darr;</a>
+							<div class="dropdown-content">
+								<a href="equipage">Equipages</a> 
+								<a href="gerercomptes">Gérer les comptes</a>
+							</div></li>
 						<li><a href="photos_videos">Photos-Vidéos</a></li>
 						<li><a class="active" href="forum">Forum</a></li>
 						<li><a href="contact">Contact</a></li>
@@ -52,7 +56,7 @@
 
 		<section id="sujet">
 			<p>
-				<a class="btn btn-primary" href="forumAdmin.html" role="button"><b>Retour
+				<a class="btn btn-primary" href="forum" role="button"><b>Retour
 						forum &raquo;</b></a>
 			</p>
 			<table class="table table-striped" id="forumtableau">

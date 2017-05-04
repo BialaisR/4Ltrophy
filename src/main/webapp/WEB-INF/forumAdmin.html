@@ -7,15 +7,15 @@
 
 <title>Forum admin</title>
 
-<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script src="../js/jquery-3.1.1.js" type="text/javascript"></script>
 
-<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
 
-<link href="css/nav.css" rel="stylesheet">
+<link href="../css/nav.css" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="css/forum.css">
+<link href="../css/forum.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -32,7 +32,11 @@
 				<nav>
 					<ul class="nav nav-justified">
 						<li><a href="accueil">Accueil</a></li>
-						<li><a href="equipage">Equipage</a></li>
+					<li class="dropdown"><a href="#" class="dropbtn">Equipages &darr;</a>
+							<div class="dropdown-content">
+								<a href="equipage">Equipages</a> 
+								<a href="gerercomptes">Gérer les comptes</a>
+							</div></li>
 						<li><a href="photos_videos">Photos-Vidéos</a></li>
 						<li><a class="active" href="forum">Forum</a></li>
 						<li><a href="contact">Contact</a></li>
@@ -50,7 +54,7 @@
 
 		<section class="row container" id="forumaccueil">
 			<p>
-				<a class="btn btn-primary" href="newdiscussion.html" role="button"><b>Créer
+				<a class="btn btn-primary" href="newdiscussion" role="button"><b>Créer
 						une nouvelle discussion &raquo;</b></a>
 			</p>
 
@@ -67,7 +71,7 @@
 
 					<tr>
 
-						<td><a href="sujetforumAdmin.html" class="lienforum"><b>Sujet
+						<td><a href="sujetforum" class="lienforum"><b>Sujet
 									1 à propos de blablabla</b> <br> Identifiant</a> <br>
 							<button class="btn btn-primary btn-xs btn btn-warning">modifier</button>
 							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button></td>
@@ -77,7 +81,7 @@
 					</tr>
 
 					<tr>
-						<td><a href="sujetforumAdmin.html" class="lienforum"><b>Sujet
+						<td><a href="sujetforum" class="lienforum"><b>Sujet
 									2 à propos de blablabla</b> <br> Identifiant</a> <br>
 							<button class="btn btn-primary btn-xs btn btn-warning">modifier</button>
 							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button></td>
@@ -87,7 +91,7 @@
 					</tr>
 
 					<tr>
-						<td><a href="sujetforumAdmin.html" class="lienforum"><b>Sujet
+						<td><a href="sujetforum" class="lienforum"><b>Sujet
 									3 à propos de blablabla</b> <br> Identifiant</a> <br>
 							<button class="btn btn-primary btn-xs btn btn-warning">modifier</button>
 							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button></td>
@@ -97,7 +101,7 @@
 					</tr>
 
 					<tr>
-						<td><a href="sujetforumAdmin.html" class="lienforum"><b>Sujet
+						<td><a href="sujetforum" class="lienforum"><b>Sujet
 									4 à propos de blablabla</b> <br> Identifiant</a> <br>
 							<button class="btn btn-primary btn-xs btn btn-warning">modifier</button>
 							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button></td>
