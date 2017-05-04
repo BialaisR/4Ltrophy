@@ -7,7 +7,6 @@ CREATE TABLE `message`
 	`idSujet`  INT,
 	PRIMARY KEY (`idMessage`));
 
-
 DROP TABLE IF EXISTS `sujet`;
 CREATE TABLE `sujet` 
 (
