@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/connexion")
-public class ConnexionServlet extends HttpServlet {
+public class ConnexionServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String,String> adminAutorise;
 	
