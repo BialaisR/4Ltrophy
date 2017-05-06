@@ -27,7 +27,7 @@ public class SendEquipageServlet extends AbstractGenericServlet{
 		// Ne fonctionne pas
 		EquipagesService.getInstance().addEquipages(null, nomEquipage,identifParticipant1,identifParticipant2,descriptionEquipage,photoEquipage);
 		
-		// resp.sendRedirect("../equipage");
+		 resp.sendRedirect("../equipage");
 		
 	}
 	

@@ -21,7 +21,7 @@ public class SendActuServlet extends AbstractGenericServlet{
 		String actu = req.getParameter("actu");
 		
 		// Ne fonctionne pas
-		// ActualitesService.getInstance().addActualites(null, titreActu, actu);
+		ActualitesService.getInstance().addActualites(null, titreActu, actu);
 		
 		resp.sendRedirect("../accueil");
 		

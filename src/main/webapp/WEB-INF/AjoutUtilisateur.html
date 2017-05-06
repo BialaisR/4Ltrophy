@@ -60,44 +60,45 @@
 			<div class="col-md-6" id="signup">
 				<h1>Ajouter un membre</h1>
 				
-				<form name ="formUtilisateur" class="inscrform">
+				<form name ="formUtilisateur" class="inscrform" action="send/user" method="post" >
 					<div class="form-group">
-						<label for="InputNom">Nom</label> <input type="text"
-							class="form-control" id="InputNom" placeholder="Nom" name ="nom">
+						<label for="nom">Nom</label> <input type="text"
+							class="form-control" id="nom" placeholder="Nom" name ="nom">
 					</div>
 
 					<div class="form-group">
-						<label for="InputPrenom">Prénom</label> <input type="text"
-							class="form-control" id="InputPrenom" placeholder="Prénom" name="prenom">
+						<label for="prenom">Prénom</label> <input type="text"
+							class="form-control" id="prenom" placeholder="Prénom" name="prenom">
 					</div>
 
 					<div class="form-group">
-						<label for="InputEmail">Email</label> <input type="text"
-							class="form-control" id="InputEmail" placeholder="Email" name="mail">
+						<label for="mail">Email</label> <input type="text"
+							class="form-control" id="mail" placeholder="Email" name="mail">
 					</div>
 					
 					<div class="form-group">
 						<label for="classe">Classe</label> <input type="text"
-						class="form-control" id="classe" placeholder="Classe">
+						class="form-control" id="classe" placeholder="Classe" name="classe">
 					</div>
 				
 					<div id="file_1">
 						<h5>Ajoutez une photo de profil</h5>
-						<input type="file" name="my_file[]">
+						<input type="file" name="photo" id="photo">
 					</div>
+					
+							<section class="container valdform">
+			<div id="valdiv">
+				<input type="submit" class="btn btn-default btnvalider"
+					id="valinscr"></input>
+			</div>
+		
+		</section>
 				
 					
 				</form>
 				
 			</div>
 
-		</section>
-		<section class="container valdform">
-			<div id="valdiv">
-				<input type="submit" class="btn btn-default btnvalider"
-					id="valinscr"></input>
-			</div>
-		
 		</section>
 
 		<footer class="footer">
