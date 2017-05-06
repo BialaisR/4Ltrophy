@@ -30,9 +30,9 @@ public class UtilisateurDaoTestCase {
 		List<Utilisateur> utilisateur = utilisateurDao.listUtilisateur();
 		//THEN
 		Assertions.assertThat(utilisateur).hasSize(2);
-		Assertions.assertThat(utilisateur).extracting("identifiant", "nom", "prenom", "mail", "photo", "classe").containsOnly(
+		Assertions.assertThat(utilisateur).extracting("idUser", "nom", "prenom", "mail", "photo", "classe").containsOnly(
 				Assertions.tuple(1,"Surmont","Maxime","maxime.surmont@hei.yncrea.fr","photo 1","H44"),
-				Assertions.tuple(2,"Barda","Nicolas","nicolas.barda@hei.yncrea.fr","photo 8","H44",false)
+				Assertions.tuple(2,"Barda","Nicolas","nicolas.barda@hei.yncrea.fr","photo 8","H44")
 				);
 	}
 	
