@@ -24,17 +24,15 @@ private UtilisateurDao utilisateurDao = new UtilisateurDao();
 		return utilisateurDao.listUtilisateur();
 	}
 	
-	public void addUtilisateur(String identifiant, String motDePasse, String nom, String prenom, String mail,
-			Integer nbMessagesForum, String dateInscription, Boolean participant, String photo, String classe,
-			Boolean admin){
-		utilisateurDao.addUtilisateur(identifiant, motDePasse, nom, prenom, mail,
-				nbMessagesForum, dateInscription, participant,photo,classe,
-				admin);
+	public void addUtilisateur(Integer idUser, String nom, String prenom, String mail,
+			String photo, String classe){
+		utilisateurDao.addUtilisateur(idUser,nom, prenom, mail,
+				photo,classe);
 	}
 	
-	public void deleteUtilisateur(String identifiant){
+	public void deleteUtilisateur(Integer idUser){
 		try {
-			utilisateurDao.deleteUtilisateur(identifiant);
+			utilisateurDao.deleteUtilisateur(idUser);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

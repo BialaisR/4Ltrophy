@@ -19,9 +19,8 @@ public class UtilisateurDao {
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM Utilisateur ORDER BY nom")) {
 				while (resultSet.next()) {
-					Utilisateur.add(new Utilisateur(resultSet.getString("identifiant"), resultSet.getString("motDePasse"), resultSet.getString("nom"),
-							resultSet.getString("prenom"),resultSet.getString("mail"),resultSet.getInt("nbMessagesForum"), resultSet.getString("dateInscription"),
-							resultSet.getBoolean("participant"),resultSet.getString("photo"),resultSet.getString("classe"),resultSet.getBoolean("admin")));
+					Utilisateur.add(new Utilisateur(resultSet.getInt("idUser"), resultSet.getString("nom"),
+							resultSet.getString("prenom"),resultSet.getString("mail"),resultSet.getString("photo"),resultSet.getString("classe")));
 				}
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -30,32 +29,25 @@ public class UtilisateurDao {
 		}
 	
 	
-	public void addUtilisateur(String identifiant, String motDePasse, String nom, String prenom, String mail,
-			Integer nbMessagesForum, String dateInscription, Boolean participant, String photo, String classe,
-			Boolean admin) {
+	public void addUtilisateur(Integer idUser, String nom, String prenom, String mail,
+			 String photo, String classe) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO Utilisateur(identifiant, motDePasse, nom, prenom, mail, nbMessagesForum, dateInscription, participant, photo, classe, admin) VALUES (?,?,?,?,?,?,?,?,?,?,?)")) {
-			statement.setString(1, identifiant); 
-			statement.setString(2,motDePasse);
-			statement.setString(3,nom);
-			statement.setString(4,prenom);
-			statement.setString(5,mail);
-			statement.setInt(6,nbMessagesForum);
-			statement.setString(7,dateInscription);
-			statement.setBoolean(8,participant);
-			statement.setString(9,photo);
-			statement.setString(10,classe);
-			statement.setBoolean(11,admin);
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO Utilisateur(idUser, nom, prenom, mail, photo, classe) VALUES (?,?,?,?,?)")) {
+			statement.setString(1,nom);
+			statement.setString(2,prenom);
+			statement.setString(3,mail);
+			statement.setString(4,photo);
+			statement.setString(5,classe);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void deleteUtilisateur(String identifiant){
+	public void deleteUtilisateur(Integer idUser){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
-			PreparedStatement statement = connection.prepareStatement("DELETE FROM utilisateur WHERE identifiant=?")){
-			statement.setString(1, identifiant);  
+			PreparedStatement statement = connection.prepareStatement("DELETE FROM utilisateur WHERE idUser=?")){
+			statement.setInt(1, idUser);  
 			statement.executeUpdate();	
 		}catch (SQLException e) {
 			e.printStackTrace();

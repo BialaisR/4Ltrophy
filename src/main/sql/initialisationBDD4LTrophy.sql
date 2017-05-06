@@ -74,18 +74,13 @@ CREATE TABLE `evenements`
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `utilisateur` 
 (
-	`identifiant`  VARCHAR(50) NOT NULL,
-	`motDePasse`  VARCHAR(50) NOT NULL,
+	`idUser`  INT NOT NULL AUTO_INCREMENT,
 	`nom`  VARCHAR(50) NOT NULL,
 	`prenom`  VARCHAR(50) NOT NULL,
     `mail`  VARCHAR(50) NOT NULL,
-    `nbMessagesForum`  INT,
-    `dateInscription`  VARCHAR(10) NOT NULL,
-    `participant`  BOOLEAN,
     `photo`  varchar(100),
     `classe`  VARCHAR(10),
-    `admin`  BOOLEAN,
-	PRIMARY KEY (`identifiant`));
+	PRIMARY KEY (`idUser`));
 
 
 DROP TABLE IF EXISTS `equipages`;

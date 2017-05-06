@@ -2,59 +2,35 @@ package hei.devweb.trophy.pojos;
 
 public class Utilisateur {
 
-	private String identifiant;
-	private String motDePasse;
+	private Integer idUser;
 	private String nom;
 	private String prenom;
 	private String mail;
-	private Integer nbMessagesForum;
-	private String dateInscription;
-	private Boolean participant;
 	private String photo;
 	private String classe;
-	private Boolean admin;
 
-	public Utilisateur(String identifiant, String motDePasse, String nom, String prenom, String mail,
-			Integer nbMessagesForum, String dateInscription, Boolean participant, String photo, String classe,
-			Boolean admin) {
+	public Utilisateur(int idUser, String nom, String prenom, String mail,
+		 String photo, String classe) {
 		super();
-		this.identifiant = identifiant;
-		this.motDePasse = motDePasse;
+		this.idUser = idUser;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
-		this.nbMessagesForum = nbMessagesForum;
-		this.dateInscription = dateInscription;
-		this.participant = participant;
+
 		this.classe=classe;
 		this.photo = photo;
-		this.admin = admin;
-
 	}
 
-	public String getClasse() {
-		return classe;
+
+	public Integer getIdUser() {
+		return idUser;
 	}
 
-	public void setClasse(String classe) {
-		this.classe = classe;
+
+	public void setIdUser(Integer idUser) {
+		this.idUser = idUser;
 	}
 
-	public String getIdentifiant() {
-		return identifiant;
-	}
-
-	public void setIdentifiant(String identifiant) {
-		this.identifiant = identifiant;
-	}
-
-	public String getMotDePasse() {
-		return motDePasse;
-	}
-
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
-	}
 
 	public String getNom() {
 		return nom;
@@ -80,30 +56,6 @@ public class Utilisateur {
 		this.mail = mail;
 	}
 
-	public Integer getNbMessagesForum() {
-		return nbMessagesForum;
-	}
-
-	public void setNbMessagesForum(Integer nbMessagesForum) {
-		this.nbMessagesForum = nbMessagesForum;
-	}
-
-	public String getDateInscription() {
-		return dateInscription;
-	}
-
-	public void setDateInscription(String dateInscription) {
-		this.dateInscription = dateInscription;
-	}
-
-	public Boolean getParticipant() {
-		return participant;
-	}
-
-	public void setParticipant(Boolean participant) {
-		this.participant = participant;
-	}
-
 	public String getPhoto() {
 		return photo;
 	}
@@ -112,12 +64,14 @@ public class Utilisateur {
 		this.photo = photo;
 	}
 
-	public Boolean getAdmin() {
-		return admin;
+	public String getClasse() {
+		return classe;
 	}
 
-	public void setAdmin(Boolean admin) {
-		this.admin = admin;
+	public void setClasse(String classe) {
+		this.classe = classe;
 	}
+
+	
 
 }
