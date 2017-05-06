@@ -32,13 +32,12 @@ public class EquipagesDao {
 	public void addEquipages(Integer numeroEquipage, String nomEquipage, String identifParticipant1, String identifParticipant2, String descriptionEquipage, String photoEquipage) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement(
-						"INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (?,?,?,?,?,?)")) {
-			statement.setInt(1, numeroEquipage);
-			statement.setString(2, nomEquipage);
-			statement.setString(3, identifParticipant1);
-			statement.setString(4, identifParticipant2);
-			statement.setString(5, descriptionEquipage);
-			statement.setString(6, photoEquipage);
+						"INSERT INTO equipages(nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (?,?,?,?,?)")) {
+			statement.setString(1, nomEquipage);
+			statement.setString(2, identifParticipant1);
+			statement.setString(3, identifParticipant2);
+			statement.setString(4, descriptionEquipage);
+			statement.setString(5, photoEquipage);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
