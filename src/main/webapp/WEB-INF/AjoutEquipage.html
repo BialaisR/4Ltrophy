@@ -33,13 +33,13 @@
 				</h1>
 				<nav>
 					<ul class="nav nav-justified">
-						<li><a  class="active" href="accueil">Accueil</a></li>
+						<li><a href="accueil">Accueil</a></li>
 						<li class="dropdown"><a href="#" class="dropbtn">Equipages &darr;</a>
 							<div class="dropdown-content">
 								<a href="equipage">Equipages</a> 
 								<a href="gerercomptes">Gérer les comptes</a>
-								<a href="AjoutEquipage">Ajouter un équipage</a>
-								<a href="AjoutMembre">Ajouter un utilisateur</a>
+								<a class="active" href="AjoutEquipage">Ajouter un équipage</a>
+								<a href="AjoutMembre">Ajouter un membre</a>
 							</div></li>
 						<li><a href="photos_videos">Photos-Vidéos</a></li>
 						<li><a href="forum">Forum</a></li>
@@ -58,28 +58,29 @@
 		<section class="container globalform">
 		
 			<div class="col-md-6">
-				<h1>Ajouter un Equipage</h1>
-				<form name ="formEquipage" class="inscrform" action="addEquipage" method="post">
+				<h1>Ajouter un équipage</h1>
+				
+				<form name ="formEquipage" class="inscrform" action="send/equipage" method="post">
 
 				<div class="form-group">
 					<label for="NomEquipage">Nom d'équipage</label> <input type="text"
-						class="form-control" id="NomEquipage" placeholder="Nom d'équipage">
+						class="form-control" id="NomEquipage" name="NomEquipage" placeholder="Nom d'équipage">
 				</div>
 				
 				<div class="form-group">
 					<label for="participant1">Participant n°1</label> <input type="text"
-						class="form-control" id="participant1" placeholder="Nom d'équipage">
+						class="form-control" id="participant1" name="participant1" placeholder="Nom d'équipage">
 				</div>
 				
 				<div class="form-group">
 					<label for="participant1">Participant n°2</label> <input type="text"
-						class="form-control" id="participant1" placeholder="Nom d'équipage">
+						class="form-control" id="participant1" name="participant1" placeholder="Nom d'équipage">
 				</div>
 
 
 				<div class="form-group">
 					<label for="description">Description de l'équipage</label>
-					<textarea type="text" class="form-control" id="description"
+					<textarea type="text" class="form-control" id="description" name="description"
 						rows="5" placeholder="Décrivez votre équipage en quelque mots..."></textarea>
 				</div>
 
@@ -88,17 +89,19 @@
 					<input type="file" name="my_file[]">
 				</div>
 				
-				</form>
-
-			</div>
-
-		</section>
-		<section class="container valdform">
+				<section class="container valdform">
 			<div id="valdiv">
 				<input type="submit" class="btn btn-default btnvalider"
 					id="valinscr"></input>
 			</div>
 		</section>
+				
+				</form>
+
+			</div>
+
+		</section>
+		
 
 		<footer class="footer">
 			<p>&copy; Mentions légales</p>

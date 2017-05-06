@@ -32,7 +32,7 @@ public class UtilisateurDao {
 	public void addUtilisateur(Integer idUser, String nom, String prenom, String mail,
 			 String photo, String classe) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO Utilisateur(idUser, nom, prenom, mail, photo, classe) VALUES (?,?,?,?,?)")) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO Utilisateur(nom, prenom, mail, photo, classe) VALUES (?,?,?,?,?)")) {
 			statement.setString(1,nom);
 			statement.setString(2,prenom);
 			statement.setString(3,mail);
