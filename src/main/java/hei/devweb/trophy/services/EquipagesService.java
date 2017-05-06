@@ -23,7 +23,7 @@ private EquipagesDao equipagesDao = new EquipagesDao();
 		return equipagesDao.listEquipages();
 	}
 	
-	public void addEquipages(int numeroEquipage, String nomEquipage, String identifParticipant1, String identifParticipant2, String descriptionEquipage, String photoEquipage){
+	public void addEquipages(Integer numeroEquipage, String nomEquipage, String identifParticipant1, String identifParticipant2, String descriptionEquipage, String photoEquipage){
 		equipagesDao.addEquipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage);
 	}
 	

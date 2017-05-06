@@ -9,23 +9,29 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.devweb.trophy.pojos.Actualites;
+import hei.devweb.trophy.services.ActualitesService;
 
-@WebServlet("/admin/ajoutActu")
-public class AjoutActuServlet extends AbstractGenericServlet{
-	
+
+
+@WebServlet("/send/actu")
+public class SendActuServlet extends AbstractGenericServlet{
+
 	private static final long serialVersionUID = -3101071491815001778L;
-       
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String titreActu = req.getParameter("titreActu");
+		String actu = req.getParameter("actu");
+		
+		ActualitesService.getInstance().addActualites(null, titreActu, actu);
+		
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		templateEngine.process("ajoutActu", context, resp.getWriter());
+		
+		templateEngine.process("accueil", context, resp.getWriter());
+		
 	}
-
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

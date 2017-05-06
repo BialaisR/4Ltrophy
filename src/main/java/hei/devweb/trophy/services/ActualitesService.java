@@ -24,7 +24,7 @@ private ActualitesDao actualitesDao = new ActualitesDao();
 		return actualitesDao.listActualites();
 	}
 	
-	public void addActualites(int idActu, String titreActu, String actu){
+	public void addActualites(Integer idActu, String titreActu, String actu){
 		actualitesDao.addActualites(idActu,titreActu,actu);
 	}
 	
