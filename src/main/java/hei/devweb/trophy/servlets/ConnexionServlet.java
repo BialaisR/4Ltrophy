@@ -40,7 +40,6 @@ public class ConnexionServlet extends AbstractGenericServlet {
 		}
 	
 	}
-	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String identifiantSaisi = request.getParameter("email");
