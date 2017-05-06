@@ -36,7 +36,6 @@ public class ConnexionServlet extends AbstractGenericServlet {
 			
 		} else {
 			response.sendRedirect("admin/accueil");
-			//mettre admin/accueil dès que le mapping des classes admin aura été fait
 		}
 	
 	}

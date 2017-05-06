@@ -23,12 +23,4 @@ public class AjoutEvenementServlet extends AbstractGenericServlet {
 		templateEngine.process("ajoutevenement", context, resp.getWriter());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

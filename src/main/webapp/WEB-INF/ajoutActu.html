@@ -58,13 +58,13 @@
 				<a class="btn btn-primary" href="accueil" role="button"><b>Retour
 						accueil &raquo;</b></a>
 			</p>
-			<form action="/send/actu" method="post">
+			<form action="send/actu" method="post">
 				<div class="form-group">
 					<label for="nom_actu">Titre de la nouvelle actualité</label> <input
-						type="text" class="form-control" id="text" placeholder="Titre">
+						type="text" class="form-control" id="titreActu" name="titreActu" placeholder="Titre">
 				</div>
 				<div class="form-group">
-					<textarea type="text" class="form-control" id="actu" rows="7"
+					<textarea type="text" class="form-control" id="actu" name="actu" rows="7"
 						placeholder="Actualité..."></textarea>
 				</div>
 				<button type="submit" class="btn btn-success">
