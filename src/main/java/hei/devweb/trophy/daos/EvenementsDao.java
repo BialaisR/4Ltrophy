@@ -28,7 +28,7 @@ public class EvenementsDao {
 		}
 	
 	
-	public void addEvenements(int idEvent, String dateEvent, String event) {
+	public void addEvenements(Integer idEvent, String dateEvent, String event) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO evenements(dateEvent, event) VALUES (?,?)")) {
 			statement.setString(1,dateEvent);

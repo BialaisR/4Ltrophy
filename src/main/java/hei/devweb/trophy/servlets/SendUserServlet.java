@@ -23,8 +23,6 @@ public class SendUserServlet extends AbstractGenericServlet{
 		String photo = req.getParameter("photo");
 		String classe = req.getParameter("classe");
 		
-		
-		// Ne fonctionne pas
 		UtilisateurService.getInstance().addUtilisateur(null, nom, prenom, mail, photo, classe);
 		
 		 resp.sendRedirect("../equipage");

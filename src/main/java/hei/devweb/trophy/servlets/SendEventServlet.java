@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hei.devweb.trophy.services.ActualitesService;
 import hei.devweb.trophy.services.EvenementsService;
 
 
@@ -22,8 +21,7 @@ public class SendEventServlet extends AbstractGenericServlet{
 		String dateEvent = req.getParameter("dateEvent");
 		String event = req.getParameter("event");
 		
-		// ne fonctionne pas
-		// EvenementsService.getInstance().addEvenements(null,dateEvent,event);
+		 EvenementsService.getInstance().addEvenements(null,dateEvent,event);
 		
 		resp.sendRedirect("../accueil");
 		
