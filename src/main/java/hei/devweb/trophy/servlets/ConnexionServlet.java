@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+// attention erreur : n'importe qui peux se connecter
 
 @WebServlet("/connexion")
 public class ConnexionServlet extends AbstractGenericServlet {
