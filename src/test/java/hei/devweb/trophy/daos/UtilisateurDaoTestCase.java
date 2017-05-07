@@ -30,9 +30,10 @@ public class UtilisateurDaoTestCase {
 		List<Utilisateur> utilisateur = utilisateurDao.listUtilisateur();
 		//THEN
 		Assertions.assertThat(utilisateur).hasSize(2);
-		Assertions.assertThat(utilisateur).extracting("idUser", "nom", "prenom", "mail", "photo", "classe").containsOnly(
-				Assertions.tuple(1,"Surmont","Maxime","maxime.surmont@hei.yncrea.fr","photo 1","H44","SurmontMaximeH44"),
-				Assertions.tuple(2,"Barda","Nicolas","nicolas.barda@hei.yncrea.fr","photo 8","H44","BardaNicolasH44")
+		Assertions.assertThat(utilisateur).extracting("idUser", "nom", "prenom", "mail", "photo", "classe","identif").containsOnly(
+				Assertions.tuple(2,"Barda","Nicolas","nicolas.barda@hei.yncrea.fr","photo 8","H44","BardaNicolasH44"),
+				Assertions.tuple(1,"Surmont","Maxime","maxime.surmont@hei.yncrea.fr","photo 1","H44","SurmontMaximeH44")
+				
 				);
 	}
 	
@@ -42,7 +43,7 @@ public class UtilisateurDaoTestCase {
 	public void shouldAddUtilisateur() throws Exception {
 		
 		//WHEN
-				utilisateurDao.addUtilisateur(3,"Donque","Julien","julien.donque@hei.yncrea.fr","photo 8","H44","DonqueJulien");
+				utilisateurDao.addUtilisateur(3,"Donque","Julien","julien.donque@hei.yncrea.fr","photo 8","H44");
 				//THEN
 				List<Utilisateur> utilisateurs = utilisateurDao.listUtilisateur();
 				Assertions.assertThat(utilisateurs).hasSize(3);

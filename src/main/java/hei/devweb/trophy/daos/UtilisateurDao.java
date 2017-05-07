@@ -30,7 +30,7 @@ public class UtilisateurDao {
 	
 	
 	public void addUtilisateur(Integer idUser, String nom, String prenom, String mail,
-			 String photo, String classe, String identif) {
+			 String photo, String classe) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO Utilisateur(nom, prenom, mail, photo, classe, identif) VALUES (?,?,?,?,?,?)")) {
 			statement.setString(1,nom);
@@ -38,7 +38,7 @@ public class UtilisateurDao {
 			statement.setString(3,mail);
 			statement.setString(4,photo);
 			statement.setString(5,classe);
-			statement.setString(6,identif);
+			statement.setString(6,nom+prenom+classe);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
