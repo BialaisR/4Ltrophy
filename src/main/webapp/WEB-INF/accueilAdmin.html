@@ -61,6 +61,7 @@
 					<h1>Evénements</h1>
 						<article th:each="evenements : ${evenements}">
 							<p th:text="${evenements.event}"> - [[${evenements.dateEvent}]]</p>
+							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button>
 						</article>
 					<p>
 						<a class="btn btn-success btn-xs" href="ajoutevenement"
@@ -83,6 +84,7 @@
 					<!-- Div d'une actualité  -->
 					<h2 th:text="${actualites.titreActu}"></h2>
 					<p th:text="${actualites.actu}"></p>
+					<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button>
 				</article>
 					<a class="btn btn-success btn-xs" href="ajoutActu"
 						role="button">+ Ajouter une actualité</a>

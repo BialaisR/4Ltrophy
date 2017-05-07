@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/connexion")
 public class ConnexionServlet extends AbstractGenericServlet {
+	
 	private static final long serialVersionUID = 1L;
 	private Map<String,String> adminAutorise;
 	
@@ -30,7 +31,9 @@ public class ConnexionServlet extends AbstractGenericServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String idadminConnecte = (String) request.getSession().getAttribute("adminConnecte");
+		
 		if (idadminConnecte == null || "".equals(idadminConnecte)) {
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/connexion.html");
 			view.forward(request, response);
@@ -44,11 +47,12 @@ public class ConnexionServlet extends AbstractGenericServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String identifiantSaisi = request.getParameter("email");
 		String motDePasseSaisi = request.getParameter("key");
-			if(adminAutorise.containsKey(identifiantSaisi) && motDePasseSaisi=="mdp");
+			if(identifiantSaisi=="admin@hei.fr" && motDePasseSaisi=="mdp");
 			{
 				request.getSession().setAttribute("adminConnecte",identifiantSaisi);
 			}
+			
 			response.sendRedirect("connexion");
 	
-}
+	}
 }
