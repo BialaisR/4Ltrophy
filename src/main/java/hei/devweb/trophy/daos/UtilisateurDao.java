@@ -20,7 +20,7 @@ public class UtilisateurDao {
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM Utilisateur ORDER BY nom")) {
 				while (resultSet.next()) {
 					Utilisateur.add(new Utilisateur(resultSet.getInt("idUser"), resultSet.getString("nom"),
-							resultSet.getString("prenom"),resultSet.getString("mail"),resultSet.getString("photo"),resultSet.getString("classe")));
+							resultSet.getString("prenom"),resultSet.getString("mail"),resultSet.getString("photo"),resultSet.getString("classe"),resultSet.getString("identif")));
 				}
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -30,14 +30,15 @@ public class UtilisateurDao {
 	
 	
 	public void addUtilisateur(Integer idUser, String nom, String prenom, String mail,
-			 String photo, String classe) {
+			 String photo, String classe, String identif) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO Utilisateur(nom, prenom, mail, photo, classe) VALUES (?,?,?,?,?)")) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO Utilisateur(nom, prenom, mail, photo, classe, identif) VALUES (?,?,?,?,?,?)")) {
 			statement.setString(1,nom);
 			statement.setString(2,prenom);
 			statement.setString(3,mail);
 			statement.setString(4,photo);
 			statement.setString(5,classe);
+			statement.setString(6,identif);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

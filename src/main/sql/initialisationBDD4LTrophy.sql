@@ -66,11 +66,6 @@ CREATE TABLE `evenements`
 
 
 
-
-
-
-
-
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `utilisateur` 
 (
@@ -80,6 +75,7 @@ CREATE TABLE `utilisateur`
     `mail`  VARCHAR(50) NOT NULL,
     `photo`  varchar(100),
     `classe`  VARCHAR(10),
+    `identif` VARCHAR(100),
 	PRIMARY KEY (`idUser`));
 
 
@@ -90,6 +86,6 @@ CREATE TABLE `equipages`
 	`nomEquipage`  VARCHAR(50) NOT NULL,
 	`identifParticipant1`  VARCHAR(50) NOT NULL,
     `identifParticipant2`  VARCHAR(50),
-	`descriptionEquipage`  VARCHAR(255) ,
+	`descriptionEquipage`  VARCHAR(255),
 	`photoEquipage`  varchar(100),
 	PRIMARY KEY (`numeroEquipage`));

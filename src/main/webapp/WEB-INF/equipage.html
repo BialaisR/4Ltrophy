@@ -47,7 +47,7 @@
 			</div>
 		</header>
 
-		<div id="divequip" class="row container" th:each="${equipages}">
+		<div id="divequip" class="row container" th:each="equipages:${equipages}">
 			<div class="col-sm-4">
 				<div>
 					<img src="http://placehold.it/280x280" alt="photoequipage">
@@ -67,9 +67,9 @@
 				<p>
 					<b>Prénom</b>
 				</p>
-				<!--  <p>
+				<p>
 					<b>Nom</b>
-				</p>   -->
+				</p> 
 				<p>E-mail</p>
 				<p>Classe</p>
 			</div>

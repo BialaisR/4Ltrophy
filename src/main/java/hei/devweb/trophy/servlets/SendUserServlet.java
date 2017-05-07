@@ -22,8 +22,9 @@ public class SendUserServlet extends AbstractGenericServlet{
 		String mail = req.getParameter("mail");
 		String photo = req.getParameter("photo");
 		String classe = req.getParameter("classe");
+		String identif = req.getParameter("identif");
 		
-		UtilisateurService.getInstance().addUtilisateur(null, nom, prenom, mail, photo, classe);
+		UtilisateurService.getInstance().addUtilisateur(null, nom, prenom, mail, photo, classe, identif);
 		
 		 resp.sendRedirect("../equipage");
 		

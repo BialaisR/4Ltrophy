@@ -46,3 +46,4 @@ Network Trash Folder
 Temporary Items
 .apdisk
 src/main/java/hei/devweb/trophy/daos/MessageDao.java
+/target/

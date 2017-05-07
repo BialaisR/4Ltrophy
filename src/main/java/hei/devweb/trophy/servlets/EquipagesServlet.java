@@ -22,7 +22,7 @@ public class EquipagesServlet extends AbstractGenericServlet{
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		context.setVariable("equipage",EquipagesService.getInstance().listEquipages());
+		context.setVariable("equipages",EquipagesService.getInstance().listEquipages());
 		
 		templateEngine.process("equipage", context, resp.getWriter());
 		

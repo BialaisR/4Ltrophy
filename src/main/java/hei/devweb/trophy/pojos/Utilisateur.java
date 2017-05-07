@@ -8,18 +8,20 @@ public class Utilisateur {
 	private String mail;
 	private String photo;
 	private String classe;
+	private String identif;
 
 	public Utilisateur(int idUser, String nom, String prenom, String mail,
-		 String photo, String classe ){
+		 String photo, String classe, String identif) {
 		super();
 		this.idUser = idUser;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
+
 		this.classe=classe;
 		this.photo = photo;
+		this.identif=identif;
 	}
-
 
 
 	public Integer getIdUser() {

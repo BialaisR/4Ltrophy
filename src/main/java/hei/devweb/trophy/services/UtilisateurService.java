@@ -25,9 +25,9 @@ private UtilisateurDao utilisateurDao = new UtilisateurDao();
 	}
 	
 	public void addUtilisateur(Integer idUser, String nom, String prenom, String mail,
-			String photo, String classe){
+			String photo, String classe, String identif){
 		utilisateurDao.addUtilisateur(idUser,nom, prenom, mail,
-				photo,classe);
+				photo,classe,identif);
 	}
 	
 	public void deleteUtilisateur(Integer idUser){
