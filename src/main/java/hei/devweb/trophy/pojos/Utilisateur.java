@@ -10,16 +10,16 @@ public class Utilisateur {
 	private String classe;
 
 	public Utilisateur(int idUser, String nom, String prenom, String mail,
-		 String photo, String classe) {
+		 String photo, String classe ){
 		super();
 		this.idUser = idUser;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
-
 		this.classe=classe;
 		this.photo = photo;
 	}
+
 
 
 	public Integer getIdUser() {

@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ConnexionServlet extends AbstractGenericServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private Map<String,String> adminAutorise;
+	private Map<String,String> adminAutorise;	
 	
 	@Override
 	public void init() throws ServletException {
