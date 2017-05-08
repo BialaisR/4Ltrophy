@@ -21,8 +21,8 @@ public class EquipageDaoTestCase {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement()){
 			statement.executeUpdate("DELETE FROM equipages");
-			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (123, 'Equipages 1', 'jean', 'eude', 'coucou c nous', 'img')");
-			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (456, 'Equipages 2', 'jean2', 'makoun', 'coucou c nous aussi', 'img2')");
+			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (123, 'Equipages 123', 'Dupont', 'eude', 'Voila la petite description de notre equipage', 'img')");
+			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (456, 'Equipages 456', 'Dupond', 'makoun', 'coucou c nous aussi', 'img2')");
 		}
 	}
 	
@@ -33,8 +33,8 @@ public class EquipageDaoTestCase {
 		//THEN
 		Assertions.assertThat(equipages).hasSize(2);
 		Assertions.assertThat(equipages).extracting("numeroEquipage","nomEquipage","identifParticipant1", "identifParticipant2", "descriptionEquipage", "photoEquipage").containsOnly(
-				Assertions.tuple(123,"Equipages 1","jean", "eude", "coucou c nous", "img"),
-				Assertions.tuple(456,"Equipages 2", "jean2", "makoun", "coucou c nous aussi", "img2")
+				Assertions.tuple(123,"Equipages 123","Dupont", "eude", "Voila la petite description de notre equipage", "img"),
+				Assertions.tuple(456,"Equipages 456", "Dupond", "makoun", "coucou c nous aussi", "img2")
 				);
 	}
 	
