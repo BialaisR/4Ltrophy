@@ -33,9 +33,8 @@ public class SujetDaoTestCase {
 		//THEN
 		Assertions.assertThat(sujets).hasSize(2);
 		Assertions.assertThat(sujets).extracting("idSujet", "nomSujet", "identifiantCreateur", "dateLastPost", "nbMessage", "identifiantLastPost").containsOnly(
-				Assertions.tuple(1,"Sujet1","Toto","2017-04-15",4,"Momo"),
-				Assertions.tuple(2,"Sujet2","Phil","2017-03-02",2,"Jean")
-				
+				Assertions.tuple(2,"Sujet2","Phil","2017-03-02",2,"Jean"),
+				Assertions.tuple(1,"Sujet1","Toto","2017-04-15",4,"Momo")
 				
 				);
 	}   
