@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-/**
- * Servlet implementation class PhotosAdminServlet
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
  */
-@WebServlet("/admin/photos_videos")
+
+@WebServlet("/admin/photos_videos") // mapping de la servlet (url)
 public class PhotosAdminServlet extends AbstractGenericServlet{
 	
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -22,12 +23,7 @@ public class PhotosAdminServlet extends AbstractGenericServlet{
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		templateEngine.process("photos_videosAdmin", context, resp.getWriter());
+		templateEngine.process("photos_videosAdmin", context, resp.getWriter());// page html associée
+		
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

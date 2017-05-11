@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
 
-@WebServlet("/admin/forum")
+
+@WebServlet("/admin/forum") // mapping de la servlet (url)
 public class ForumAdminServlet extends AbstractGenericServlet{
 	
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -20,7 +24,8 @@ public class ForumAdminServlet extends AbstractGenericServlet{
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
 		
-		templateEngine.process("forumAdmin", context, resp.getWriter());
+		templateEngine.process("forumAdmin", context, resp.getWriter()); // page html associée
+		
 	}
 
 }

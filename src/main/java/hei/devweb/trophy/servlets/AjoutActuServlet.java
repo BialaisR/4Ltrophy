@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
 
-@WebServlet("/admin/ajoutActu")
+@WebServlet("/admin/ajoutActu") // mapping de la servlet (url)
 public class AjoutActuServlet extends AbstractGenericServlet{
 	
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -19,7 +22,8 @@ public class AjoutActuServlet extends AbstractGenericServlet{
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		templateEngine.process("ajoutActu", context, resp.getWriter());
+		templateEngine.process("ajoutActu", context, resp.getWriter()); // page html associée
+		
 	}
 
 

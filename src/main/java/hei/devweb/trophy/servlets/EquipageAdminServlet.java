@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
 
-@WebServlet("/admin/equipage")
+@WebServlet("/admin/equipage") // mapping de la servlet (url)
 public class EquipageAdminServlet extends AbstractGenericServlet{
 	
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -20,12 +23,8 @@ public class EquipageAdminServlet extends AbstractGenericServlet{
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		templateEngine.process("equipageAdmin", context, resp.getWriter());
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		templateEngine.process("equipageAdmin", context, resp.getWriter()); // page html associée
+		
 	}
 
 }

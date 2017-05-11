@@ -13,8 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
+
+/* Ce code est fourni par le site officiel de MailGun */
+
 @SuppressWarnings("serial")
-@WebServlet(name = "mailgun", value = "/contact/send/email")
+@WebServlet(name = "mailgun", value = "/contact/send/email") // mapping de la servlet (url)
 public class MailgunServlet extends AbstractGenericServlet {
 
 	

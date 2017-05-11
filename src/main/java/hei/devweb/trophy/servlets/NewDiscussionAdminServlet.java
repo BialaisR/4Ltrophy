@@ -12,7 +12,11 @@ import org.thymeleaf.context.WebContext;
 
 import hei.devweb.trophy.services.SujetService;
 
-@WebServlet("/admin/newdiscussion")
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
+
+@WebServlet("/admin/newdiscussion") // mapping de la servlet (url)
 public class NewDiscussionAdminServlet extends AbstractGenericServlet{
 	
 	
@@ -23,9 +27,10 @@ public class NewDiscussionAdminServlet extends AbstractGenericServlet{
 			resp.setCharacterEncoding("UTF-8");
 			TemplateEngine templateEngine = this.createTemplateEngine(req);
 			WebContext context = new WebContext(req, resp, getServletContext());
-			context.setVariable("sujet",SujetService.getInstance().listSujet());
+			context.setVariable("sujet",SujetService.getInstance().listSujet()); // on utilise la methode listSujet
 			
-			templateEngine.process("newdiscussionAdmin", context, resp.getWriter());
+			templateEngine.process("newdiscussionAdmin", context, resp.getWriter()); // page html associée
+			
 			
 		}
 		

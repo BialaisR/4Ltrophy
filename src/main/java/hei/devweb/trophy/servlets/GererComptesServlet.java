@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-/**
- * Servlet implementation class GererComptesServlet
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
  */
-@WebServlet("/admin/gerercomptes")
+
+@WebServlet("/admin/gerercomptes") // mapping de la servlet (url)
 public class GererComptesServlet extends AbstractGenericServlet{
 	private static final long serialVersionUID = 1L;
        
@@ -21,13 +22,7 @@ public class GererComptesServlet extends AbstractGenericServlet{
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		templateEngine.process("gerercomptes", context, resp.getWriter());
+		templateEngine.process("gerercomptes", context, resp.getWriter()); // page html associée
+		
 	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

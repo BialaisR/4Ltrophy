@@ -11,10 +11,17 @@ import org.junit.Test;
 
 import hei.devweb.trophy.pojos.Equipages;
 
+
+/* Cette classe permet de tester les différentes méthodes créées dans les dao
+ * en testant l'interaction avec la base de donnée
+ */
+
 public class EquipageDaoTestCase {
 	
 
 	private EquipagesDao equipagesDao = new EquipagesDao();
+	
+	/* On définit une entrée initiale dans la table */
 	
 	@Before
 	public void initDatabase() throws Exception{
@@ -25,6 +32,8 @@ public class EquipageDaoTestCase {
 			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (456, 'Equipages 456', 'Dupond', 'makoun', 'coucou c nous aussi', 'img2')");
 		}
 	}
+	
+	/* On teste que l'affichage correspond à ce que l'on a rentré */
 	
 	@Test
 	public void shouldListEquipages() throws Exception {
@@ -37,6 +46,8 @@ public class EquipageDaoTestCase {
 				Assertions.tuple(456,"Equipages 456", "Dupond", "makoun", "coucou c nous aussi", "img2")
 				);
 	}
+	
+	/* On teste que la champ ajouté se retrouve bien dans la bdd */
 	
 	@Test
 	public void shouldAddEquipages() throws Exception {
@@ -57,6 +68,8 @@ public class EquipageDaoTestCase {
 			
 		}
 	}
+	
+	/* On teste que la taille après suppression du nouveau champ est bien égale à la taille initiale */
 	
 	@Test
 	public void shouldDeleteEquipages() throws Exception {

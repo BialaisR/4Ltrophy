@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
 
-@WebServlet("/admin/AjoutEquipage")
+@WebServlet("/admin/AjoutEquipage") // mapping de la servlet (url)
 public class AjoutEquipageServlet extends AbstractGenericServlet{
 
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -21,8 +24,8 @@ public class AjoutEquipageServlet extends AbstractGenericServlet{
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
+		templateEngine.process("AjoutEquipage", context, resp.getWriter()); // page html associée
 		
-		templateEngine.process("AjoutEquipage", context, resp.getWriter());
 		
 	}
 	

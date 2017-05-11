@@ -12,10 +12,17 @@ import org.junit.Test;
 
 import hei.devweb.trophy.pojos.Contact;
 
+
+/* Cette classe permet de tester les différentes méthodes créées dans les dao
+ * en testant l'interaction avec la base de donnée
+ */
+
 public class ContactDaoTestCase {
 	
 	private ContactDao contactDao = new ContactDao();
 
+	/* On teste que la champ ajouté se retrouve bien dans la bdd */
+	
 	@Test
 	public void shouldSaveContact() throws Exception {
 		// GIVEN

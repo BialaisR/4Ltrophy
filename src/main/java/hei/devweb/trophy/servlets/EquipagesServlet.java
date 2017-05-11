@@ -12,7 +12,11 @@ import org.thymeleaf.context.WebContext;
 
 import hei.devweb.trophy.services.EquipagesService;
 
-@WebServlet("/equipage")
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
+
+@WebServlet("/equipage") // mapping de la servlet (url)
 public class EquipagesServlet extends AbstractGenericServlet{
 
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -22,16 +26,10 @@ public class EquipagesServlet extends AbstractGenericServlet{
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		context.setVariable("equipages",EquipagesService.getInstance().listEquipages());
+		context.setVariable("equipages",EquipagesService.getInstance().listEquipages()); // on utilise la methode listEquipages
 		
-		templateEngine.process("equipage", context, resp.getWriter());
+		templateEngine.process("equipage", context, resp.getWriter()); // page html associée
+		
 		
 	}
-	
-	
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-	}
-
-
 }

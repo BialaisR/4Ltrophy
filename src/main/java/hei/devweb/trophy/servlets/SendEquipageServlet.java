@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import hei.devweb.trophy.services.EquipagesService;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
 
-
-@WebServlet("/admin/send/equipage")
+@WebServlet("/admin/send/equipage") // mapping de la servlet (url)
 public class SendEquipageServlet extends AbstractGenericServlet{
 
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -23,11 +25,11 @@ public class SendEquipageServlet extends AbstractGenericServlet{
 		String descriptionEquipage = req.getParameter("descriptionEquipage");
 		String photoEquipage = req.getParameter("photoEquipage");
 		
-		
-		// Ne fonctionne pas
 		EquipagesService.getInstance().addEquipages(null, nomEquipage,identifParticipant1,identifParticipant2,descriptionEquipage,photoEquipage);
+		// on ajoute un nouvel équipage
 		
-		 resp.sendRedirect("../equipage");
+		resp.sendRedirect("../equipage"); // redirection vers la page équipages
+			
 		
 	}
 	

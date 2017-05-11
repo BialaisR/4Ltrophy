@@ -10,9 +10,16 @@ import org.junit.Test;
 
 import hei.devweb.trophy.pojos.Utilisateur;
 
+
+/* Cette classe permet de tester les différentes méthodes créées dans les dao
+ * en testant l'interaction avec la base de donnée
+ */
+
 public class UtilisateurDaoTestCase {
 	
 	private UtilisateurDao utilisateurDao = new UtilisateurDao();
+	
+	/* On définie une entrée initiale dans la table */
 
 	@Before
 	public void initDatabase() throws Exception{
@@ -23,6 +30,8 @@ public class UtilisateurDaoTestCase {
 			statement.executeUpdate("INSERT INTO utilisateur(idUser,nom,prenom,mail,photo,classe,identif) VALUES (2,'Barda','Nicolas','nicolas.barda@hei.yncrea.fr','photo 8','H44','BardaNicolasH44')");
 		}
 	}
+	
+	/* On teste que l'affichage correspond à ce que l'on a rentré */
 	
 	@Test
 	public void shouldListUtilisateur() throws Exception {
@@ -37,7 +46,7 @@ public class UtilisateurDaoTestCase {
 				);
 	}
 	
-	
+	/* On teste que la nouvelle taille est bien de 1 de plus que la taille initiale après ajout */
 	
 	@Test
 	public void shouldAddUtilisateur() throws Exception {
@@ -49,6 +58,8 @@ public class UtilisateurDaoTestCase {
 				Assertions.assertThat(utilisateurs).hasSize(3);
 			
 	}
+	
+	/* On teste que la taille après suppression du nouveau champ est bien égale à la taille initiale */
 	
 	@Test
 	public void shouldDeleteUtilisateur() throws Exception {

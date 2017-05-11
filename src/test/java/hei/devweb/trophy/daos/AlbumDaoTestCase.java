@@ -11,9 +11,15 @@ import org.junit.Test;
 
 import hei.devweb.trophy.pojos.Album;
 
+/* Cette classe permet de tester les différentes méthodes créées dans les dao
+ * en testant l'interaction avec la base de donnée
+ */
+
 public class AlbumDaoTestCase {
 
 private AlbumDao albumDao = new AlbumDao();
+
+	/* On définit une entrée initiale dans la table */
 	
 	@Before
 	public void initDatabase() throws Exception{
@@ -24,6 +30,8 @@ private AlbumDao albumDao = new AlbumDao();
 			statement.executeUpdate("INSERT INTO album(idAlbum, nomAlbum) VALUES (2,'album 2')");
 		}
 	}
+	
+	/* On teste que l'affichage correspond à ce que l'on a rentré */
 	
 	@Test
 	public void shouldListAlbum() throws Exception {
@@ -37,9 +45,7 @@ private AlbumDao albumDao = new AlbumDao();
 				);
 	}
 	
-	
-	
-	
+	/* On teste que la champ ajouté se retrouve bien dans la bdd */
 	
 	@Test
 	public void shouldAddAlbum() throws Exception {
@@ -55,6 +61,8 @@ private AlbumDao albumDao = new AlbumDao();
 			Assertions.assertThat(resultSet.next()).isFalse();
 		}
 	}
+	
+	/* On teste que la taille après suppression du nouveau champ est bien égale à la taille initiale */
 	
 	@Test
 	public void shouldDeleteAlbum() throws Exception {

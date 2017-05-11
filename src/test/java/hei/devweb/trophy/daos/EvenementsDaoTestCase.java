@@ -12,9 +12,15 @@ import org.junit.Test;
 import hei.devweb.trophy.pojos.Evenements;
 
 
+/* Cette classe permet de tester les différentes méthodes créées dans les dao
+ * en testant l'interaction avec la base de donnée
+ */
+
 public class EvenementsDaoTestCase {
 	
 	private EvenementsDao eventsDao = new EvenementsDao();
+	
+	/* On définit une entrée initiale dans la table */
 
 	@Before
 	public void initDatabase() throws Exception{
@@ -25,6 +31,8 @@ public class EvenementsDaoTestCase {
 			statement.executeUpdate("INSERT INTO evenements(idEvent,dateEvent,event) VALUES (2,'2017-04-19','descritpiton evenement 2')");
 		}
 	}
+	
+	/* On teste que l'affichage correspond à ce que l'on a rentré */
 	
 	@Test
 	public void shouldListEvenements() throws Exception {
@@ -38,6 +46,8 @@ public class EvenementsDaoTestCase {
 				);
 	}
 	
+	/* On teste que la nouvelle taille est bien de 1 de plus que la taille initiale après ajout */
+	
 	@Test
 	public void shouldAddEvenements() throws Exception {
 		//WHEN
@@ -48,6 +58,8 @@ public class EvenementsDaoTestCase {
 			
 		
 	}
+
+	/* On teste que la taille après suppression du nouveau champ est bien égale à la taille initiale */
 	
 	@Test
 	public void shouldDeleteEvenements() throws Exception {

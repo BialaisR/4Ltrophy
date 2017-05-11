@@ -22,13 +22,19 @@ private ActualitesDao actualitesDao = new ActualitesDao();
 	private ActualitesService() {
 	}
 	
+	/* méthode de listage */
+	
 	public List<Actualites> listActualites() {
 		return actualitesDao.listActualites();
 	}
 	
+	/* méthode d'ajout */
+	
 	public void addActualites(Integer idActu, String titreActu, String actu){
 		actualitesDao.addActualites(idActu,titreActu,actu);
 	}
+	
+	/* méthode de suppression */
 	
 	public void deleteActualites(Integer idActu){
 		try {

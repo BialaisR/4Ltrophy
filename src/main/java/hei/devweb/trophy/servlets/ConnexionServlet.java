@@ -13,11 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
 
 
-// attention erreur : n'importe qui peux se connecter
-
-@WebServlet("/connexion")
+@WebServlet("/connexion") // mapping de la servlet (url)
 public class ConnexionServlet extends AbstractGenericServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -26,7 +27,7 @@ public class ConnexionServlet extends AbstractGenericServlet {
 	@Override
 	public void init() throws ServletException {
 		adminAutorise=new HashMap<>();
-		adminAutorise.put("admin@hei.fr", "mdp");
+		adminAutorise.put("admin@hei.fr", "mdp"); // on défini les identifiants qui autorisent la connexion
 				
 	}
 	
@@ -39,7 +40,7 @@ public class ConnexionServlet extends AbstractGenericServlet {
 			view.forward(request, response);
 			
 		} else {
-			response.sendRedirect("admin/accueil");
+			response.sendRedirect("admin/accueil"); // si la connexion est réussie, on arrive sur l'accueil de l'admin
 		}
 	
 	}
@@ -52,7 +53,7 @@ public class ConnexionServlet extends AbstractGenericServlet {
 				request.getSession().setAttribute("adminConnecte",identifiantSaisi);
 			}
 			
-			response.sendRedirect("connexion");
+			response.sendRedirect("connexion"); // si la connexion n'est pas réussie, on retourne sur la page connexion
 	
 	}
 }

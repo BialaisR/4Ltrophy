@@ -11,9 +11,16 @@ import org.junit.Test;
 import hei.devweb.trophy.pojos.Sujet;
 
 
+/* Cette classe permet de tester les différentes méthodes créées dans les dao
+ * en testant l'interaction avec la base de donnée
+ */
+
+
 public class SujetDaoTestCase {
 	
 	private SujetDao sujetDao = new SujetDao();
+	
+	/* On définie une entrée initiale dans la table */
 	
 	@Before
 	public void initDatabase() throws Exception{
@@ -24,6 +31,8 @@ public class SujetDaoTestCase {
 			statement.executeUpdate("INSERT INTO sujet(idSujet,nomSujet,identifiantCreateur,dateLastPost,nbMessage,identifiantLastPost) VALUES (2,'Sujet2','Phil','2017-03-02',2,'Jean')");
 		}
 	}
+	
+	/* On teste que l'affichage correspond à ce que l'on a rentré */
 	
 	
 	@Test
@@ -39,6 +48,8 @@ public class SujetDaoTestCase {
 				);
 	}   
 	
+	/* On teste que la nouvelle taille est bien de 1 de plus que la taille initiale après ajout */
+	
 	@Test
 	public void shouldAddSujet() throws Exception {
 		//WHEN
@@ -47,6 +58,8 @@ public class SujetDaoTestCase {
 		List<Sujet> sujets = sujetDao.listSujet();
 		Assertions.assertThat(sujets).hasSize(3);
 	}
+	
+	/* On teste que la taille après suppression du nouveau champ est bien égale à la taille initiale */
 	
 	@Test
 	public void shouldDeleteSujet() throws Exception {

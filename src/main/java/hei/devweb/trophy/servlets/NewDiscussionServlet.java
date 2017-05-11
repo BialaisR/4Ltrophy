@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
 
-@WebServlet("/newdiscussion")
+@WebServlet("/newdiscussion") // mapping de la servlet (url)
 public class NewDiscussionServlet extends AbstractGenericServlet{
 
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -21,7 +24,8 @@ public class NewDiscussionServlet extends AbstractGenericServlet{
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
 		
-		templateEngine.process("newdiscussion", context, resp.getWriter());
+		templateEngine.process("newdiscussion", context, resp.getWriter()); // page html associée
+		
 		
 	}
 

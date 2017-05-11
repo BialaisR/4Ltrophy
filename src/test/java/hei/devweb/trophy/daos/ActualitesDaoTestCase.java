@@ -12,10 +12,16 @@ import org.junit.Test;
 
 import hei.devweb.trophy.pojos.Actualites;
 
+/* Cette classe permet de tester les différentes méthodes créées dans les dao
+ * en testant l'interaction avec la base de donnée
+ */
+
 
 public class ActualitesDaoTestCase {
 	
 private ActualitesDao actusDao = new ActualitesDao();
+
+	/* On définit une entrée initiale dans la table */
 	
 	@Before
 	public void initDatabase() throws Exception{
@@ -26,6 +32,8 @@ private ActualitesDao actusDao = new ActualitesDao();
 			statement.executeUpdate("INSERT INTO actualites(idActu,titreActu,actu) VALUES (2,'actualités test 2','descritpiton 2dfgazeazeaezdgfdgrfgdfgazeaze')");
 		}
 	}
+	
+	/* On teste que l'affichage correspond à ce que l'on a rentré */
 	
 	@Test
 	public void shouldListActualites() throws Exception {
@@ -39,7 +47,7 @@ private ActualitesDao actusDao = new ActualitesDao();
 				);
 	}
 	
-	
+	/* On teste que la champ ajouté se retrouve bien dans la bdd */
 	
 	
 	@Test
@@ -58,6 +66,8 @@ private ActualitesDao actusDao = new ActualitesDao();
 			
 		}
 	}
+	
+	/* On teste que la taille après suppression du nouveau champ est bien égale à la taille initiale */
 	
 	@Test
 	public void shouldDeleteActualites() throws Exception {

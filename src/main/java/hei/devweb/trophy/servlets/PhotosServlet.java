@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+/* Les servlets permettent de relier notre back-end avec notre front-end 
+ * et définissent les méthodes qui seront utilisées sur cette page
+ */
 
-@WebServlet("/photos_videos")
+@WebServlet("/photos_videos") // mapping de la servlet (url)
 public class PhotosServlet extends AbstractGenericServlet{
 
 	private static final long serialVersionUID = -3101071491815001778L;
@@ -22,7 +25,8 @@ public class PhotosServlet extends AbstractGenericServlet{
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
 		
-		templateEngine.process("photos_videos", context, resp.getWriter());
+		templateEngine.process("photos_videos", context, resp.getWriter()); // page html associée
+		
 		
 	}
 
