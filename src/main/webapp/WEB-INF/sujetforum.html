@@ -27,10 +27,11 @@
 		<!-- GRAND DIV  -->
 		<header>
 			<div class="masthead">
-
+				<!--  titre du site -->
 				<h1 class="text-center">
 					<a href="accueil" class="nom">4L TROPHY HEI</a>
 				</h1>
+				<!--  barre de navigation -->
 				<nav>
 					<ul class="nav nav-justified">
 						<li><a href="accueil">Accueil</a></li>
@@ -47,12 +48,13 @@
 				</nav>
 			</div>
 		</header>
-
+		<!--  message du forum -->
 		<section id="sujet">
 			<p>
 				<a class="btn btn-primary" href="forum" role="button"><b>Retour
 						forum &raquo;</b></a>
 			</p>
+			<!--  affichage a chaque message -->
 			<table class="table table-striped" id="forumtableau" th:each="message: ${message}">
 				<caption>
 					<b>Sujet 1 à propos de blablabla</b>

@@ -36,7 +36,7 @@
 					<button>Déconnexion</button>
 				</div>    //-->
 				
-				
+				<!--  barre de navigation -->
 				<nav>
 					<ul class="nav nav-justified">
 						<li><a class="active" href="accueil">Accueil</a></li>
@@ -53,15 +53,18 @@
 				</nav>
 			</div>
 		</header>
-
+		
+		<!-- colonne Evenements + calendrier-->
 		<div class="row">
 			<div class="col-sm-3">
 				<div id="event">
+					<!-- liste des évènements -->
 					<h1>Evènements</h1>
 					<article th:each="evenements : ${evenements}">
 						<p th:text="${evenements.event}"> - [[${evenements.dateEvent}]]</p>
 					</article>
 				</div>
+				<!-- affichage du calendrier -->
 				<div id="#calendrier">
 					<h2>Calendrier</h2>
 					<p>
@@ -73,6 +76,7 @@
 				</div>
 			</div>
 			
+			<!-- colonne affichage des actualitées (plus récente en haut) -->
 			<div id="actu" class="col-sm-7">
 				<h1>Actualités</h1>
 				<article th:each="actualites : ${actualites}">
@@ -83,14 +87,17 @@
 
 
 			</div>
+			<!-- affichage de la colonne météo -->
 			<div id="meteo" class="col-sm-2">
 				<h2>Météo</h2>
+				<!-- lille -->
 				<p>
 					<!-- weather widget start -->
 					<a href="http://hotelmix.fr/weather/lille-18116"><img
 						src="http://w.bookcdn.com/weather/picture/28_18116_1_3_3498db_250_2980b9_ffffff_ffffff_1_2071c9_ffffff_0_3.png?scode=124&domid=w209" /></a>
 					<!-- weather widget end -->
 				</p>
+				<!-- marrakech -->
 				<p>
 					<!-- weather widget start -->
 					<a href="//hotelmix.fr/weather/marrakesh-18158"><img
@@ -99,7 +106,7 @@
 				</p>
 			</div>
 		</div>
-
+		<!-- mentions légales + copyright -->
 		<footer class="footer">
 			<p>&copy; Mentions légales</p>
 			
