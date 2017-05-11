@@ -26,10 +26,11 @@
 		<!-- GRAND DIV  -->
 		<header>
 			<div class="masthead">
-
+				<!--  titre du site web -->
 				<h1 class="text-center">
 					<a href="accueil" class="nom">4L TROPHY HEI</a>
 				</h1>
+				<!--  barre de navigation -->
 				<nav>
 					<ul class="nav nav-justified">
 						<li><a  class="active" href="accueil">Accueil</a></li>
@@ -52,12 +53,14 @@
 				</nav>
 			</div>
 		</header>
-
+		
 		<section id="newactu">
 			<p>
+			<!--  bouton retour accueil -->
 				<a class="btn btn-primary" href="accueil" role="button"><b>Retour
 						accueil &raquo;</b></a>
 			</p>
+			<!--  formulaire ajout d'une actu -->
 			<form action="send/actu" method="post">
 				<div class="form-group">
 					<label for="titreActu">Titre de la nouvelle actualité</label> <input
@@ -67,7 +70,7 @@
 					<textarea type="text" class="form-control" id="actu" name="actu" rows="7"
 						placeholder="Actualité..."></textarea>
 				</div>
-				
+				<!--  bouton ajouter -->
 				<button type="submit" class="btn btn-success" >
 					<b>Ajouter</b>
 				</button>
@@ -75,6 +78,7 @@
 			</form>
 		</section>
 		
+		<!--  message d'erreur - vous etes deja connecté -->
 		<div class="modal fade" id="myModal2" role="dialog">
     			<div class="modal-dialog">
     
@@ -94,6 +98,11 @@
       
    			 	</div>
  		 </div>
+ 		 <!-- mentions légales + copyright -->
+		<footer class="footer">
+			<p>&copy; Mentions légales</p>
+			
+		</footer>
 
 	</div>
 

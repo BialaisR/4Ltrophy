@@ -27,10 +27,11 @@
 
 	<header>
 			<div class="masthead">
-
+				<!-- titre du site web -->
 				<h1 class="text-center">
 					<a href="accueil" class="nom">4L TROPHY HEI</a>
 				</h1>
+				<!--  barre de navigation -->
 				<nav>
 					<ul class="nav nav-justified">
 						<li><a  class="active" href="accueil">Accueil</a></li>
@@ -53,20 +54,24 @@
 				</nav>
 			</div>
 		</header>
-
+		<!-- colonne Evenements + calendrier-->
 		<div class="row">
 			<div class="col-sm-3">
 				<div id="event">
+					<!-- liste des évènements -->
 					<h1>Evénements</h1>
 						<article th:each="evenements : ${evenements}">
 							<p th:text="${evenements.event}"> - [[${evenements.dateEvent}]]</p>
+							<!-- bouton supprimer -->
 							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button>
 						</article>
 					<p>
+						<!-- bouton ajouter -->
 						<a class="btn btn-success btn-xs" href="ajoutevenement"
 							role="button">+ Ajouter un évènement</a>
 					</p>
 				</div>
+				<!-- affichage du calendrier -->
 				<div id="#calendrier">
 					<h2>Calendrier</h2>
 					<p>
@@ -77,35 +82,39 @@
 					</p>
 				</div>
 			</div>
+			<!-- colonne affichage des actualitées (plus récente en haut) -->
 			<div id="actu" class="col-sm-7">
 				<h1>Actualités</h1>
 				<article th:each="actualites : ${actualites}">
 					<!-- Div d'une actualité  -->
 					<h2 th:text="${actualites.titreActu}"></h2>
 					<p th:text="${actualites.actu}"></p>
+					<!--  bouton supprimer -->
 					<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button>
 				</article>
+					<!--  bouton ajouter -->
 					<a class="btn btn-success btn-xs" href="ajoutActu"
 						role="button">+ Ajouter une actualité</a>
 				</p>
 			</div>
+			<!-- affichage de la colonne météo -->
 			<div id="meteo" class="col-sm-2">
 				<h2>Météo</h2>
 				<p>
-					<!-- weather widget start -->
+					<!-- weather widget start / Lille-->
 					<a href="http://hotelmix.fr/weather/lille-18116"><img
 						src="http://w.bookcdn.com/weather/picture/28_18116_1_3_3498db_250_2980b9_ffffff_ffffff_1_2071c9_ffffff_0_3.png?scode=124&domid=w209" /></a>
 					<!-- weather widget end -->
 				</p>
 				<p>
-					<!-- weather widget start -->
+					<!-- weather widget start / Marrackech -->
 					<a href="//hotelmix.fr/weather/marrakesh-18158"><img
 						src="http://w.bookcdn.com/weather/picture/28_18158_1_3_e74c3c_250_c0392b_ffffff_ffffff_1_2071c9_ffffff_0_3.png?scode=124&domid=w209" /></a>
 					<!-- weather widget end -->
 				</p>
 			</div>
 		
-		
+		<!-- message d'erreur - vous êtes deja connecte -->
 		<div class="modal fade" id="myModal2" role="dialog">
     			<div class="modal-dialog">
     
@@ -126,8 +135,10 @@
    			 	</div>
  		 </div>
 </div>
+		<!-- mentions légales + copyright -->
 		<footer class="footer">
-			<p>&copy;YOLO CORPORATION 2016</p>
+			<p>&copy; Mentions légales</p>
+			
 		</footer>
 		
 		</div>
