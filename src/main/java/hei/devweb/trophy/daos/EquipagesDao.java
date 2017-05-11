@@ -10,7 +10,14 @@ import java.util.List;
 
 import hei.devweb.trophy.pojos.Equipages;
 
+/* classe implémentant les fonctions disponibles pour les équipages. 
+ * Les trois fonctions sont les suivantes : lister, ajouter, supprimer.
+ * Permet d'interagir avec la base de données.
+ */
+
 public class EquipagesDao {
+	
+	/* on liste par id croissant */
 
 	public List<Equipages> listEquipages() {
 		List<Equipages> equipage = new ArrayList<Equipages>();
@@ -28,6 +35,8 @@ public class EquipagesDao {
 		}
 		return equipage;
 	}
+	
+	/* on prend tous les paramètres lorsque l'on souhaite ajouter */
 
 	public void addEquipages(Integer numeroEquipage, String nomEquipage, String identifParticipant1, String identifParticipant2, String descriptionEquipage, String photoEquipage) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -43,6 +52,8 @@ public class EquipagesDao {
 			e.printStackTrace();
 		}
 	}
+	
+	/* on supprime avec en paramètre l'identifiant */
 	
 	public void deleteEquipages(Integer numeroEquipage){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 

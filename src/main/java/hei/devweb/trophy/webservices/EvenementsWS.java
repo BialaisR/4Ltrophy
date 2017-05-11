@@ -13,6 +13,9 @@ import com.google.gson.GsonBuilder;
 
 import hei.devweb.trophy.services.EvenementsService;
 
+/* Les webs services n'ont finalement pas d'utilité dans notre projet. Nous les avons laissés car ils pourraient servir dans le
+cas d'une poursuite du projet */
+
 @Path("/evenements")
 public class EvenementsWS {
 

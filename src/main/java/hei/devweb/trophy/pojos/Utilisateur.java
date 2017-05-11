@@ -1,6 +1,10 @@
 package hei.devweb.trophy.pojos;
 
+/* Classe représentant l'objet utilisateur - correspond à la table utilisateur de notre base de données */
+
 public class Utilisateur {
+	
+	// on définit les 7 paramètres d'un utilisateur
 
 	private Integer idUser;
 	private String nom;
@@ -9,6 +13,8 @@ public class Utilisateur {
 	private String photo;
 	private String classe;
 	private String identif;
+	
+	// constructeur d'utilisateur
 
 	public Utilisateur(int idUser, String nom, String prenom, String mail,
 		 String photo, String classe, String identif) {
@@ -22,7 +28,8 @@ public class Utilisateur {
 		this.photo = photo;
 		this.identif=identif;
 	}
-
+	
+	/* getter et setters auto-générés indispensables */
 
 	public Integer getIdUser() {
 		return idUser;

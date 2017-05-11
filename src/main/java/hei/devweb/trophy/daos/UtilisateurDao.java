@@ -10,7 +10,14 @@ import java.util.List;
 
 import hei.devweb.trophy.pojos.Utilisateur;
 
+/* classe implémentant les fonctions disponibles pour les équipages. 
+ * Les trois fonctions sont les suivantes : lister, ajouter, supprimer.
+ * Permet d'interagir avec la base de données.
+ */
+
 public class UtilisateurDao {
+	
+	/* on liste par ordre alphabétique */
 	
 	public List<Utilisateur> listUtilisateur(){
 		List<Utilisateur> Utilisateur = new ArrayList<Utilisateur>();
@@ -28,6 +35,7 @@ public class UtilisateurDao {
 		return Utilisateur;
 		}
 	
+	/* on prend tous les paramètres lorsque l'on souhaite ajouter */
 	
 	public void addUtilisateur(Integer idUser, String nom, String prenom, String mail,
 			 String photo, String classe) {
@@ -44,6 +52,9 @@ public class UtilisateurDao {
 			e.printStackTrace();
 		}
 	}
+	
+
+	/* on supprime avec en paramètre l'identifiant */
 	
 	public void deleteUtilisateur(Integer idUser){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 

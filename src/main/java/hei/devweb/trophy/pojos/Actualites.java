@@ -1,12 +1,17 @@
 package hei.devweb.trophy.pojos;
 
+/* Classe représentant l'objet Actualités - correspond à la table actualités de notre base de données*/
+
 public class Actualites {
 
+/* On défini les trois paramètres d'une actualités */
+	
 	private Integer idActu;
 	private String titreActu;
 	private String actu;
 
 
+// contructeur de Actualités
 	public Actualites(Integer idActu, String titreActu, String actu) {
 		super();
 		this.idActu = idActu;
@@ -14,6 +19,8 @@ public class Actualites {
 		this.titreActu = titreActu;
 	}
 
+/* getter et setters auto-générés indispensables */
+	
 	public Integer getIdActu() {
 		return idActu;
 	}

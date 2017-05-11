@@ -1,6 +1,10 @@
 package hei.devweb.trophy.pojos;
 
+/* Classe représentant l'objet Equipages - correspond à la table equipages de notre base de données */
+
 public class Equipages {
+	
+	// On défini les 6 paramètres d'un équipage
 
 	private Integer numeroEquipage;
 	private String nomEquipage;
@@ -8,6 +12,8 @@ public class Equipages {
 	private String identifParticipant1;
 	private String identifParticipant2;
 	private String photoEquipage;
+	
+	// constructeur de Equipages
 
 	public Equipages(Integer numeroEquipage, String nomEquipage, String identifParticipant1, String identifParticipant2, String descriptionEquipage, String photoEquipage) {
 		super();
@@ -18,6 +24,8 @@ public class Equipages {
 		this.identifParticipant2 = identifParticipant2;
 		this.photoEquipage = photoEquipage;
 	}
+	
+	/* getter et setters auto-générés indispensables */
 
 	public Integer getNumeroEquipage() {
 		return numeroEquipage;

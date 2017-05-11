@@ -10,7 +10,14 @@ import java.util.List;
 
 import hei.devweb.trophy.pojos.Evenements;
 
+/* classe implémentant les fonctions disponibles pour les équipages. 
+ * Les trois fonctions sont les suivantes : lister, ajouter, supprimer.
+ * Permet d'interagir avec la base de données.
+ */
+
 public class EvenementsDao {
+	
+	/* on liste par id décroissant */
 
 	public List<Evenements> listEvenements(){
 		List<Evenements> event = new ArrayList<Evenements>();
@@ -27,6 +34,7 @@ public class EvenementsDao {
 		return event;
 		}
 	
+	/* on prend tous les paramètres lorsque l'on souhaite ajouter */
 	
 	public void addEvenements(Integer idEvent, String dateEvent, String event) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -38,6 +46,9 @@ public class EvenementsDao {
 			e.printStackTrace();
 		}
 	}
+	
+
+	/* on supprime avec en paramètre l'identifiant */
 	
 	public void deleteEvenements(Integer idEvent){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 

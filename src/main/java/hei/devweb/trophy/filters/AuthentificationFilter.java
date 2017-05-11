@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// Filtre permettant d'empêcher l'accès aux pages administrateur si on n'est pas connecté en tant que tel
+
 
 @WebFilter("/AuthentificationFilter")
 public class AuthentificationFilter implements Filter {
@@ -27,7 +29,7 @@ public class AuthentificationFilter implements Filter {
 		if (identifiant == null || "".equals(identifiant)) {
 			System.out.println("Il faut être connecté pour accéder à cette page !");
 			HttpServletResponse httpResponse = (HttpServletResponse) response;
-			httpResponse.sendRedirect("../connexion");
+			httpResponse.sendRedirect("../connexion");   // si on essaie d'accéder à une page admin, on arrive sur connexion
 			return;
 		}
 		chain.doFilter(request, response);

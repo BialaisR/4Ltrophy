@@ -10,7 +10,13 @@ import java.util.List;
 
 import hei.devweb.trophy.pojos.Photos;
 
+/* classe implémentant les fonctions disponibles pour les équipages. 
+ * Les trois fonctions sont les suivantes : lister, ajouter, supprimer.
+ * Permet d'interagir avec la base de données.
+ */
 public class PhotosDao {
+	
+	/* on liste par id décroissant */
 
 	public List<Photos> listPhotos(){
 		List<Photos> photos = new ArrayList<Photos>();
@@ -27,6 +33,7 @@ public class PhotosDao {
 		return photos;
 		}
 	
+	/* on prend tous les paramètres lorsque l'on souhaite ajouter */
 	
 	public void addPhotos(int idPhoto, String photo, int idAlbum) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -38,6 +45,9 @@ public class PhotosDao {
 			e.printStackTrace();
 		}
 	}
+	
+
+	/* on supprime avec en paramètre l'identifiant */
 	
 	public void deletePhotos(Integer idPhoto){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 

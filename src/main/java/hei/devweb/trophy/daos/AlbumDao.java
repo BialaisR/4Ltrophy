@@ -8,9 +8,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/* classe implémentant les fonctions disponibles pour les équipages. 
+ * Les trois fonctions sont les suivantes : lister, ajouter, supprimer.
+ * Permet d'interagir avec la base de données.
+ */
+
 import hei.devweb.trophy.pojos.Album;
 
 public class AlbumDao {
+	
+	/* on liste par nom d'album*/
 
 	public List<Album> listAlbum() {
 		List<Album> album = new ArrayList<Album>();
@@ -26,6 +33,8 @@ public class AlbumDao {
 		}
 		return album;
 	}
+	
+	/* on prend tous les paramètres lorsque l'on souhaite ajouter */
 
 	public void addAlbum(int idAlbum, String nomAlbum) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -36,6 +45,9 @@ public class AlbumDao {
 			e.printStackTrace();
 		}
 	}
+	
+
+	/* on supprime avec en paramètre l'identifiant */
 	
 	public void deleteAlbum(Integer idAlbum){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 

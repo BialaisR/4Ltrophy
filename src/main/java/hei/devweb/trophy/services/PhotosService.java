@@ -5,6 +5,8 @@ import java.util.List;
 import hei.devweb.trophy.daos.PhotosDao;
 import hei.devweb.trophy.pojos.Photos;
 
+/* Classe définissant les méthodes disponibles pour chaque photo */ 
+
 public class PhotosService {
 	
 private PhotosDao photosDao = new PhotosDao();
@@ -20,13 +22,19 @@ private PhotosDao photosDao = new PhotosDao();
 	private PhotosService() {
 	}
 	
+	/* méthode de listage */
+	
 	public List<Photos> listPhotos() {
 		return photosDao.listPhotos();
 	}
 	
+	/* méthode d'ajout */
+	
 	public void addPhotos(Integer idPhoto, String photo, int idAlbum){
 		photosDao.addPhotos(idPhoto,photo,idAlbum);
 	}
+	
+	/* méthode de suppression */
 	
 	public void deletePhotos(Integer idPhotos){
 		try {

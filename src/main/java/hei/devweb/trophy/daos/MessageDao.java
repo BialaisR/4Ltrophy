@@ -10,7 +10,14 @@ import java.util.List;
 
 import hei.devweb.trophy.pojos.Message;
 
+/* classe implémentant les fonctions disponibles pour les équipages. 
+ * Les trois fonctions sont les suivantes : lister, ajouter, supprimer.
+ * Permet d'interagir avec la base de données.
+ */
+
 public class MessageDao {
+	
+	/* on liste par date de post décroissante */
 
 	public List<Message> listMessage(){
 		
@@ -28,6 +35,8 @@ public class MessageDao {
 		return message;
 		}
 	
+	/* on prend tous les paramètres lorsque l'on souhaite ajouter */
+	
 	
 	public void addMessage(Integer idMessage, String texteMessage, String datePost, Integer idSujet) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -41,6 +50,10 @@ public class MessageDao {
 		}
 		
 }
+	
+
+	/* on supprime avec en paramètre l'identifiant */
+	
 	public void deleteMessage(Integer idMessage){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
 			PreparedStatement statement = connection.prepareStatement("DELETE FROM message WHERE idMessage=?")){

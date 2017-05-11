@@ -8,9 +8,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Classe implémentant les fonctions disponibles pour les contacts. 
+ * Permet d'interagir avec la base de données.
+ */
+
 import hei.devweb.trophy.pojos.Contact;
 
 public class ContactDao {
+	
+	/* cette fonction permet de sauvegarder le contact ajouté (méthode ajouter à la bdd)*/
 
 	public Contact saveContact(Contact contact){
 		try {

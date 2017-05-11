@@ -1,11 +1,17 @@
 package hei.devweb.trophy.pojos;
 
+/* Classe représentant l'objet message - correspond à la table message de notre base de données */
+
 public class Message {
+	
+	// On défini les 4 paramètres d'un message
 
 	private Integer idMessage;
 	private String texteMessage;
 	private String datePost;
 	private Integer idSujet;
+	
+	// constructeur de message
 
 	public Message(Integer idMessage, String texteMessage, String datePost, Integer idSujet) {
 		super();
@@ -14,6 +20,8 @@ public class Message {
 		this.datePost = datePost;
 		this.idSujet = idSujet;
 	}
+	
+	/* getter et setters auto-générés indispensables */
 
 	public Integer getIdMessage() {
 		return idMessage;

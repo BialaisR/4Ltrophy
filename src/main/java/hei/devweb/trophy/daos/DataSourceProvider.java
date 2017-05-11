@@ -8,6 +8,11 @@ import javax.sql.DataSource;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
+/* Cette classe permet de faire le lien avec la base de donnée en allant récupérer toutes 
+ * les informations necessaires à cette connexion dans le fichier "jbdc.properties"
+ * situé dans le dossier "resources"
+ */
+
 public class DataSourceProvider {
 
 	private static class DataSourceProviderHolder {
@@ -32,6 +37,8 @@ public class DataSourceProvider {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		/* Ici on récupère les identifiants nécessaires à la connexion */
 		
 		dataSource = new MysqlDataSource();
 		dataSource.setServerName(jdbcProperties.getProperty("servername"));

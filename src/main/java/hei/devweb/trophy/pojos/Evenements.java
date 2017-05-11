@@ -1,10 +1,16 @@
 package hei.devweb.trophy.pojos;
 
+/* Classe représentant l'objet Evenements - correspond à la table evenements de notre base de données */
+
 public class Evenements {
 
+	// On défini les 3 paramètres d'un événement
+	
 	private Integer idEvent;
 	private String dateEvent;
 	private String event;
+	
+	// constructeur d'événement
 
 	public Evenements(Integer idEvent, String dateEvent, String event) {
 		super();
@@ -12,6 +18,8 @@ public class Evenements {
 		this.dateEvent = dateEvent;
 		this.event = event;
 	}
+	
+	/* getter et setters auto-générés indispensables */
 
 	public Integer getIdEvent() {
 		return idEvent;

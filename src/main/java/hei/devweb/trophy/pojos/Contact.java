@@ -1,11 +1,17 @@
 package hei.devweb.trophy.pojos;
 
+/* Classe représentant l'objet Contact - correspond à la table contact de notre base de données */
+
 public class Contact {
+	
+	/* On défini les quatres paramètres d'un Contact */
 	
 	private String prenomContact;
 	private String nomContact;
 	private String mailContact;
 	private String messageContact;
+	
+	// constructeur de contact
 	
 	public Contact(String prenomContact, String nomContact, String mailContact, String messageContact) {
 		super();
@@ -14,6 +20,8 @@ public class Contact {
 		this.mailContact = mailContact;
 		this.messageContact = messageContact;
 	}
+	
+	/* getter et setters auto-générés indispensables */
 
 	public String getPrenomContact() {
 		return prenomContact;

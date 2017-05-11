@@ -1,6 +1,10 @@
 package hei.devweb.trophy.pojos;
 
+/* Classe représentant l'objet sujet - correspond à la table sujet de notre base de données */
+
 public class Sujet {
+	
+	// on définit les 6 paramètres d'un sujet
 
 	private Integer idSujet;
 	private String nomSujet;
@@ -8,6 +12,8 @@ public class Sujet {
 	private String dateLastPost;
 	private Integer nbMessage;
 	private String identifiantLastPost;
+	
+	// constructeur de sujet
 	
 	public Sujet(Integer idSujet, String nomSujet, String identifiantCreateur, String dateLastPost,
 			Integer nbMessage, String identifiantLastPost) {
@@ -19,6 +25,8 @@ public class Sujet {
 		this.nbMessage = nbMessage;
 		this.identifiantLastPost = identifiantLastPost;
 	}
+	
+	/* getter et setters auto-générés indispensables */
 
 	public Integer getIdSujet() {
 		return idSujet;

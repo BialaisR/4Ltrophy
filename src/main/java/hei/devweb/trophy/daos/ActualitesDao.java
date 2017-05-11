@@ -1,4 +1,3 @@
-
 package hei.devweb.trophy.daos;
 
 import java.sql.Connection;
@@ -11,7 +10,14 @@ import java.util.List;
 
 import hei.devweb.trophy.pojos.Actualites;
 
+/* classe implémentant les fonctions disponibles pour les équipages. 
+ * Les trois fonctions sont les suivantes : lister, ajouter, supprimer.
+ * Permet d'interagir avec la base de données.
+ */
+
 public class ActualitesDao {
+	
+	/* on liste par id décroissant */
 
 	public List<Actualites> listActualites(){
 		List<Actualites> actus = new ArrayList<Actualites>();
@@ -28,6 +34,7 @@ public class ActualitesDao {
 		return actus;
 		}
 	
+	/* on prend tous les paramètres lorsque l'on souhaite ajouter */
 	
 	public void addActualites(Integer idActu,String titreActu, String actu) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -41,6 +48,8 @@ public class ActualitesDao {
 			e.printStackTrace();
 		}
 	}
+	
+	/* on supprime avec en paramètre l'identifiant */
 	
 	public void deleteActualites(Integer idActu){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 

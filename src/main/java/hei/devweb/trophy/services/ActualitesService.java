@@ -5,6 +5,8 @@ import java.util.List;
 import hei.devweb.trophy.daos.ActualitesDao;
 import hei.devweb.trophy.pojos.Actualites;
 
+/* Classe définissant les méthodes disponibles pour chaque actualité */
+
 public class ActualitesService {
 	
 private ActualitesDao actualitesDao = new ActualitesDao();

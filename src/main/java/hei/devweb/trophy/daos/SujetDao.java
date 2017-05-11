@@ -10,7 +10,14 @@ import java.util.List;
 
 import hei.devweb.trophy.pojos.Sujet;
 
+/* classe implémentant les fonctions disponibles pour les équipages. 
+ * Les trois fonctions sont les suivantes : lister, ajouter, supprimer.
+ * Permet d'interagir avec la base de données.
+ */
+
 public class SujetDao {
+	
+	/* on liste par id décroissant */
 	
 	public List<Sujet> listSujet(){
 		List<Sujet> Sujet = new ArrayList<Sujet>();
@@ -28,6 +35,8 @@ public class SujetDao {
 		return Sujet;
 		}
 	
+	/* on prend tous les paramètres lorsque l'on souhaite ajouter */
+	
 	
 	public void addSujet(Integer idSujet, String nomSujet, String identifiantCreateur, String dateLastPost,
 			Integer nbMessage, String identifiantLastPost) {
@@ -43,6 +52,9 @@ public class SujetDao {
 			e.printStackTrace();
 		}
 	}
+	
+
+	/* on supprime avec en paramètre l'identifiant */
 	
 	public void deleteSujet(Integer idSujet){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection(); 
