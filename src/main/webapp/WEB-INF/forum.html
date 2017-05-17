@@ -64,7 +64,13 @@
 				</thead>
 
 				<tbody>
-
+					<tr>
+						<td><a href="charte" class="lienforum"><b>Charte du forum (à lire avant de publier un message)</b></a></td>
+						<td><a href="charte" class="lienforum">-</a></td>
+						<td><a href="charte" class="lienforum">-</a></td>
+					
+					</tr>
+					
 					<tr th:each="sujet : ${sujet}">
 
 						<td><a href="sujetforum" class="lienforum"><b th:text="${sujet.nomSujet}"></b> <br> [[${sujet.identifiantCreateur]] </a></td>
