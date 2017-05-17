@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import hei.devweb.trophy.crypt.Cryptage;
 
@@ -20,6 +21,10 @@ import hei.devweb.trophy.crypt.Cryptage;
 public class ConnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String,String> adminAutorise;
+	
+	/* private void msgbox(String s){
+		   JOptionPane.showMessageDialog(null, s);
+		}     */
 	
 	@Override
 	public void init() throws ServletException {
@@ -31,6 +36,7 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idAdminConnecte = (String) request.getSession().getAttribute("adminConnecte");
 		if (idAdminConnecte == null || "".equals(idAdminConnecte)) {
+			//msgbox("Mot de passe ou identifiant incorrect(s)");
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/connexion.html");
 			view.forward(request, response);
 			
