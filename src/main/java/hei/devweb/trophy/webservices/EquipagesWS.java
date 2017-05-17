@@ -24,13 +24,13 @@ public class EquipagesWS {
 		final GsonBuilder builder = new GsonBuilder();
 		final Gson gson = builder.create();
 		
-		
+		/* mis en commentaire car besoin de modifier les parametres
 		@POST
 		@Path("")
 		public Response addEquipages(@FormParam("numeroEquipage") int numeroEquipage, @FormParam("nomEquipage") String nomEquipage,  @FormParam("identifParticipant") String identifParticipant1,  @FormParam("identifParticipant2") String identifParticipant2 , @FormParam("descriptionEquipage") String descriptionEquipage, @FormParam("photoEquipage") String photoEquipage){
 			EquipagesService equipageService = EquipagesService.getInstance();
 			try {
-				equipageService.addEquipages(numeroEquipage,nomEquipage,identifParticipant1,identifParticipant2,descriptionEquipage,photoEquipage);
+				equipageService.addEquipages(numeroEquipage, nomEquipage, descriptionEquipage, nom1, nom2, prenom1, prenom2, mail1, mail2, classe1, classe2, photo1, photo2, photoEquipage);
 				return Response.status(200).entity(gson.toJson("")).build();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -38,7 +38,7 @@ public class EquipagesWS {
 			}
 			return null;
 		}
-		
+		*/
 		
 		@DELETE
 		@Path("")

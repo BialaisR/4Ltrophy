@@ -28,8 +28,8 @@ public class EquipageDaoTestCase {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 				Statement statement = connection.createStatement()){
 			statement.executeUpdate("DELETE FROM equipages");
-			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (123, 'Equipages 123', 'Dupont', 'eude', 'Voila la petite description de notre equipage', 'img')");
-			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage) VALUES (456, 'Equipages 456', 'Dupond', 'makoun', 'coucou c nous aussi', 'img2')");
+			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, descriptionEquipage, nom1, nom2, prenom1, prenom2, mail1, mail2, classe1, classe2, photo1, photo2, photoEquipage) VALUES (123, 'Equipages 123 LES DHEIGLINGUES', 'Description des 2D', 'Dupont', 'Durant', 'DupontPrenom', 'DurantPrenom', 'Dupont@gmail', 'Durant@gmail', 'H44', 'H44aussi', 'img1', 'img2','img')");
+			statement.executeUpdate("INSERT INTO equipages(numeroEquipage, nomEquipage, descriptionEquipage, nom1, nom2, prenom1, prenom2, mail1, mail2, classe1, classe2, photo1, photo2, photoEquipage) VALUES (456, 'Equipages 456 LES HEIPRPOUVETTE', 'Description des CB', 'Canu', 'Beghin', 'CPrenom', 'BPrenom', 'C@gmail', 'B@gmail', 'H44', 'H44aussi', 'img11', 'img22','img3')");
 		}
 	}
 	
@@ -41,9 +41,9 @@ public class EquipageDaoTestCase {
 		List<Equipages> equipages = equipagesDao.listEquipages();
 		//THEN
 		Assertions.assertThat(equipages).hasSize(2);
-		Assertions.assertThat(equipages).extracting("numeroEquipage","nomEquipage","identifParticipant1", "identifParticipant2", "descriptionEquipage", "photoEquipage").containsOnly(
-				Assertions.tuple(123,"Equipages 123","Dupont", "eude", "Voila la petite description de notre equipage", "img"),
-				Assertions.tuple(456,"Equipages 456", "Dupond", "makoun", "coucou c nous aussi", "img2")
+		Assertions.assertThat(equipages).extracting("numeroEquipage", "nomEquipage", "descriptionEquipage", "nom1", "nom2", "prenom1", "prenom2", "mail1", "mail2", "classe1", "classe2", "photo1", "photo2", "photoEquipage").containsOnly(
+				Assertions.tuple(123, "Equipages 123 LES DHEIGLINGUES", "Description des 2D", "Dupont", "Durant", "DupontPrenom", "DurantPrenom", "Dupont@gmail", "Durant@gmail", "H44", "H44aussi", "img1", "img2","img"),
+				Assertions.tuple(456, "Equipages 456 LES HEIPRPOUVETTE", "Description des CB", "Canu", "Beghin", "CPrenom", "BPrenom", "C@gmail", "B@gmail", "H44", "H44aussi", "img11", "img22","img3")
 				);
 	}
 	
@@ -52,18 +52,26 @@ public class EquipageDaoTestCase {
 	@Test
 	public void shouldAddEquipages() throws Exception {
 		//WHEN
-		equipagesDao.addEquipages(222, "new Equipage","nom1" , "nom2", "description bro", "pas image");
+		equipagesDao.addEquipages(125, "Equipages 125 LES DHEIGLINGUES", "Description des 2D", "Dupont", "Durant", "DupontPrenom", "DurantPrenom", "Dupont@gmail", "Durant@gmail", "H44", "H44aussi", "img1", "img2","img");
 		//THEN
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM equipages WHERE numeroEquipage=222")) {
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM equipages WHERE numeroEquipage='125'")) {
 			Assertions.assertThat(resultSet.next()).isTrue();
 			Assertions.assertThat(resultSet.getInt("numeroEquipage")).isNotNull();
-			Assertions.assertThat(resultSet.getString("nomEquipage")).isEqualTo("new Equipage");
-			Assertions.assertThat(resultSet.getString("identifParticipant1")).isEqualTo("nom1");
-			Assertions.assertThat(resultSet.getString("identifParticipant2")).isEqualTo("nom2");
-			Assertions.assertThat(resultSet.getString("descriptionEquipage")).isEqualTo("description bro");
-			Assertions.assertThat(resultSet.getString("photoEquipage")).isEqualTo("pas image");
+			Assertions.assertThat(resultSet.getString("nomEquipage")).isEqualTo("Equipages 125 LES DHEIGLINGUES");
+			Assertions.assertThat(resultSet.getString("descriptionEquipage")).isEqualTo("Description des 2D");
+			Assertions.assertThat(resultSet.getString("nom1")).isEqualTo("Dupont");
+			Assertions.assertThat(resultSet.getString("nom2")).isEqualTo("Durant");
+			Assertions.assertThat(resultSet.getString("prenom1")).isEqualTo("DupontPrenom");
+			Assertions.assertThat(resultSet.getString("prenom2")).isEqualTo("DurantPrenom");
+			Assertions.assertThat(resultSet.getString("mail1")).isEqualTo("Dupont@gmail");
+			Assertions.assertThat(resultSet.getString("mail2")).isEqualTo("Durantt@gmail");
+			Assertions.assertThat(resultSet.getString("classe1")).isEqualTo("H44");
+			Assertions.assertThat(resultSet.getString("classe2")).isEqualTo("H44aussi");
+			Assertions.assertThat(resultSet.getString("photo1")).isEqualTo("img1");
+			Assertions.assertThat(resultSet.getString("photo2")).isEqualTo("img2");
+			Assertions.assertThat(resultSet.getString("photoEquipage")).isEqualTo("img");
 			Assertions.assertThat(resultSet.next()).isFalse();
 			
 		}
@@ -74,7 +82,7 @@ public class EquipageDaoTestCase {
 	@Test
 	public void shouldDeleteEquipages() throws Exception {
 		// GIVEN
-		Equipages equipage1 = new Equipages(222, "new Equipage","nom1" , "nom2", "description bro", "pas image");
+		Equipages equipage1 = new Equipages(125, "Equipages 123 LES DHEIGLINGUES", "Description des 2D", "Dupont", "Durant", "DupontPrenom", "DurantPrenom", "Dupont@gmail", "Durant@gmail", "H44", "H44aussi", "img1", "img2","img");
 		// WHEN
 		equipagesDao.deleteEquipages(222);
 		List<Equipages> listEquip = equipagesDao.listEquipages();

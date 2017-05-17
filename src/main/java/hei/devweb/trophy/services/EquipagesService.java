@@ -29,8 +29,9 @@ private EquipagesDao equipagesDao = new EquipagesDao();
 	
 	/* méthode d'ajout */
 	
-	public void addEquipages(Integer numeroEquipage, String nomEquipage, String identifParticipant1, String identifParticipant2, String descriptionEquipage, String photoEquipage){
-		equipagesDao.addEquipages(numeroEquipage, nomEquipage, identifParticipant1, identifParticipant2, descriptionEquipage, photoEquipage);
+	public void addEquipages(Integer numeroEquipage, String nomEquipage, String descriptionEquipage, String nom1, String nom2, String prenom1, String prenom2, String mail1, String mail2, String classe1, String classe2, String photo1, String photo2, String photoEquipage){
+		equipagesDao.addEquipages(numeroEquipage, nomEquipage, descriptionEquipage, nom1, nom2, prenom1, prenom2, mail1,
+				mail2, classe1, classe2, photo1, photo2, photoEquipage);
 	}
 	
 	/* méthode de suppression */

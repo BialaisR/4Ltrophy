@@ -73,10 +73,9 @@
 					
 					<tr th:each="sujet : ${sujet}">
 
-						<td><a href="sujetforum" class="lienforum"><b th:text="${sujet.nomSujet}"></b> <br> [[${sujet.identifiantCreateur]] </a></td>
-						<td><a href="sujetforum" class="lienforum">[[${sujet.nbMessage]]</a></td>
-						<td><a href="sujetforum" class="lienforum"><b>[[${sujet.dateLastPost]]</b>
-								<br> Identifiant</a></td>
+						<td><a href="sujetforum" class="lienforum"><b th:text="${sujet.nomSujet}"></b></a></td>
+						<td><a href="sujetforum" class="lienforum"><b th:text="${sujet.nbMessage}"></b></a></td>
+						<td><a href="sujetforum" class="lienforum"><b th:text="${sujet.dateLastPost}"></b></a></td>
 					</tr>
 
 					

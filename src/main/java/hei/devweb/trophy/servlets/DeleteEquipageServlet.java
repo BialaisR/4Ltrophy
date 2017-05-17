@@ -17,7 +17,7 @@ public class DeleteEquipageServlet extends AbstractGenericServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer idEquipage = Integer.parseInt(req.getParameter("numeroEquipage"));
-		EquipagesService.getInstance().addEquipages(idEquipage, null, null, null, null, null); // on supprime un equipage
+		EquipagesService.getInstance().addEquipages(idEquipage, null, null, null, null, null, null, null, null, null, null, null, null, null); // on supprime un equipage
 		
 		resp.sendRedirect("../accueil"); // redirection vers l'accueil
 		
