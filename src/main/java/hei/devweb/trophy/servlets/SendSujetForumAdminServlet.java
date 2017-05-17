@@ -12,8 +12,8 @@ import hei.devweb.trophy.services.SujetService;
  * et définissent les méthodes qui seront utilisées sur cette page
  */
 
-@WebServlet("/send/newdiscussion") // mapping de la servlet (url)
-public class SendSujetForumServlet extends AbstractGenericServlet{
+@WebServlet("admin/send/newdiscussion") // mapping de la servlet (url)
+public class SendSujetForumAdminServlet extends AbstractGenericServlet{
 
 	private static final long serialVersionUID = -3101071491815001778L;
 

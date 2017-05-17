@@ -67,47 +67,21 @@
 				</thead>
 
 				<tbody>
-
 					<tr>
+						<td><a href="charte" class="lienforum"><b>Charte du forum (à lire avant de publier un message)</b></a></td>
+						<td><a href="charte" class="lienforum">-</a></td>
+						<td><a href="charte" class="lienforum">-</a></td>
+					
+					</tr>
+					
+					<tr th:each="sujet : ${sujet}">
 
-						<td><a href="sujetforum" class="lienforum"><b>Sujet
-									1 à propos de blablabla</b> <br> Identifiant</a> <br>
-							<button class="btn btn-primary btn-xs btn btn-warning">modifier</button>
-							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button></td>
-						<td><a href="sujetforumAdmin.html" class="lienforum">7</a></td>
-						<td><a href="sujetforumAdmin.html" class="lienforum"><b>Date</b>
-								<br> Identifiant</a></td>
+						<td><a href="sujetforum" class="lienforum"><b th:text="${sujet.nomSujet}"></b></a></td>
+						<td><a href="sujetforum" class="lienforum"><b th:text="${sujet.nbMessage}"></b></a></td>
+						<td><a href="sujetforum" class="lienforum"><b th:text="${sujet.dateLastPost}"></b></a></td>
 					</tr>
 
-					<tr>
-						<td><a href="sujetforum" class="lienforum"><b>Sujet
-									2 à propos de blablabla</b> <br> Identifiant</a> <br>
-							<button class="btn btn-primary btn-xs btn btn-warning">modifier</button>
-							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button></td>
-						<td><a href="sujetforumAdmin.html" class="lienforum">2</a></td>
-						<td><a href="sujetforumAdmin.html" class="lienforum"><b>Date</b>
-								<br> Identifiant</a></td>
-					</tr>
-
-					<tr>
-						<td><a href="sujetforum" class="lienforum"><b>Sujet
-									3 à propos de blablabla</b> <br> Identifiant</a> <br>
-							<button class="btn btn-primary btn-xs btn btn-warning">modifier</button>
-							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button></td>
-						<td><a href="sujetforumAdmin.html" class="lienforum">14</a></td>
-						<td><a href="sujetforumAdmin.html" class="lienforum"><b>Date</b>
-								<br> Identifiant</a></td>
-					</tr>
-
-					<tr>
-						<td><a href="sujetforum" class="lienforum"><b>Sujet
-									4 à propos de blablabla</b> <br> Identifiant</a> <br>
-							<button class="btn btn-primary btn-xs btn btn-warning">modifier</button>
-							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button></td>
-						<td><a href="sujetforumAdmin.html" class="lienforum">9</a></td>
-						<td><a href="sujetforumAdmin.html" class="lienforum"><b>Date</b>
-								<br> Identifiant</a></td>
-					</tr>
+					
 				</tbody>
 
 

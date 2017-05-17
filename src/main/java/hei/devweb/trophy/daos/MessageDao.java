@@ -19,14 +19,13 @@ public class MessageDao {
 	
 	/* on liste par date de post décroissante */
 
-	public List<Message> listMessage(){
-		
+	public List<Message> listMessageByIdSujet(Integer idSujet){
 		List<Message> message = new ArrayList<Message>();
-		
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM message ORDER BY datePost DESC")) {
-				while (resultSet.next()) {
+				PreparedStatement statement =connection.prepareStatement("SELECT * FROM message WHERE idSujet=?")){
+					statement.setInt(1,idSujet);  
+					ResultSet resultSet = statement.executeQuery();
+				if(resultSet.next()) {
 					message.add(new Message(resultSet.getInt("idMessage"), resultSet.getString("texteMessage"), resultSet.getString("datePost"),resultSet.getInt("idSujet")));
 				}
 				} catch (SQLException e) {
@@ -63,4 +62,5 @@ public class MessageDao {
 			e.printStackTrace();
 		}
 	}
+	
 }

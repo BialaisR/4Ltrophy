@@ -24,8 +24,8 @@ public class MessageService {
 	
 	/* méthode de listage */
 	
-	public List<Message> listMessage() {
-		return messageDao.listMessage();
+	public List<Message> listMessageByIdSujet(Integer idSujet) {
+		return messageDao.listMessageByIdSujet(idSujet);
 	}
 	
 	/* méthode d'ajout */

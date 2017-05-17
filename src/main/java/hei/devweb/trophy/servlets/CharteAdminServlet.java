@@ -13,8 +13,8 @@ import org.thymeleaf.context.WebContext;
 import hei.devweb.trophy.services.ActualitesService;
 import hei.devweb.trophy.services.MessageService;
 
-@WebServlet("/admin/charte")
-public class CharteServlet extends AbstractGenericServlet{
+@WebServlet("/charte")
+public class CharteAdminServlet extends AbstractGenericServlet{
 
 	private static final long serialVersionUID = -3101071491815001778L;
 
@@ -24,7 +24,7 @@ public class CharteServlet extends AbstractGenericServlet{
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
 		
-		templateEngine.process("charteadmin", context, resp.getWriter());
+		templateEngine.process("charte", context, resp.getWriter());
 		
 	}
 

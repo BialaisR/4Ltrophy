@@ -26,7 +26,7 @@ public class SujetForumServlet extends AbstractGenericServlet{
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, getServletContext());
-		context.setVariable("message",MessageService.getInstance().listMessage()); // on utilise la methode listMessage
+		context.setVariable("message",MessageService.getInstance().listMessageByIdSujet(idSujet); // on utilise la methode listMessage
 		
 		templateEngine.process("sujetforum", context, resp.getWriter()); // page html associée
 		

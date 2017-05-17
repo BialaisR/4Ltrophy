@@ -35,14 +35,13 @@ public class MessageDaoTestCase {
 	/* On teste que l'affichage correspond à ce que l'on a rentré */
 
 	@Test
-	public void shouldListMessage() throws Exception {
+	public void shouldListMessageByIdSujet() throws Exception {
 		//WHEN
-		List<Message> message = messageDao.listMessage();
+		List<Message> message = messageDao.listMessageByIdSujet(5);
 		//THEN
-		Assertions.assertThat(message).hasSize(2);
+		Assertions.assertThat(message).hasSize(1);
 		Assertions.assertThat(message).extracting("idMessage","texteMessage","datePost","idSujet").containsOnly(
-				Assertions.tuple(1,"test1 message","2017-03-02",5),
-				Assertions.tuple(2,"test2 message","2017-01-07",6)
+				Assertions.tuple(1,"test1 message","2017-03-02",5)
 				);
 	}
 
@@ -72,8 +71,8 @@ public class MessageDaoTestCase {
 		Message message1 = new Message(3, "new message","2017-01-01",21);
 		// WHEN
 		messageDao.deleteMessage(3);
-		List<Message> listMessage = messageDao.listMessage();
+		List<Message> listMessage = messageDao.listMessageByIdSujet(21);
 		//THEN
-		Assertions.assertThat(listMessage).hasSize(2);
+		Assertions.assertThat(listMessage).hasSize(0);
 	}
 }
