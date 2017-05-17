@@ -84,8 +84,18 @@ CREATE TABLE `equipages`
 (
 	`numeroEquipage`  INT NOT NULL AUTO_INCREMENT,
 	`nomEquipage`  VARCHAR(50) NOT NULL,
-	`identifParticipant1`  VARCHAR(50) NOT NULL,
-    `identifParticipant2`  VARCHAR(50),
-	`descriptionEquipage`  VARCHAR(255),
+    `descriptionEquipage`  VARCHAR(255),
+	`nom1`  VARCHAR(50) NOT NULL,
+    `nom2`  VARCHAR(50) NOT NULL,
+	`prenom1`  VARCHAR(50) NOT NULL,
+    `prenom2`  VARCHAR(50) NOT NULL,
+    `mail1`  VARCHAR(50) NOT NULL,
+    `mail2`  VARCHAR(50) NOT NULL,
+    `classe1`  VARCHAR(10),
+    `classe2`  VARCHAR(10),
+    `photo1`  varchar(100),
+    `photo2`  varchar(100),
+    
+	
 	`photoEquipage`  varchar(100),
 	PRIMARY KEY (`numeroEquipage`));
