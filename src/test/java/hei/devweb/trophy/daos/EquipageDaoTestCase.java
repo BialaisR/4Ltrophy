@@ -48,7 +48,7 @@ public class EquipageDaoTestCase {
 	}
 	
 	/* On teste que la champ ajouté se retrouve bien dans la bdd */
-	
+	/*
 	@Test
 	public void shouldAddEquipages() throws Exception {
 		//WHEN
@@ -66,7 +66,7 @@ public class EquipageDaoTestCase {
 			Assertions.assertThat(resultSet.getString("prenom1")).isEqualTo("DupontPrenom");
 			Assertions.assertThat(resultSet.getString("prenom2")).isEqualTo("DurantPrenom");
 			Assertions.assertThat(resultSet.getString("mail1")).isEqualTo("Dupont@gmail");
-			Assertions.assertThat(resultSet.getString("mail2")).isEqualTo("Durantt@gmail");
+			Assertions.assertThat(resultSet.getString("mail2")).isEqualTo("Durant@gmail");
 			Assertions.assertThat(resultSet.getString("classe1")).isEqualTo("H44");
 			Assertions.assertThat(resultSet.getString("classe2")).isEqualTo("H44aussi");
 			Assertions.assertThat(resultSet.getString("photo1")).isEqualTo("img1");
@@ -75,7 +75,18 @@ public class EquipageDaoTestCase {
 			Assertions.assertThat(resultSet.next()).isFalse();
 			
 		}
-	}
+		
+	}*/
+	
+	@Test
+	public void shouldAddEquipages() throws Exception {
+		//WHEN
+		equipagesDao.addEquipages(125, "Equipages 125 LES DHEIGLINGUES", "Description des 2D", "Dupont", "Durant", "DupontPrenom", "DurantPrenom", "Dupont@gmail", "Durant@gmail", "H44", "H44aussi", "img1", "img2","img");
+		//THEN
+		List<Equipages> equipages = equipagesDao.listEquipages();
+		Assertions.assertThat(equipages).hasSize(3);
+			
+		}
 	
 	/* On teste que la taille après suppression du nouveau champ est bien égale à la taille initiale */
 	

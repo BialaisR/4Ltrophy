@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,9 +37,7 @@
 						<li class="dropdown"><a href="#" class="dropbtn">Equipages &darr;</a>
 							<div class="dropdown-content">
 								<a href="equipage">Equipages</a> 
-								<a href="gerercomptes">Gérer les comptes</a>
 								<a href="AjoutEquipage">Ajouter un équipage</a>
-								<a href="AjoutMembre">Ajouter un membre</a>
 							</div></li>
 						<li><a href="photos_videos">Photos-Vidéos</a></li>
 						<li><a href="forum">Forum</a></li>
@@ -61,9 +58,10 @@
 					<!-- liste des évènements -->
 					<h1>Evénements</h1>
 						<article th:each="evenements : ${evenements}">
-							<p th:text="${evenements.event}"> - [[${evenements.dateEvent}]]</p>
+							<p><b th:text="${evenements.dateEvent}"></b></p>
+							<p th:text="${evenements.event}"></p>
 							<!-- bouton supprimer -->
-							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button>
+							<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button><br><br><br>
 						</article>
 					<p>
 						<!-- bouton ajouter -->
@@ -90,7 +88,7 @@
 					<h2 th:text="${actualites.titreActu}"></h2>
 					<p th:text="${actualites.actu}"></p>
 					<!--  bouton supprimer -->
-					<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button>
+					<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button><br><br><br>
 				</article>
 					<!--  bouton ajouter -->
 					<a class="btn btn-success btn-xs" href="ajoutActu"

@@ -71,100 +71,73 @@
 
 
 	<!--  section photos et videos -->
-      <section class="container sectionphoto">
+      		<section class="container sectionphoto">
+			
+			<!-- choix entre l'onglet photo ou video -->
+			<div class="panel with-nav-tabs panel-primary">
 
-        <div class="panel with-nav-tabs panel-primary">
+				<div class="panel-heading">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#tab1default" data-toggle="tab">Photos</a></li>
+						<li><a href="#tab2default" data-toggle="tab">Vidéos</a></li>
+					</ul>
+				</div>
 
-          <div class="panel-heading">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab1default" data-toggle="tab">Photos</a></li>
-              <li><a href="#tab2default" data-toggle="tab">Vidéos</a></li>
-            </ul>
-          </div>
+				<div class="panel-body">
+					<div class="tab-content">
 
-          <div class="panel-body">
-            <div class="tab-content">
+						<!-- PREMIER ONGLET / photos-->
+						<div class="tab-pane fade in active" id="tab1default">
 
-              <!-- PREMIER ONGLET / photos -->
-              <div class="tab-pane fade in active" id="tab1default">
+							<div class="row">
+								<div class="col-xs-4">
+									<a class="fancybox-thumbs" data-fancybox-group="thumb"
+										href="fancybox/demo/4_b.jpg"><img
+										src="fancybox/demo/4_s.jpg" alt="" /></a>
+								</div>
+								<div class="col-xs-4">
+									<a class="fancybox-thumbs" data-fancybox-group="thumb"
+										href="fancybox/demo/3_b.jpg"><img
+										src="fancybox/demo/3_s.jpg" alt="" /></a>
+								</div>
+							</div>
+						</div>
 
-                <div class="row">
-                  <div class="col-xs-4">
-                    <a class="fancybox-thumbs" data-fancybox-group="thumb" href="fancybox/demo/4_b.jpg"><img src="fancybox/demo/4_s.jpg" alt="" /></a>
-                  </div>
-                  <div class="col-xs-4">
-                    <a class="fancybox-thumbs" data-fancybox-group="thumb" href="fancybox/demo/3_b.jpg"><img src="fancybox/demo/3_s.jpg" alt="" /></a>
-                  </div>
-                 <!--   <div class="col-xs-4">
-                    <img src="http://placehold.it/160x100" class="img-responsive">
-                  </div>
-                </div>
+						<!-- DEUXIEME ONGLET / vidéos -->
+						<div class="tab-pane fade" id="tab2default">
 
-                <div class="row">
-                  <div class="col-xs-4">
-                    <img src="http://placehold.it/160x100" class="img-responsive">
-                  </div>
-                  <div class="col-xs-4">
-                    <img src="http://placehold.it/160x100" class="img-responsive">
-                  </div>
-                  <div class="col-xs-4">
-                    <img src="http://placehold.it/160x100" class="img-responsive">
-                  </div>
-                </div>
+							<div class="row">
+								<div class="col-xs-4">
+									<iframe width="320" height="200" src="https://www.youtube.com/embed/3U16cnzuXBM	"></iframe>
+								</div>
+								<div class="col-xs-4">
+									<iframe width="320" height="200" src="https://www.youtube.com/embed/OTavwsYgO8E"></iframe>
+								</div>
+								<div class="col-xs-4">
+									<iframe width="320" height="200" src="https://www.youtube.com/embed/npe1dXMFffI"></iframe>
+								</div>
+							</div>
 
-                <div class="row">
-                  <div class="col-xs-4">
-                    <img src="http://placehold.it/160x100" class="img-responsive">
-                  </div>
-                  <div class="col-xs-4">
-                    <img src="http://placehold.it/160x100" class="img-responsive">
-                  </div>
-                  <div class="col-xs-4">
-                    <img src="http://placehold.it/160x100" class="img-responsive">
-                  </div>
-                </div>-->
+							<div class="row">
+								<div class="col-xs-4">
+									<iframe width="320" height="200" src="https://www.youtube.com/embed/RvsX_0DsZfY"></iframe>
+								</div>
+								<div class="col-xs-4">
+									<iframe width="320" height="200" src="https://www.youtube.com/embed/unbKq6aUBL0"></iframe>
+								</div>
+							</div>
 
-              </div>
-
-              <!-- DEUXIEME ONGLET / videos -->
-              <div class="tab-pane fade" id="tab2default">
-
-                <div class="row">
-                  <div class="col-xs-4">
-                    <iframe width="320" height="200" src="https://www.youtube.com/embed/3U16cnzuXBM	"></iframe>
-                  </div>
-                  <div class="col-xs-4">
-                    <iframe width="320" height="200" src="https://www.youtube.com/embed/OTavwsYgO8E"></iframe>
-                  </div>
-                  <div class="col-xs-4">
-                    <iframe width="320" height="200" src="https://www.youtube.com/embed/npe1dXMFffI"></iframe>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-xs-4">
-                    <iframe width="320" height="200" src="https://www.youtube.com/embed/RvsX_0DsZfY"></iframe>
-                  </div>
-                  <div class="col-xs-4">
-                    <iframe width="320" height="200" src="https://www.youtube.com/embed/unbKq6aUBL0"></iframe><!-- class="img-responsive"--> 
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          
-          </div>
-
-        </section>
-		
-		
-		<!--  mentions legales footer -->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+ 		 <!--  mentions legales footer -->
          <footer class="footer">
-      <p>&copy; Mentions légales</p>
-    </footer>
-
-    </div>
+     		 <p>&copy; Mentions légales</p>
+   		 </footer>
+ 		 </div>
 
       </body>
       </html>

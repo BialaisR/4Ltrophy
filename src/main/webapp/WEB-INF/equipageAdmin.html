@@ -36,9 +36,7 @@
 						<li class="dropdown"><a href="#" class="dropbtn">Equipages &darr;</a>
 							<div class="dropdown-content">
 								<a class="active" href="equipage">Equipages</a> 
-								<a href="gerercomptes">Gérer les comptes</a>
 								<a href="AjoutEquipage">Ajouter un équipage</a>
-								<a href="AjoutMembre">Ajouter un utilisateur</a>
 							</div></li>
 						<li><a href="photos_videos">Photos-Vidéos</a></li>
 						<li><a href="forum">Forum</a></li>
@@ -53,8 +51,8 @@
 			</div>
 		</header>
 		
-		<!-- div affichage equipage  -->
-		<div id="divequip" class="row container" th:each="${equipages}">
+		<!--  div affichage des equipages -->
+		<div id="divequip" class="row container" th:each="equipages:${equipages}">
 			<div class="col-sm-4">
 				<div>
 					<img src="http://placehold.it/280x280" alt="photoequipage">
@@ -72,31 +70,37 @@
 
 			<div class="col-md-2">
 				<p>
-					<b>Prénom</b>
+					<b th:text="${equipages.nom1}"></b>
 				</p>
-				<!--  <p>
-					<b>Nom</b>
-				</p>   -->
-				<p>E-mail</p>
-				<p>Classe</p>
+				<p>
+					<b th:text="${equipages.prenom1}"></b>
+				</p> 
+				<p th:text="${equipages.mail1}"></p>
+				<p th:text="${equipages.classe1}"></p>
 			</div>
 			<div class="col-md-2">
 				<img src="http://placehold.it/150x150" alt="photoprofil2">
 			</div>
 			<div class="col-md-2">
 				<p>
-					<b>Prénom</b>
+					<b th:text="${equipages.nom2}"></b>
 				</p>
 				<p>
-					<b>Nom</b>
+					<b th:text="${equipages.prenom2}"></b>
 				</p>
-				<p>E-mail</p>
-				<p>Classe</p>
+				<p th:text="${equipages.mail2}"></p>
+				<p th:text="${equipages.classe2}"></p>
 			</div>
 
 			<div id="description_equipage" class="col-md-12">
 				<p th:text ="${equipages.descriptionEquipage}">.</p>
 			</div>
+			
+			<div class="col-sm-12">
+ 		 		<button class="btn btn-primary btn-xs btn btn-danger">supprimer</button>
+			</div>
+
+		</div>
 			
 			<div class="modal fade" id="myModal2" role="dialog">
     			<div class="modal-dialog">
@@ -116,11 +120,9 @@
       				</div>
       
    			 	</div>
- 		 </div>
- 		 
- 		 <button class="btn btn-primary btn-xs btn btn-danger">supprimer</button>
+   			 </div>
+ 
 
-		</div>
 		
 		
 
