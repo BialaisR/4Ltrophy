@@ -13,47 +13,49 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/* Les servlets permettent de relier notre back-end avec notre front-end 
- * et définissent les méthodes qui seront utilisées sur cette page
- */
+import hei.devweb.trophy.crypt.Cryptage;
 
 
-@WebServlet("/connexion") // mapping de la servlet (url)
-public class ConnexionServlet extends AbstractGenericServlet {
-	
+@WebServlet("/connexion")
+public class ConnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Map<String,String> adminAutorise;	
+	private Map<String,String> adminAutorise;
 	
 	@Override
 	public void init() throws ServletException {
 		adminAutorise=new HashMap<>();
-		adminAutorise.put("admin@hei.fr", "mdp"); // on défini les identifiants qui autorisent la connexion
+		adminAutorise.put("admin@hei.fr", "fbab60f46fa060f86b599e190e77411eec5570fe1f8cfc61:5099dd695c24be2ea2cf6bbc1222ccacebfb26085469a68f");
 				
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String idadminConnecte = (String) request.getSession().getAttribute("adminConnecte");
-		
-		if (idadminConnecte == null || "".equals(idadminConnecte)) {
+		String idAdminConnecte = (String) request.getSession().getAttribute("adminConnecte");
+		if (idAdminConnecte == null || "".equals(idAdminConnecte)) {
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/connexion.html");
 			view.forward(request, response);
 			
 		} else {
-			response.sendRedirect("admin/accueil"); // si la connexion est réussie, on arrive sur l'accueil de l'admin
+			response.sendRedirect("admin/accueil");
 		}
 	
 	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String identifiantSaisi = request.getParameter("email");
 		String motDePasseSaisi = request.getParameter("key");
-			if(identifiantSaisi=="admin@hei.fr" && motDePasseSaisi=="mdp");
+		try {
+			if(adminAutorise.containsKey(identifiantSaisi) && Cryptage.validerMotDePasse(motDePasseSaisi, adminAutorise.get(identifiantSaisi)))
 			{
 				request.getSession().setAttribute("adminConnecte",identifiantSaisi);
 			}
-			
-			response.sendRedirect("connexion"); // si la connexion n'est pas réussie, on retourne sur la page connexion
-	
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidKeySpecException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			response.sendRedirect("connexion");
 	}
 }
