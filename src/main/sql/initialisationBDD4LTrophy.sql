@@ -60,7 +60,7 @@ DROP TABLE IF EXISTS `evenements`;
 CREATE TABLE `evenements` 
 (
 	`idEvent`  INT NOT NULL AUTO_INCREMENT,
-    `dateEvent` VARCHAR(10) NOT NULL,
+    `dateEvent` VARCHAR(50) NOT NULL,
 	`event`  VARCHAR(500) NOT NULL,
 	PRIMARY KEY (`idEvent`));
 

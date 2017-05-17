@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Forum</title>
+
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+
+<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<link href="css/nav.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/sujetforum.css">
+
+
+
+</head>
+
+<body>
+
+	<div class="container">
+		<!-- GRAND DIV  -->
+		<header>
+			<div class="masthead">
+				<!--  titre du site -->
+				<h1 class="text-center">
+					<a href="accueil" class="nom">4L TROPHY HEI</a>
+				</h1>
+				<!--  barre de navigation -->
+				<nav>
+					<ul class="nav nav-justified">
+						<li><a href="accueil">Accueil</a></li>
+						<li><a href="equipage">Equipages</a></li>
+						<li><a href="photos_videos">Photos-Vidéos</a></li>
+						<li><a class="active" href="forum">Forum</a></li>
+						<li><a href="contact">Contact</a></li>
+						<li class="dropdown"><a href="#" class="dropbtn">Admin &darr;</a>
+							<div class="dropdown-content">
+								<a href="connexion">Se connecter</a>
+									<a href="/4Ltrophy/deconnexion">Se déconnecter</a>
+							</div></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!--  message du forum -->
+		<section id="sujet">
+			<p>
+				<a class="btn btn-primary" href="forum" role="button"><b>Retour
+						forum &raquo;</b></a>
+			</p>
+			<!--  affichage a chaque message -->
+			<table class="table table-striped" id="forumtableau" >
+			<!--  th:each="message: ${message}"-->
+				<caption>
+					<b>Charte du forum</b>
+				</caption>
+				<tbody>					
+					<tr>
+						<td class="col-md-2"></td>
+						<td class="col-md-6">Le forum est un lieu d’expression ouvert à tous et à toutes. Vous êtes invités à vous y exprimer librement dans le respect des opinions et des droits de chacun. 
+<br>Cet espace d’expression vous propose de débattre et d’échanger sur les thèmes qui vous sont proposés par les organisateurs du forum. Les données vous concernant que vous nous transmettrez ne seront utilisées que pour assurer le fonctionnement du service de forum. Elles ne seront en aucun cas transmises à des tiers sans votre autorisation préalable, sauf exigences légales.
+<br>La participation au forum est libre mais en contribuant par l’envoi d’un message vous reconnaissez avoir pris connaissance et accepter les conditions d’utilisation du forum. 
+<br>Lorsque vous postez un message celui-ci est susceptible d’être lu par un grand nombre de personnes, voire l’ensemble des internautes pour les forums ou les discussions publics, cet acte d’édition peut engager votre responsabilité personnelle, il convient donc d’être prudent et mesuré. 
+<br>Les contributions que vous postez dans le forum doivent être en relation avec les thèmes de discussion proposés.
+<br>Ce forum est modéré a posteriori, les messages que vous postez sont directement publiés sans aucun contrôle préalable. Il est de votre responsabilité de veiller à ce que vos contributions ne portent pas préjudice à autrui et soient conforment à la réglementation en vigueur. Les organisateurs du forum et les modérateurs se réservent le droit de retirer toute contribution qu’ils estimeraient déplacée, inappropriée, contraire aux lois et règlements, à cette charte d’utilisation ou susceptible de porter préjudice directement ou non à des tiers. 
+<br>Les messages qui ne sont pas en relation avec les thèmes de discussion ou avec l’objet du forum peuvent être supprimés sans préavis par les modérateurs. Seront aussi supprimées, sans préjudice d'éventuelles poursuites disciplinaires ou judiciaires, les contributions qui :
+<br>1. incitent à la discrimination fondée sur la race, le sexe, la religion, à la haine, à la violence, au racisme ou au révisionnisme
+<br>2. incitent à la commission de délits
+<br>3. sont contraire à l'ordre public et aux bonnes mœurs,
+<br>4. font l’apologie des crimes ou délits et particulièrement du meurtre, viol, des crimes de guerre et crimes contre l'humanité,
+<br>5. ont un caractère injurieux, diffamatoire, insultant ou grossier
+<br>6. portent manifestement atteinte aux droits d’autrui et particulièrement ceux qui portent atteinte à l'honneur ou à la réputation d'autrui,
+<br>7. sont liés à un intérêt manifestement commercial ou ont un but promotionnel sans objet avec le forum.<br>
+						<br>
+						
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+		</section>
+
+	</div>
+
+	<!-- PROBLEME D AFFICHAGE
+   <footer class="footer">
+      <p>&copy; Mentions légales</p>
+    </footer>
+    -->
+</body>
+</html>

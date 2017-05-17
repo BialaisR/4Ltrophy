@@ -61,7 +61,8 @@
 					<!-- liste des évènements -->
 					<h1>Evènements</h1>
 					<article th:each="evenements : ${evenements}">
-						<p th:text="${evenements.event}"> - [[${evenements.dateEvent}]]</p>
+						<p><b th:text="${evenements.dateEvent}"></b></p>
+						<p th:text="${evenements.event}"></p><br>
 					</article>
 				</div>
 				<!-- affichage du calendrier -->
@@ -82,7 +83,7 @@
 				<article th:each="actualites : ${actualites}">
 					<!-- Div d'une actualité  -->
 					<h2 th:text="${actualites.titreActu}"></h2>
-					<p th:text="${actualites.actu}"></p>
+					<p th:text="${actualites.actu}"></p><br>
 				</article>
 
 
