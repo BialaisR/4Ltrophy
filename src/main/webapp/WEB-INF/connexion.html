@@ -104,6 +104,8 @@
 						</button>
 						<h4 class="modal-title">Récupération du mot de passe</h4>
 					</div>
+					
+					<form action="connexion/send/email" method="post">
 					<div class="modal-body">
 						<p>Adresse Email :</p>
 						<input type="email" name="recovery-email" id="recovery-email"
@@ -111,8 +113,10 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-						<button type="button" class="btn btn-custom">Valider</button>
+						<button onclick="mailEnvoyé()" type="button" class="btn btn-custom">Valider</button>
 					</div>
+					</form>
+					
 				</div>
 				<!-- /.modal-content -->
 			</div>
